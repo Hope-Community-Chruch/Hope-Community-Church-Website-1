@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact Hope Community Church. Plan your visit to our Sunday service in Ypsilanti, MI." />
+  <title>Contact & Plan Your Visit | Hope Community Church</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" /><link rel="stylesheet" href="css/animations.css" />
+  <style>
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; max-width: 1100px; margin: 0 auto; }
+    .contact-form-wrap { background: var(--white); border-radius: var(--radius-xl); padding: 48px; box-shadow: var(--shadow-md); }
+    .form-group { margin-bottom: 22px; position: relative; }
+    .form-group label { display: block; font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%; padding: 14px 18px; border-radius: var(--radius-md);
+      border: 1.5px solid rgba(29,52,97,0.12); font-family: var(--font-sans);
+      font-size: 15px; color: var(--navy); background: var(--cream);
+      transition: border-color var(--transition), box-shadow var(--transition); outline: none;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+      border-color: var(--amber); box-shadow: 0 0 0 3px rgba(244,162,97,0.12);
+    }
+    .form-group textarea { min-height: 120px; resize: vertical; }
+    .info-stat { background: var(--warm-white); border-radius: var(--radius-lg); padding: 28px; margin-bottom: 20px; border: 1px solid rgba(29,52,97,0.06); }
+    .info-stat .ist-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); margin-bottom: 6px; }
+    .info-stat .ist-value { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--navy); }
+    .info-stat p { font-size: 13px; color: var(--muted); margin-top: 4px; }
+    .map-embed { border-radius: var(--radius-xl); overflow: hidden; height: 300px; box-shadow: var(--shadow-md); }
+    .map-embed iframe { width: 100%; height: 100%; border: none; }
+    @media(max-width:900px){ .contact-grid{grid-template-columns:1fr;gap:40px;} }
+  </style>
+</head>
+<body>
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo"><img src="images/logo_mark.png" alt="Hope Community Church" /><div class="nav-logo-text"><span class="logo-name">Hope Community</span><span class="logo-sub">Church</span></div></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li><li><a href="sermons.html">Sermons</a></li>
+      <li><a href="pastor.html">Meet the Pastor</a></li><li><a href="groups.html">Hope Groups</a></li>
+      <li><a href="kids.html">Kids &amp; Youth</a></li><li><a href="bulletin.html">Bulletin</a></li>
+      <li><a href="college.html">Bible College</a></li><li><a href="contact.html" class="nav-cta">Plan Your Visit</a></li>
+    </ul>
+    <button class="nav-hamburger"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="mobile-overlay"></div>
+  <div class="mobile-menu"><button class="menu-close">✕</button>
+    <a href="index.html">Home</a><a href="sermons.html">Sermons</a><a href="pastor.html">Meet the Pastor</a>
+    <a href="groups.html">Hope Groups</a><a href="kids.html">Kids &amp; Youth</a>
+    <a href="bulletin.html">Bulletin</a><a href="college.html">Bible College</a><a href="contact.html">Plan Your Visit</a>
+  </div>
+
+  <div class="page-hero">
+    <span class="section-eyebrow" style="color:var(--amber);">We'd Love to Meet You</span>
+    <h1>Plan Your Visit</h1>
+    <p>We can't wait to welcome you. Come as you are — just let us know you're coming!</p>
+  </div>
+
+  <section class="section" style="background:var(--warm-white);">
+    <div class="contact-grid">
+      <div class="reveal">
+        <span class="section-eyebrow">Service Info</span>
+        <h2 class="section-title" style="margin-bottom:28px;">Find Us This Sunday</h2>
+
+        <div class="info-stat">
+          <div class="ist-label">Service Time</div>
+          <div class="ist-value">Every Sunday · 10:00 AM</div>
+        </div>
+        <div class="info-stat">
+          <div class="ist-label">Location</div>
+          <div class="ist-value" style="font-size:20px;">2100 Ellsworth Rd</div>
+          <p>Ypsilanti, MI 48197 · Free parking available</p>
+        </div>
+        <div class="info-stat">
+          <div class="ist-label">Contact</div>
+          <div class="ist-value" style="font-size:18px;">(734) 721-8190</div>
+          <p>pastormanwiller@gmail.com</p>
+        </div>
+
+        <div class="map-embed" style="margin-top:24px;">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2951.0!2d-83.6516!3d42.2284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x883cb424ea1565d3%3A0x4cb5b3ebbe1c3b9b!2s2100%20Ellsworth%20Rd%2C%20Ypsilanti%2C%20MI%2048197!5e0!3m2!1sen!2sus!4v1700000000000"  loading="lazy" title="Map"></iframe>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap reveal delay-2">
+        <h3 style="font-family:'Playfair Display',serif;color:var(--navy);margin-bottom:6px;">Send Us a Message</h3>
+        <p style="margin-bottom:28px;font-size:14px;">Have questions? Want to let us know you're visiting? We'll get back to you quickly!</p>
+        <form id="contact-form" novalidate>
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" placeholder="Full name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="your@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="visit-type">I'm planning to</label>
+            <select id="visit-type">
+              <option value="">Select one...</option>
+              <option>Visit this Sunday for the first time</option>
+              <option>Ask a question about the church</option>
+              <option>Join a Hope Group</option>
+              <option>Learn about Kids & Youth</option>
+              <option>Speak with the pastor</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message (optional)</label>
+            <textarea id="message" placeholder="Anything you'd like us to know..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;font-size:16px;">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer><div class="footer-bottom" style="border-top:none;padding-top:0;"><span>© 2025 Hope Community Church · <a href="index.html" style="color:var(--amber);">Back to Home</a></span><span>Ypsilanti, MI · (734) 721-8190</span></div></footer>
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', e => {
+      e.preventDefault();
+      const btn = e.target.querySelector('button[type="submit"]');
+      btn.textContent = '✓ Message Sent! We\'ll be in touch soon.';
+      btn.style.background = '#4CAF50';
+      btn.disabled = true;
+    });
+  </script>
+</body>
+</html>

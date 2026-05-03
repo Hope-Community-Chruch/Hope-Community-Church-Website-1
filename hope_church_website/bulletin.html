@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bulletin News | Hope Community Church</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" /><link rel="stylesheet" href="css/animations.css" />
+  <style>
+    .bulletin-grid { display: grid; grid-template-columns: 1fr 280px; gap: 56px; max-width: 1100px; margin: 0 auto; }
+    .bulletin-list { display: flex; flex-direction: column; gap: 20px; }
+    .bulletin-item { background: var(--white); border-radius: var(--radius-lg); padding: 28px 32px; border: 1px solid rgba(29,52,97,0.07); box-shadow: var(--shadow-sm); transition: transform var(--transition), box-shadow var(--transition); }
+    .bulletin-item:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .b-date { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); margin-bottom: 6px; }
+    .b-title { font-family: 'Playfair Display',serif; font-size: 20px; color: var(--navy); margin-bottom: 8px; }
+    .b-excerpt { font-size: 14px; color: var(--muted); line-height: 1.65; }
+    .sidebar-widget { background: var(--white); border-radius: var(--radius-lg); padding: 24px; border: 1px solid rgba(29,52,97,0.07); box-shadow: var(--shadow-sm); margin-bottom: 20px; }
+    .sw-title { font-family: 'Playfair Display',serif; font-size: 17px; color: var(--navy); margin-bottom: 16px; }
+    .event-item { padding: 12px 0; border-bottom: 1px solid rgba(29,52,97,0.06); }
+    .event-item:last-child { border-bottom: none; }
+    .ev-date { font-size: 11px; font-weight: 700; color: var(--amber); text-transform: uppercase; letter-spacing: 1px; }
+    .ev-name { font-size: 14px; color: var(--navy); font-weight: 500; }
+    @media(max-width:900px){ .bulletin-grid{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo"><img src="images/logo_mark.png" alt="Hope Community Church" /><div class="nav-logo-text"><span class="logo-name">Hope Community</span><span class="logo-sub">Church</span></div></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li><li><a href="sermons.html">Sermons</a></li>
+      <li><a href="pastor.html">Meet the Pastor</a></li><li><a href="groups.html">Hope Groups</a></li>
+      <li><a href="kids.html">Kids &amp; Youth</a></li><li><a href="bulletin.html">Bulletin</a></li>
+      <li><a href="college.html">Bible College</a></li><li><a href="contact.html" class="nav-cta">Plan Your Visit</a></li>
+    </ul>
+    <button class="nav-hamburger"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="mobile-overlay"></div>
+  <div class="mobile-menu"><button class="menu-close">✕</button>
+    <a href="index.html">Home</a><a href="sermons.html">Sermons</a><a href="pastor.html">Meet the Pastor</a>
+    <a href="groups.html">Hope Groups</a><a href="kids.html">Kids &amp; Youth</a>
+    <a href="bulletin.html">Bulletin</a><a href="college.html">Bible College</a><a href="contact.html">Plan Your Visit</a>
+  </div>
+
+  <div class="page-hero">
+    <span class="section-eyebrow" style="color:var(--amber);">Stay Informed</span>
+    <h1>Bulletin &amp; News</h1>
+    <p>Announcements, events, prayer requests, and community updates.</p>
+  </div>
+
+  <section class="section" style="background:var(--warm-white);">
+    <div class="bulletin-grid">
+      <div class="bulletin-list">
+        <div class="bulletin-item reveal">
+          <div class="b-date">Apr 6, 2025 — Announcement</div>
+          <div class="b-title">Easter Sunday Service — Special Celebration</div>
+          <div class="b-excerpt">Join us for a special Easter Sunday celebration on April 20th. Extra seating will be available. Invite your family and friends — there will be special music, a powerful message, and refreshments after service.</div>
+        </div>
+        <div class="bulletin-item reveal delay-1">
+          <div class="b-date">Apr 1, 2025 — Prayer Request</div>
+          <div class="b-title">Community Prayer Chain — Join Us</div>
+          <div class="b-excerpt">We are lifting up several families in our congregation during this season. Contact the church office to be added to our prayer chain or to submit a prayer request. "The prayer of a righteous person is powerful and effective." — James 5:16</div>
+        </div>
+        <div class="bulletin-item reveal delay-2">
+          <div class="b-date">Mar 28, 2025 — Event</div>
+          <div class="b-title">Hope Groups Spring Kickoff — April 12</div>
+          <div class="b-excerpt">New semester of Hope Groups starting April 12. Five days and different times available. Whether you're a longtime member or brand new, there's a group for you. Sign up by April 8th.</div>
+        </div>
+        <div class="bulletin-item reveal">
+          <div class="b-date">Mar 21, 2025 — Update</div>
+          <div class="b-title">Anchor Bible College — Now Enrolling</div>
+          <div class="b-excerpt">Registration is open for the new Anchor Bible College semester. Equip yourself with deeper knowledge of God's Word. Classes available weeknights. Contact us for the full course catalog.</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="sidebar-widget reveal">
+          <div class="sw-title">📅 Upcoming Events</div>
+          <div class="event-item"><div class="ev-date">Apr 12</div><div class="ev-name">Hope Groups Kickoff</div></div>
+          <div class="event-item"><div class="ev-date">Apr 20</div><div class="ev-name">Easter Sunday Celebration</div></div>
+          <div class="event-item"><div class="ev-date">May 3</div><div class="ev-name">Community Outreach Day</div></div>
+          <div class="event-item"><div class="ev-date">May 17</div><div class="ev-name">Youth Retreat Weekend</div></div>
+        </div>
+        <div class="sidebar-widget reveal delay-1">
+          <div class="sw-title">🙏 Prayer Requests</div>
+          <p style="font-size:13px;color:var(--muted);line-height:1.7;">Have a prayer request? Share it with our church family. We pray together every Sunday and throughout the week.</p>
+          <a href="contact.html" class="btn btn-primary" style="margin-top:16px;font-size:13px;padding:10px 20px;">Submit Request</a>
+        </div>
+        <div class="sidebar-widget reveal delay-2">
+          <div class="sw-title">📬 Weekly Update</div>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:14px;">Get the bulletin in your inbox every week.</p>
+          <input type="email" placeholder="your@email.com" style="width:100%;padding:10px 14px;border:1.5px solid rgba(29,52,97,0.12);border-radius:var(--radius-md);font-family:var(--font-sans);font-size:13px;outline:none;" />
+          <button class="btn btn-amber" style="margin-top:10px;width:100%;background:var(--amber);color:white;border:none;padding:11px;border-radius:var(--radius-md);font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font-sans);">Subscribe Free</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer><div class="footer-bottom" style="border-top:none;padding-top:0;"><span>© 2025 Hope Community Church · <a href="index.html" style="color:var(--amber);">Back to Home</a></span><span>(734) 721-8190</span></div></footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

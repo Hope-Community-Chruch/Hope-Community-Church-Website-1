@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hope Groups | Hope Community Church</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" /><link rel="stylesheet" href="css/animations.css" />
+  <style>
+    .groups-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap: 24px; max-width: 1200px; margin: 0 auto; }
+    .group-card { background: var(--white); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid rgba(29,52,97,0.07); box-shadow: var(--shadow-sm); transition: transform var(--transition), box-shadow var(--transition); }
+    .group-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+    .group-img { height: 200px; overflow: hidden; }
+    .group-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+    .group-card:hover .group-img img { transform: scale(1.07); }
+    .group-body { padding: 22px 24px 26px; }
+    .group-day { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); margin-bottom: 6px; }
+    .group-name { font-family: 'Playfair Display',serif; font-size: 20px; color: var(--navy); margin-bottom: 8px; }
+    .group-desc { font-size: 13px; color: var(--muted); line-height: 1.65; margin-bottom: 16px; }
+  </style>
+</head>
+<body>
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo"><img src="images/logo_mark.png" alt="Hope Community Church" /><div class="nav-logo-text"><span class="logo-name">Hope Community</span><span class="logo-sub">Church</span></div></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li><li><a href="sermons.html">Sermons</a></li>
+      <li><a href="pastor.html">Meet the Pastor</a></li><li><a href="groups.html">Hope Groups</a></li>
+      <li><a href="kids.html">Kids &amp; Youth</a></li><li><a href="bulletin.html">Bulletin</a></li>
+      <li><a href="college.html">Bible College</a></li><li><a href="contact.html" class="nav-cta">Plan Your Visit</a></li>
+    </ul>
+    <button class="nav-hamburger"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="mobile-overlay"></div>
+  <div class="mobile-menu"><button class="menu-close">✕</button>
+    <a href="index.html">Home</a><a href="sermons.html">Sermons</a><a href="pastor.html">Meet the Pastor</a>
+    <a href="groups.html">Hope Groups</a><a href="kids.html">Kids &amp; Youth</a>
+    <a href="bulletin.html">Bulletin</a><a href="college.html">Bible College</a><a href="contact.html">Plan Your Visit</a>
+  </div>
+
+  <div class="page-hero">
+    <span class="section-eyebrow" style="color:var(--amber);">Community</span>
+    <h1>Hope Groups</h1>
+    <p>Faith is better together. Find your group and join the family.</p>
+  </div>
+
+  <section class="section">
+    <div style="text-align:center;max-width:600px;margin:0 auto 56px;" class="reveal">
+      <span class="section-eyebrow">Weekly Gatherings</span>
+      <h2 class="section-title">Small Groups, Big Impact</h2>
+      <div class="warm-divider" style="margin:16px auto;"></div>
+      <p>Hope Groups meet throughout the week in homes and at the church. Study the Bible, build friendships, and do life together in a warm, welcoming community.</p>
+    </div>
+    <div class="groups-grid">
+      <div class="group-card reveal">
+        <div class="group-img"><img src="images/community.png" alt="Men's Group" /></div>
+        <div class="group-body">
+          <div class="group-day">Tuesdays · 7:00 PM</div>
+          <div class="group-name">Men of Hope</div>
+          <div class="group-desc">A brotherhood built on faith, accountability, and the Word of God. All men welcome.</div>
+          <a href="contact.html" class="btn btn-primary" style="font-size:13px;padding:10px 20px;">Join This Group</a>
+        </div>
+      </div>
+      <div class="group-card reveal delay-1">
+        <div class="group-img"><img src="images/community.png" alt="Women's Group" /></div>
+        <div class="group-body">
+          <div class="group-day">Wednesdays · 10:00 AM</div>
+          <div class="group-name">Women of Grace</div>
+          <div class="group-desc">Community, encouragement, and deep Bible study for women at every stage of life.</div>
+          <a href="contact.html" class="btn btn-primary" style="font-size:13px;padding:10px 20px;">Join This Group</a>
+        </div>
+      </div>
+      <div class="group-card reveal delay-2">
+        <div class="group-img"><img src="images/hero_worship.png" alt="Young Adults" /></div>
+        <div class="group-body">
+          <div class="group-day">Fridays · 7:30 PM</div>
+          <div class="group-name">Young Adults</div>
+          <div class="group-desc">For 18–35 year olds navigating life and faith together. Authentic conversation, real community.</div>
+          <a href="contact.html" class="btn btn-primary" style="font-size:13px;padding:10px 20px;">Join This Group</a>
+        </div>
+      </div>
+      <div class="group-card reveal delay-3">
+        <div class="group-img"><img src="images/community.png" alt="Couples Group" /></div>
+        <div class="group-body">
+          <div class="group-day">Saturdays · 6:00 PM</div>
+          <div class="group-name">Couples &amp; Families</div>
+          <div class="group-desc">Growing together as couples and families in God's design for marriage and home life.</div>
+          <a href="contact.html" class="btn btn-primary" style="font-size:13px;padding:10px 20px;">Join This Group</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer><div class="footer-bottom" style="border-top:none;padding-top:0;"><span>© 2025 Hope Community Church · <a href="index.html" style="color:var(--amber);">Back to Home</a></span><span>(734) 721-8190</span></div></footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

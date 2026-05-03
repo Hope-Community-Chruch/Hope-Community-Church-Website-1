@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anchor Bible College | Hope Community Church</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" /><link rel="stylesheet" href="css/animations.css" />
+  <style>
+    .course-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 22px; max-width: 1100px; margin: 0 auto 60px; }
+    .course-card { background: var(--white); border-radius: var(--radius-lg); padding: 28px; border: 1px solid rgba(29,52,97,0.07); box-shadow: var(--shadow-sm); transition: transform var(--transition), box-shadow var(--transition); }
+    .course-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .cc-num { width: 40px; height: 40px; background: linear-gradient(135deg, rgba(244,162,97,0.15), rgba(224,122,95,0.08)); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display',serif; font-weight: 800; color: var(--amber); margin-bottom: 16px; font-size: 18px; }
+    .cc-title { font-family: 'Playfair Display',serif; font-size: 18px; color: var(--navy); margin-bottom: 8px; }
+    .cc-desc { font-size: 13px; color: var(--muted); line-height: 1.65; }
+    .enroll-box { background: linear-gradient(135deg, var(--navy), #264680); border-radius: var(--radius-xl); padding: 56px 48px; text-align: center; max-width: 700px; margin: 0 auto; color: white; }
+    .enroll-box h2 { color: white; margin-bottom: 16px; }
+    .enroll-box p { color: rgba(255,255,255,0.7); margin-bottom: 32px; }
+  </style>
+</head>
+<body>
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo"><img src="images/logo_mark.png" alt="Hope Community Church" /><div class="nav-logo-text"><span class="logo-name">Hope Community</span><span class="logo-sub">Church</span></div></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li><li><a href="sermons.html">Sermons</a></li>
+      <li><a href="pastor.html">Meet the Pastor</a></li><li><a href="groups.html">Hope Groups</a></li>
+      <li><a href="kids.html">Kids &amp; Youth</a></li><li><a href="bulletin.html">Bulletin</a></li>
+      <li><a href="college.html">Bible College</a></li><li><a href="contact.html" class="nav-cta">Plan Your Visit</a></li>
+    </ul>
+    <button class="nav-hamburger"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="mobile-overlay"></div>
+  <div class="mobile-menu"><button class="menu-close">✕</button>
+    <a href="index.html">Home</a><a href="sermons.html">Sermons</a><a href="pastor.html">Meet the Pastor</a>
+    <a href="groups.html">Hope Groups</a><a href="kids.html">Kids &amp; Youth</a>
+    <a href="bulletin.html">Bulletin</a><a href="college.html">Bible College</a><a href="contact.html">Plan Your Visit</a>
+  </div>
+
+  <div class="page-hero">
+    <span class="section-eyebrow" style="color:var(--amber);">Faith Education</span>
+    <h1>Anchor Bible College</h1>
+    <p>Deepen your knowledge of God's Word — taught with passion and purpose.</p>
+  </div>
+
+  <section class="section" style="background:var(--warm-white);">
+    <div style="text-align:center;max-width:600px;margin:0 auto 52px;" class="reveal">
+      <span class="section-eyebrow">Courses Offered</span>
+      <h2 class="section-title">Build Your Biblical Foundation</h2>
+      <div class="warm-divider" style="margin:16px auto;"></div>
+      <p>Anchor Bible College offers structured biblical education for all levels. Whether you're new to faith or want to go deeper, our courses will equip and inspire you.</p>
+    </div>
+    <div class="course-grid">
+      <div class="course-card reveal"><div class="cc-num">1</div><div class="cc-title">Introduction to the Bible</div><div class="cc-desc">An overview of Scripture — from Genesis to Revelation. Perfect for new believers and seekers.</div></div>
+      <div class="course-card reveal delay-1"><div class="cc-num">2</div><div class="cc-title">New Testament Studies</div><div class="cc-desc">An in-depth exploration of the Gospels, Acts, and the letters of Paul and other apostles.</div></div>
+      <div class="course-card reveal delay-2"><div class="cc-num">3</div><div class="cc-title">Old Testament Foundations</div><div class="cc-desc">Understand the Law, the Prophets, and the Writings — and how they point to Christ.</div></div>
+      <div class="course-card reveal delay-3"><div class="cc-num">4</div><div class="cc-title">Christian Living &amp; Discipleship</div><div class="cc-desc">Practical teaching on how to live faith out daily — relationships, finances, calling, and more.</div></div>
+      <div class="course-card reveal"><div class="cc-num">5</div><div class="cc-title">Church History</div><div class="cc-desc">2,000 years of the Christian story — persecution, reformation, revival, and the global church today.</div></div>
+      <div class="course-card reveal delay-1"><div class="cc-num">6</div><div class="cc-title">Ministry &amp; Leadership</div><div class="cc-desc">For those called to serve — equipping leaders to shepherd well and lead with integrity.</div></div>
+    </div>
+
+    <div class="enroll-box reveal">
+      <span class="section-eyebrow" style="color:var(--amber);">Enrollment Open</span>
+      <h2>Ready to Go Deeper?</h2>
+      <p>Classes run on weeknights and are open to all Hope Community Church members and the wider community. Enrollment is free — just contact us to get started.</p>
+      <a href="contact.html" class="btn btn-primary" style="font-size:16px;padding:16px 36px;">Enroll Now</a>
+    </div>
+  </section>
+
+  <footer><div class="footer-bottom" style="border-top:none;padding-top:0;"><span>© 2025 Hope Community Church · <a href="index.html" style="color:var(--amber);">Back to Home</a></span><span>(734) 721-8190</span></div></footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

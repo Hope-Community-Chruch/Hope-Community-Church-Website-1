@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kids &amp; Youth | Hope Community Church</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" /><link rel="stylesheet" href="css/animations.css" />
+  <style>
+    .age-tabs { display: flex; gap: 0; border-radius: var(--radius-md); overflow: hidden; border: 1.5px solid rgba(29,52,97,0.12); margin:0 auto 48px; width: fit-content; }
+    .age-tab { padding: 12px 28px; font-size: 14px; font-weight: 600; background: var(--white); color: var(--muted); cursor: pointer; border: none; font-family: var(--font-sans); transition: all var(--transition); }
+    .age-tab.active { background: var(--amber); color: white; }
+    .age-content { display: none; max-width: 900px; margin: 0 auto; }
+    .age-content.show { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .age-content img { border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); width: 100%; height: 360px; object-fit: cover; }
+    @media(max-width:768px){ .age-content.show{grid-template-columns:1fr;} .age-tabs{flex-wrap:wrap;} }
+  </style>
+</head>
+<body>
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo"><img src="images/logo_mark.png" alt="Hope Community Church" /><div class="nav-logo-text"><span class="logo-name">Hope Community</span><span class="logo-sub">Church</span></div></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li><li><a href="sermons.html">Sermons</a></li>
+      <li><a href="pastor.html">Meet the Pastor</a></li><li><a href="groups.html">Hope Groups</a></li>
+      <li><a href="kids.html">Kids &amp; Youth</a></li><li><a href="bulletin.html">Bulletin</a></li>
+      <li><a href="college.html">Bible College</a></li><li><a href="contact.html" class="nav-cta">Plan Your Visit</a></li>
+    </ul>
+    <button class="nav-hamburger"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="mobile-overlay"></div>
+  <div class="mobile-menu"><button class="menu-close">✕</button>
+    <a href="index.html">Home</a><a href="sermons.html">Sermons</a><a href="pastor.html">Meet the Pastor</a>
+    <a href="groups.html">Hope Groups</a><a href="kids.html">Kids &amp; Youth</a>
+    <a href="bulletin.html">Bulletin</a><a href="college.html">Bible College</a><a href="contact.html">Plan Your Visit</a>
+  </div>
+
+  <div class="page-hero">
+    <span class="section-eyebrow" style="color:var(--amber);">Next Generation</span>
+    <h1>Kids &amp; Youth</h1>
+    <p>Fun, faith-filled environments where younger generations discover God's love.</p>
+  </div>
+
+  <section class="section" style="background:var(--warm-white);text-align:center;">
+    <div class="age-tabs">
+      <button class="age-tab active" onclick="showAge('nursery',this)">Nursery (0–2)</button>
+      <button class="age-tab" onclick="showAge('kids',this)">Kids (3–10)</button>
+      <button class="age-tab" onclick="showAge('youth',this)">Youth (11–18)</button>
+    </div>
+
+    <div id="nursery-content" class="age-content show">
+      <img src="images/community.png" alt="Nursery" />
+      <div style="text-align:left;">
+        <span class="section-eyebrow">Ages 0–2</span>
+        <h3 class="section-title">Hope Nursery</h3>
+        <div class="warm-divider"></div>
+        <p>A safe, loving environment for your littlest ones while you worship. Our trained caregivers ensure your baby is happy and cared for every Sunday.</p>
+        <ul style="margin-top:20px;list-style:none;display:flex;flex-direction:column;gap:10px;">
+          <li style="font-size:14px;color:var(--muted);">✅ Clean, safe certified space</li>
+          <li style="font-size:14px;color:var(--muted);">✅ Trained & background-checked caregivers</li>
+          <li style="font-size:14px;color:var(--muted);">✅ Pager system so you worship with peace of mind</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary" style="margin-top:24px;">Learn More</a>
+      </div>
+    </div>
+
+    <div id="kids-content" class="age-content">
+      <img src="images/hero_worship.png" alt="Kids Ministry" />
+      <div style="text-align:left;">
+        <span class="section-eyebrow">Ages 3–10</span>
+        <h3 class="section-title">Hope Kids</h3>
+        <div class="warm-divider"></div>
+        <p>Bible stories, games, worship, and friendship — in a fun environment where kids learn that God loves them and has a wonderful plan for their life.</p>
+        <ul style="margin-top:20px;list-style:none;display:flex;flex-direction:column;gap:10px;">
+          <li style="font-size:14px;color:var(--muted);">✅ Age-appropriate Bible teaching</li>
+          <li style="font-size:14px;color:var(--muted);">✅ Fun worship music & activities</li>
+          <li style="font-size:14px;color:var(--muted);">✅ Secure check-in system</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary" style="margin-top:24px;">Register Your Child</a>
+      </div>
+    </div>
+
+    <div id="youth-content" class="age-content">
+      <img src="images/community.png" alt="Youth Ministry" />
+      <div style="text-align:left;">
+        <span class="section-eyebrow">Ages 11–18</span>
+        <h3 class="section-title">Hope Youth</h3>
+        <div class="warm-divider"></div>
+        <p>A community where teenagers can be real, ask hard questions, and discover what it means to follow Jesus in today's world. No pretense — just real faith and real friendship.</p>
+        <ul style="margin-top:20px;list-style:none;display:flex;flex-direction:column;gap:10px;">
+          <li style="font-size:14px;color:var(--muted);">✅ Weekly youth gatherings</li>
+          <li style="font-size:14px;color:var(--muted);">✅ Mentorship from caring leaders</li>
+          <li style="font-size:14px;color:var(--muted);">✅ Events, retreats & outreach</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary" style="margin-top:24px;">Get Connected</a>
+      </div>
+    </div>
+  </section>
+
+  <footer><div class="footer-bottom" style="border-top:none;padding-top:0;"><span>© 2025 Hope Community Church · <a href="index.html" style="color:var(--amber);">Back to Home</a></span><span>(734) 721-8190</span></div></footer>
+  <script src="js/main.js"></script>
+  <script>
+    function showAge(id, btn) {
+      document.querySelectorAll('.age-content').forEach(el => el.classList.remove('show'));
+      document.querySelectorAll('.age-tab').forEach(b => b.classList.remove('active'));
+      document.getElementById(id + '-content').classList.add('show');
+      btn.classList.add('active');
+    }
+  </script>
+</body>
+</html>

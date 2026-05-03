@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Meet Pastor Manwiller of Hope Community Church, Ypsilanti MI." />
+  <title>Meet the Pastor | Hope Community Church</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" /><link rel="stylesheet" href="css/animations.css" />
+  <style>
+    .pastor-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center; max-width: 1100px; margin: 0 auto; }
+    .pastor-img { border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg); }
+    .pastor-img img { width: 100%; height: 560px; object-fit: cover; }
+    .pastor-quote { font-family: 'Playfair Display', serif; font-size: clamp(22px,2.5vw,30px); font-style: italic; color: var(--navy); border-left: 3px solid var(--amber); padding-left: 22px; margin: 28px 0 32px; line-height: 1.5; }
+    .values-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+    .value-item { background: var(--warm-white); border-radius: var(--radius-md); padding: 18px 20px; border: 1px solid rgba(29,52,97,0.06); }
+    .value-item h4 { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--navy); margin-bottom: 4px; }
+    .value-item p { font-size: 13px; color: var(--muted); }
+    @media(max-width:900px){ .pastor-grid{grid-template-columns:1fr;gap:40px;} .pastor-img img{height:360px;} .values-grid{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo"><img src="images/logo_mark.png" alt="Hope Community Church" /><div class="nav-logo-text"><span class="logo-name">Hope Community</span><span class="logo-sub">Church</span></div></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li><li><a href="sermons.html">Sermons</a></li>
+      <li><a href="pastor.html">Meet the Pastor</a></li><li><a href="groups.html">Hope Groups</a></li>
+      <li><a href="kids.html">Kids &amp; Youth</a></li><li><a href="bulletin.html">Bulletin</a></li>
+      <li><a href="college.html">Bible College</a></li><li><a href="contact.html" class="nav-cta">Plan Your Visit</a></li>
+    </ul>
+    <button class="nav-hamburger"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="mobile-overlay"></div>
+  <div class="mobile-menu"><button class="menu-close">✕</button>
+    <a href="index.html">Home</a><a href="sermons.html">Sermons</a><a href="pastor.html">Meet the Pastor</a>
+    <a href="groups.html">Hope Groups</a><a href="kids.html">Kids &amp; Youth</a>
+    <a href="bulletin.html">Bulletin</a><a href="college.html">Bible College</a><a href="contact.html">Plan Your Visit</a>
+  </div>
+
+  <div class="page-hero">
+    <span class="section-eyebrow" style="color:var(--amber);">Leadership</span>
+    <h1>Meet the Pastor</h1>
+    <p>A heart for God, a love for people, and a passion for the Word.</p>
+  </div>
+
+  <section class="section" style="background:var(--warm-white);">
+    <div class="pastor-grid">
+      <div class="pastor-img reveal img-zoom">
+        <img src="images/pastor.png" alt="Pastor Manwiller" />
+      </div>
+      <div class="reveal delay-2">
+        <span class="section-eyebrow">Senior Pastor</span>
+        <h2 class="section-title">Pastor Manwiller</h2>
+        <div class="warm-divider"></div>
+        <p>Pastor Manwiller has dedicated his life to guiding the Hope Community Church family with warmth, wisdom, and unwavering faith. His messages are practical, scripture-based, and deeply encouraging.</p>
+        <blockquote class="pastor-quote">"My heart is to see every person encounter the living God — not just to know about Him, but to truly know Him."</blockquote>
+        <p>He and his family have been rooted in the Ypsilanti community for decades, building friendships across every walk of life. Whether you're new to faith or a lifelong believer, you'll feel right at home under his leadership.</p>
+        <div class="values-grid" style="margin-top:28px;">
+          <div class="value-item"><h4>📖 Bible-Led</h4><p>Every message grounded in Scripture.</p></div>
+          <div class="value-item"><h4>🙏 Prayer-Centered</h4><p>A church built on conversation with God.</p></div>
+          <div class="value-item"><h4>🤝 Community-Driven</h4><p>Faith lived out together, not in isolation.</p></div>
+          <div class="value-item"><h4>❤️ Grace-Filled</h4><p>A place for every person, exactly as they are.</p></div>
+        </div>
+        <div style="margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;">
+          <a href="sermons.html" class="btn btn-primary">Watch His Sermons</a>
+          <a href="contact.html" class="btn btn-outline">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer><div class="footer-bottom" style="border-top:none;padding-top:0;"><span>© 2025 Hope Community Church · <a href="index.html" style="color:var(--amber);">Back to Home</a></span><span>(734) 721-8190</span></div></footer>
+  <script src="js/main.js"></script>
+</body>
+</html>
