@@ -85,7 +85,7 @@ p  { font-size: clamp(15px, 1.2vw, 17px); line-height: 1.75; color: var(--muted)
 .nav-logo {
   display: flex; align-items: center; gap: 12px;
 }
-.nav-logo img { height: 62px; width: auto; display: block; filter: drop-shadow(0 4px 12px rgba(15,30,61,0.18)); }
+.nav-logo img { height: 78px; width: auto; display: block; filter: drop-shadow(0 4px 12px rgba(15,30,61,0.18)); }
 .nav-logo-text { display: flex; flex-direction: column; }
 .nav-logo-text .logo-name {
   font-family: var(--font-serif);
@@ -390,6 +390,7 @@ footer {
 @media (max-width: 768px) {
   .nav-links, .desktop-only-nav { display: none; }
   .nav-hamburger { display: flex; }
+  .nav-logo img { height: 54px; }
   .section { padding: 70px 20px; }
   .footer-grid { grid-template-columns: 1fr; gap: 28px; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
