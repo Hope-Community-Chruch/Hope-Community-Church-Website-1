@@ -23,7 +23,7 @@
     .qa-card h4 { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--navy); margin-bottom: 10px; }
     .qa-card p { font-size: 14.5px; color: var(--muted); line-height: 1.6; }
     .map-container { width: 100%; aspect-ratio: 9 / 16; max-height: 800px; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-md); border: 4px solid var(--white); }
-    .map-container img { width: 100%; height: 100%; object-fit: contain; background: #e0d0b0; display: block; }
+    .map-container img { width: 100%; height: 100%; object-fit: cover; display: block; }
     @media(max-width:900px){
       .groups-intro { grid-template-columns: 1fr; gap: 40px; }
       .map-container { aspect-ratio: 9 / 16; max-height: 600px; }
@@ -118,7 +118,7 @@
       
       <div class="map-container">
         <!-- Static stylized image map representing group locations -->
-        <img src="images/hope_groups_map.png" alt="Map showing Hope Group locations" style="width: 100%; height: 100%; object-fit: contain; display: block;" />
+        <img src="images/hope_groups_map.png" alt="Map showing Hope Group locations" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
       </div>
     </div>
   </section>
