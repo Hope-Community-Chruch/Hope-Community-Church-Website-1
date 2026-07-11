@@ -21,6 +21,41 @@
     .ev-date { font-size: 11px; font-weight: 700; color: var(--amber); text-transform: uppercase; letter-spacing: 1px; }
     .ev-name { font-size: 14px; color: var(--navy); font-weight: 500; }
     @media(max-width:900px){ .bulletin-grid{grid-template-columns:1fr;} }
+
+    /* ── YEARLY CALENDAR ── */
+    .calendar-list { display: flex; flex-direction: column; gap: 12px; }
+    .calendar-item {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 16px 24px;
+      border: 1px solid rgba(29,52,97,0.06);
+      box-shadow: var(--shadow-sm);
+      align-items: center;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+      text-align: left;
+    }
+    .calendar-item:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: rgba(244,162,97,0.3); }
+    .cal-date-badge {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      color: var(--amber);
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      border-left: 3px solid var(--amber);
+      padding-left: 12px;
+    }
+    .cal-event-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    @media(max-width: 600px) {
+      .calendar-item { grid-template-columns: 1fr; gap: 8px; padding: 14px 18px; }
+      .cal-date-badge { border-left: none; border-bottom: 2px solid var(--amber); padding-left: 0; padding-bottom: 4px; display: inline-block; width: max-content; }
+    }
   </style>
 </head>
 <body>
@@ -89,10 +124,10 @@
       <div>
         <div class="sidebar-widget reveal">
           <div class="sw-title">📅 Upcoming Events</div>
-          <div class="event-item"><div class="ev-date">Apr 12</div><div class="ev-name">Hope Groups Kickoff</div></div>
-          <div class="event-item"><div class="ev-date">Apr 20</div><div class="ev-name">Easter Sunday Celebration</div></div>
-          <div class="event-item"><div class="ev-date">May 3</div><div class="ev-name">Community Outreach Day</div></div>
-          <div class="event-item"><div class="ev-date">May 17</div><div class="ev-name">Youth Retreat Weekend</div></div>
+          <div class="event-item"><div class="ev-date">Jan 2</div><div class="ev-name">Intensive Bible Study</div></div>
+          <div class="event-item"><div class="ev-date">Jan 4</div><div class="ev-name">Anchor Winter Semester Starts</div></div>
+          <div class="event-item"><div class="ev-date">Jan 19</div><div class="ev-name">College Luncheon</div></div>
+          <div class="event-item"><div class="ev-date">Jan 25</div><div class="ev-name">Congregational Meeting</div></div>
         </div>
         <div class="sidebar-widget reveal delay-1">
           <div class="sw-title">🙏 Prayer Requests</div>
@@ -104,6 +139,125 @@
           <p style="font-size:13px;color:var(--muted);margin-bottom:14px;">Get the bulletin in your inbox every week.</p>
           <input type="email" placeholder="your@email.com" style="width:100%;padding:10px 14px;border:1.5px solid rgba(29,52,97,0.12);border-radius:var(--radius-md);font-family:var(--font-sans);font-size:13px;outline:none;" />
           <button class="btn btn-amber" style="margin-top:10px;width:100%;background:var(--amber);color:white;border:none;padding:11px;border-radius:var(--radius-md);font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font-sans);">Subscribe Free</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ YEARLY CALENDAR ════ -->
+  <section class="section" style="background:var(--cream); border-top: 1px solid rgba(29,52,97,0.06);">
+    <div class="container-narrow">
+      <div style="text-align:center; margin-bottom:48px;" class="reveal">
+        <span class="section-eyebrow">Mark Your Calendar</span>
+        <h2 class="section-title">Yearly Calendar</h2>
+        <p>Stay connected with all of our upcoming ministries, camp trips, and events throughout the year.</p>
+        <div class="warm-divider" style="margin-left:auto; margin-right:auto;"></div>
+      </div>
+
+      <div class="calendar-list">
+        <div class="calendar-item reveal">
+          <div class="cal-date-badge">Jan 2</div>
+          <div class="cal-event-title">Intensive Bible Study</div>
+        </div>
+        <div class="calendar-item reveal">
+          <div class="cal-date-badge">Jan 4</div>
+          <div class="cal-event-title">Anchor Winter Semester Start Date</div>
+        </div>
+        <div class="calendar-item reveal">
+          <div class="cal-date-badge">Jan 19</div>
+          <div class="cal-event-title">College Luncheon</div>
+        </div>
+        <div class="calendar-item reveal">
+          <div class="cal-date-badge">Jan 25</div>
+          <div class="cal-event-title">Congregational Meeting</div>
+        </div>
+        <div class="calendar-item reveal">
+          <div class="cal-date-badge">Feb 20</div>
+          <div class="cal-event-title">Fur Rendezvous</div>
+        </div>
+        <div class="calendar-item reveal">
+          <div class="cal-date-badge">Mar 8</div>
+          <div class="cal-event-title">Winter Baptism Service</div>
+        </div>
+        <div class="calendar-item reveal">
+          <div class="cal-date-badge">Apr 3</div>
+          <div class="cal-event-title">Good Friday Service</div>
+        </div>
+        <div class="calendar-item reveal">
+          <div class="cal-date-badge">Apr 5</div>
+          <div class="cal-event-title">Easter Sunday</div>
+        </div>
+        <div class="calendar-item reveal">
+          <div class="cal-date-badge">May 4 - 9</div>
+          <div class="cal-event-title">Girls' Renew</div>
+        </div>
+        <div class="calendar-item reveal">
+          <div class="cal-date-badge">May 31 - July 1</div>
+          <div class="cal-event-title">World Missionary Press Trips</div>
+        </div>
+        <div class="calendar-item reveal">
+          <div class="cal-date-badge">June 14 - 20</div>
+          <div class="cal-event-title">Pennsylvania Tikva</div>
+        </div>
+        <div class="calendar-item reveal">
+          <div class="cal-date-badge">June 19 - 27</div>
+          <div class="cal-event-title">Alaska Tikva</div>
+        </div>
+        <div class="calendar-item reveal">
+          <div class="cal-date-badge">July 11</div>
+          <div class="cal-event-title">Church Picnic</div>
+        </div>
+        <div class="calendar-item reveal">
+          <div class="cal-date-badge">July 13 - 17</div>
+          <div class="cal-event-title">Ypsilanti Camp Tikva</div>
+        </div>
+        <div class="calendar-item reveal">
+          <div class="cal-date-badge">July 18 - 25</div>
+          <div class="cal-event-title">Shawanaga</div>
+        </div>
+        <div class="calendar-item reveal">
+          <div class="cal-date-badge">Aug 2 - 8</div>
+          <div class="cal-event-title">West Branch Camp Tikva</div>
+        </div>
+        <div class="calendar-item reveal">
+          <div class="cal-date-badge">Aug 14 - 16</div>
+          <div class="cal-event-title">Church Camping Trip &amp; Baptism Service</div>
+        </div>
+        <div class="calendar-item reveal">
+          <div class="cal-date-badge">Aug 17 - 22</div>
+          <div class="cal-event-title">Boys' Renew</div>
+        </div>
+        <div class="calendar-item reveal">
+          <div class="cal-date-badge">Aug 28 - Sep 2</div>
+          <div class="cal-event-title">Ferris State Evangelism Outreach</div>
+        </div>
+        <div class="calendar-item reveal">
+          <div class="cal-date-badge">Aug 31</div>
+          <div class="cal-event-title">Anchor Fall semester start date</div>
+        </div>
+        <div class="calendar-item reveal">
+          <div class="cal-date-badge">Sept 13 - Oct 4</div>
+          <div class="cal-event-title">Family Life Training Emphasis</div>
+        </div>
+        <div class="calendar-item reveal">
+          <div class="cal-date-badge">Sept 19</div>
+          <div class="cal-event-title">Young Men's Advance</div>
+        </div>
+        <div class="calendar-item reveal">
+          <div class="cal-date-badge">Oct 10</div>
+          <div class="cal-event-title">Devoted</div>
+        </div>
+        <div class="calendar-item reveal">
+          <div class="cal-date-badge">Nov 15, 22</div>
+          <div class="cal-event-title">Thanksgiving Testimony Services</div>
+        </div>
+        <div class="calendar-item reveal">
+          <div class="cal-date-badge">Dec 11</div>
+          <div class="cal-event-title">Christmas Sing</div>
+        </div>
+        <div class="calendar-item reveal">
+          <div class="cal-date-badge">Dec 31</div>
+          <div class="cal-event-title">New Year's Eve Watchnight</div>
         </div>
       </div>
     </div>
