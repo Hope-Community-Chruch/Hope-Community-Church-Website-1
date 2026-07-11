@@ -70,45 +70,59 @@
       padding: 80px 24px;
     }
 
-    /* Two-Column Intro */
-    .intro-section {
-      display: flex;
-      gap: 60px;
-      align-items: center;
+    /* Full-Bleed Intro Background Section */
+    .intro-bg-section {
+      background-image: linear-gradient(rgba(27, 43, 74, 0.9), rgba(27, 43, 74, 0.9)), url('images/abc_classroom.png');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 100px 24px;
+      border-bottom: 4px solid var(--secondary-gold);
     }
-    .intro-content {
-      flex: 1;
+    .intro-bg-section .container-inner {
+      max-width: 800px;
+      margin: 0 auto;
     }
-    .intro-content h2 {
+    .intro-bg-section h2 {
+      color: white;
       font-size: 36px;
       margin-bottom: 24px;
       position: relative;
       padding-bottom: 16px;
+      display: inline-block;
     }
-    .intro-content h2::after {
+    .intro-bg-section h2::after {
       content: '';
       position: absolute;
-      left: 0;
+      left: 50%;
+      transform: translateX(-50%);
       bottom: 0;
       width: 60px;
       height: 2px;
       background-color: var(--secondary-gold);
     }
-    .intro-content p {
+    .intro-bg-section p {
       font-size: 16px;
       line-height: 1.8;
-      color: var(--text-muted);
+      color: rgba(255, 255, 255, 0.9);
       margin-bottom: 24px;
     }
-    .intro-image-wrapper {
-      flex: 1;
+    .intro-bg-section .btn-outline {
+      display: inline-block;
+      border: 1px solid white;
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      font-weight: 500;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+      margin-top: 16px;
     }
-    .intro-image-wrapper img {
-      width: 100%;
-      height: auto;
-      border-radius: 4px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      display: block;
+    .intro-bg-section .btn-outline:hover {
+      background-color: var(--secondary-gold);
+      border-color: var(--secondary-gold);
+      color: white;
     }
 
     /* Stats Band */
@@ -446,24 +460,19 @@
   </header>
 
   <!-- Introduction -->
-  <section class="container reveal">
-    <div class="intro-section">
-      <div class="intro-content">
-        <h2>Deepen Your Calling</h2>
-        <p>
-          Anchor Bible College provides structured higher education solely designed for, directed toward, and attended by students preparing for Christian ministry.
-        </p>
-        <p>
-          Operating in Ypsilanti, Michigan, Anchor Bible College merges rigorous academic study with active personal discipleship. Classes are taught by instructors with a pastoral calling, ensuring your theological education translates directly to spiritual and practical growth.
-        </p>
-        <p>
-          Whether you want to audit a single class for personal enrichment or build toward an accredited degree, Anchor Bible College's hybrid structure fits cleanly into a busy schedule.
-        </p>
-        <a href="https://anchorbiblecollege.org/about/" target="_blank" rel="noopener noreferrer" class="btn-outline">Learn More About Anchor Bible College</a>
-      </div>
-      <div class="intro-image-wrapper">
-        <img src="images/abc_classroom.png" alt="Anchor Bible College Classroom" />
-      </div>
+  <section class="intro-bg-section reveal">
+    <div class="container-inner">
+      <h2>Deepen Your Calling</h2>
+      <p>
+        Anchor Bible College provides structured higher education solely designed for, directed toward, and attended by students preparing for Christian ministry.
+      </p>
+      <p>
+        Operating in Ypsilanti, Michigan, Anchor Bible College merges rigorous academic study with active personal discipleship. Classes are taught by instructors with a pastoral calling, ensuring your theological education translates directly to spiritual and practical growth.
+      </p>
+      <p>
+        Whether you want to audit a single class for personal enrichment or build toward an accredited degree, Anchor Bible College's hybrid structure fits cleanly into a busy schedule.
+      </p>
+      <a href="https://anchorbiblecollege.org/about/" target="_blank" rel="noopener noreferrer" class="btn-outline">Learn More About Anchor Bible College</a>
     </div>
   </section>
 
