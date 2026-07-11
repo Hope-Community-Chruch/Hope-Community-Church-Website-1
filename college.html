@@ -6,378 +6,399 @@
   <title>Anchor Bible College | Hope Community Church</title>
   <meta name="description" content="Anchor Bible College is a private Bible college in Ypsilanti, Michigan offering degrees in biblical studies with affordable tuition and personal discipleship." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="css/animations.css" />
   <style>
-    /* Custom Styling for the Redesigned College Page */
+    /* Classic University Styling */
     :root {
-      --abc-gold-gradient: linear-gradient(135deg, var(--amber) 0%, var(--gold) 100%);
-      --abc-navy-gradient: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      --primary-navy: #1B2B4A;
+      --secondary-gold: #C89F5B;
+      --off-white: #F8F9FA;
+      --text-dark: #333333;
+      --text-muted: #555555;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-dark);
+      background-color: var(--white);
     }
 
-    /* Asymmetrical Intro */
-    .intro-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 64px;
-      align-items: center;
-      max-width: 1100px;
-      margin: 0 auto;
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+      color: var(--primary-navy);
     }
-    .intro-image-container {
-      position: relative;
-      padding: 20px;
-    }
-    .intro-frame-decoration {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 40px;
-      left: 40px;
-      border: 3px solid var(--amber);
-      border-radius: var(--radius-xl);
-      z-index: 1;
-    }
-    .intro-image {
-      position: relative;
-      z-index: 2;
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-lg);
-      width: 100%;
-      height: 420px;
-      object-fit: cover;
-      display: block;
-    }
-    .floating-stats-badge {
-      position: absolute;
-      bottom: 10px;
-      left: -20px;
-      background: rgba(29, 52, 97, 0.95);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 24px;
-      border-radius: var(--radius-lg);
+
+    /* Classic Hero */
+    .classic-hero {
+      background-color: var(--primary-navy);
       color: white;
-      z-index: 3;
-      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
-      max-width: 260px;
+      padding: 100px 20px 80px;
+      text-align: center;
+      border-bottom: 4px solid var(--secondary-gold);
     }
-    .floating-stats-title {
-      font-size: 11px;
+    .classic-hero h1 {
+      color: white;
+      font-size: clamp(40px, 6vw, 64px);
+      font-weight: 600;
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
+    }
+    .classic-hero p {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+    }
+    .hero-eyebrow-text {
+      color: var(--secondary-gold);
       text-transform: uppercase;
       letter-spacing: 2px;
-      color: var(--amber);
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-    .floating-stats-value {
-      font-family: var(--font-serif);
-      font-size: 32px;
-      font-weight: 700;
-      line-height: 1.1;
-      margin-bottom: 4px;
-    }
-    .floating-stats-desc {
-      font-size: 12px;
-      color: rgba(255, 255, 255, 0.6);
-    }
-
-    /* Program Pathways Split */
-    .pathways-section {
-      background: var(--cream);
-      position: relative;
-    }
-    .pathways-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .pathway-card {
-      background: var(--white);
-      border-radius: var(--radius-xl);
-      padding: 48px;
-      box-shadow: var(--shadow-sm);
-      border: 1px solid rgba(29, 52, 97, 0.04);
-      display: flex;
-      flex-direction: column;
-      transition: transform var(--transition), box-shadow var(--transition);
-    }
-    .pathway-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-md);
-    }
-    .pathway-card.highlighted {
-      background: var(--abc-navy-gradient);
-      color: white;
-    }
-    .pathway-icon {
-      font-size: 40px;
-      margin-bottom: 24px;
-    }
-    .pathway-title {
-      font-family: var(--font-serif);
-      font-size: 28px;
+      font-size: 13px;
+      font-weight: 600;
+      display: block;
       margin-bottom: 16px;
     }
-    .pathway-card.highlighted .pathway-title {
-      color: white;
-    }
-    .pathway-desc {
-      font-size: 15px;
-      line-height: 1.6;
-      margin-bottom: 32px;
-    }
-    .pathway-card.highlighted .pathway-desc {
-      color: rgba(255, 255, 255, 0.8);
-    }
-    .pathway-features {
-      list-style: none;
-      margin-bottom: 40px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .pathway-feature {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      font-size: 14px;
-    }
-    .pathway-feature svg {
-      width: 20px;
-      height: 20px;
-      flex-shrink: 0;
-      color: var(--amber);
-      margin-top: 2px;
+
+    /* Clean Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 24px;
     }
 
-    /* Academics Quick Stats Row */
-    .stats-strip {
-      background: var(--white);
-      border-top: 1px solid rgba(29, 52, 97, 0.05);
-      border-bottom: 1px solid rgba(29, 52, 97, 0.05);
-      padding: 40px 24px;
+    /* Two-Column Intro */
+    .intro-section {
+      display: flex;
+      gap: 60px;
+      align-items: center;
     }
-    .stats-strip-inner {
+    .intro-content {
+      flex: 1;
+    }
+    .intro-content h2 {
+      font-size: 36px;
+      margin-bottom: 24px;
+      position: relative;
+      padding-bottom: 16px;
+    }
+    .intro-content h2::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 60px;
+      height: 2px;
+      background-color: var(--secondary-gold);
+    }
+    .intro-content p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    .intro-image-wrapper {
+      flex: 1;
+    }
+    .intro-image-wrapper img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      display: block;
+    }
+
+    /* Stats Band */
+    .stats-band {
+      background-color: var(--off-white);
+      border-top: 1px solid #eaeaea;
+      border-bottom: 1px solid #eaeaea;
+      padding: 40px 20px;
+    }
+    .stats-grid {
+      max-width: 1200px;
+      margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      max-width: 1100px;
-      margin: 0 auto;
       text-align: center;
-      gap: 32px;
+      gap: 30px;
     }
-    .strip-stat-num {
-      font-family: var(--font-serif);
-      font-size: 40px;
-      font-weight: 800;
-      color: var(--navy);
-      line-height: 1;
-      margin-bottom: 8px;
+    .stat-item {
+      border-right: 1px solid #ddd;
     }
-    .strip-stat-label {
-      font-size: 12px;
+    .stat-item:last-child {
+      border-right: none;
+    }
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      color: var(--primary-navy);
       font-weight: 600;
-      letter-spacing: 1.5px;
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 13px;
       text-transform: uppercase;
-      color: var(--muted);
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      font-weight: 600;
     }
 
-    /* Transfer Credit Partners Showcase */
-    .partners-section {
-      background: var(--warm-white);
-    }
-    .partners-intro {
+    /* Academic Offerings */
+    .section-header {
       text-align: center;
-      max-width: 700px;
-      margin: 0 auto 48px;
+      margin-bottom: 60px;
     }
-    .partners-grid {
+    .section-header h2 {
+      font-size: 36px;
+      margin-bottom: 16px;
+    }
+    .section-header .divider {
+      width: 60px;
+      height: 2px;
+      background-color: var(--secondary-gold);
+      margin: 0 auto 24px;
+    }
+    .section-header p {
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .academic-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .academic-card {
+      border: 1px solid #eaeaea;
+      padding: 48px;
+      border-radius: 4px;
+      transition: box-shadow 0.3s ease;
+      background: white;
+    }
+    .academic-card:hover {
+      box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+    }
+    .academic-card h3 {
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+    .academic-card p {
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .academic-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 32px 0;
+    }
+    .academic-list li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 12px;
+      color: var(--text-dark);
+    }
+    .academic-list li::before {
+      content: '•';
+      color: var(--secondary-gold);
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 18px;
+      line-height: 1.2;
+    }
+    .btn-outline {
+      display: inline-block;
+      border: 1px solid var(--primary-navy);
+      color: var(--primary-navy);
+      padding: 12px 24px;
+      text-decoration: none;
+      font-weight: 500;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .btn-outline:hover {
+      background-color: var(--primary-navy);
+      color: white;
+    }
+
+    /* Transfer Partners */
+    .partners-section {
+      background-color: var(--off-white);
+    }
+    .partners-list {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 16px;
-      max-width: 1000px;
+      gap: 20px;
+      max-width: 900px;
       margin: 0 auto;
     }
-    .partner-tag {
-      background: var(--white);
-      border: 1px solid rgba(29, 52, 97, 0.06);
-      padding: 14px 28px;
-      border-radius: 100px;
-      font-weight: 600;
-      font-size: 14px;
-      color: var(--navy);
-      box-shadow: 0 4px 12px rgba(29, 52, 97, 0.02);
-      transition: all var(--transition);
-    }
-    .partner-tag:hover {
-      background: var(--navy);
-      color: white;
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-sm);
+    .partner-item {
+      font-size: 15px;
+      color: var(--primary-navy);
+      background: white;
+      border: 1px solid #ddd;
+      padding: 12px 24px;
+      border-radius: 2px;
     }
 
-    /* Interactive FAQs Accordion */
-    .faq-section {
-      background: var(--cream);
+    /* Testimonials */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
     }
-    .faq-container {
+    .testimonial-item {
+      text-align: center;
+      padding: 20px;
+    }
+    .testimonial-quote {
+      font-size: 15px;
+      font-style: italic;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .testimonial-author {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      color: var(--primary-navy);
+      font-weight: 600;
+    }
+
+    /* Classic Accordion */
+    .accordion {
       max-width: 800px;
       margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
     }
-    .faq-item {
-      background: var(--white);
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(29, 52, 97, 0.05);
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-      transition: all var(--transition);
+    .accordion-item {
+      border-bottom: 1px solid #eaeaea;
     }
-    .faq-trigger {
+    .accordion-item:first-child {
+      border-top: 1px solid #eaeaea;
+    }
+    .accordion-header {
       width: 100%;
+      text-align: left;
       background: none;
       border: none;
-      padding: 24px 32px;
-      text-align: left;
-      font-family: var(--font-serif);
+      padding: 24px 0;
+      font-family: 'Playfair Display', serif;
       font-size: 18px;
-      font-weight: 700;
-      color: var(--navy);
+      color: var(--primary-navy);
+      cursor: pointer;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      cursor: pointer;
-      gap: 20px;
     }
-    .faq-icon-box {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: var(--warm-white);
-      color: var(--navy);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      transition: all var(--transition);
-      flex-shrink: 0;
+    .accordion-header:hover {
+      color: var(--secondary-gold);
     }
-    .faq-content {
+    .accordion-icon {
+      font-size: 24px;
+      font-weight: 300;
+      color: var(--secondary-gold);
+      transition: transform 0.3s ease;
+    }
+    .accordion-content {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: max-height 0.3s ease;
     }
-    .faq-content-inner {
-      padding: 0 32px 28px;
-      color: var(--muted);
-      font-size: 14.5px;
+    .accordion-content p {
+      padding-bottom: 24px;
+      color: var(--text-muted);
       line-height: 1.7;
+      margin: 0;
     }
-    .faq-item.active {
-      border-color: rgba(244, 162, 97, 0.4);
-      box-shadow: var(--shadow-md);
-    }
-    .faq-item.active .faq-icon-box {
-      background: var(--amber);
-      color: white;
+    .accordion-item.active .accordion-icon {
       transform: rotate(45deg);
     }
 
-    /* Testimonials Redesign */
-    .testimonial-bubble-card {
-      background: var(--white);
-      border-radius: var(--radius-xl);
-      padding: 40px;
-      box-shadow: var(--shadow-sm);
-      border: 1px solid rgba(29, 52, 97, 0.05);
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .quote-decoration {
-      position: absolute;
-      top: 24px;
-      left: 32px;
-      font-family: var(--font-serif);
-      font-size: 80px;
-      color: rgba(244, 162, 97, 0.12);
-      line-height: 0.1;
-      pointer-events: none;
-    }
-    .testimonial-quote-text {
-      position: relative;
-      z-index: 2;
-      font-size: 14.5px;
-      color: var(--muted);
-      line-height: 1.75;
-      font-style: italic;
-      margin-bottom: 24px;
-    }
-    .testimonial-user-info {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      border-top: 1px solid rgba(29, 52, 97, 0.06);
-      padding-top: 20px;
-    }
-    .testimonial-avatar {
-      width: 48px;
-      height: 48px;
-      background: var(--abc-navy-gradient);
+    /* Final CTA */
+    .cta-section {
+      background-color: var(--primary-navy);
       color: white;
-      font-weight: 700;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
+      text-align: center;
+      padding: 80px 20px;
     }
-    .testimonial-user-name {
-      font-weight: 700;
-      color: var(--navy);
-      font-size: 14px;
+    .cta-section h2 {
+      color: white;
+      font-size: 36px;
+      margin-bottom: 20px;
     }
-    .testimonial-user-label {
-      font-size: 11px;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-top: 2px;
+    .cta-section p {
+      color: rgba(255,255,255,0.8);
+      max-width: 600px;
+      margin: 0 auto 32px;
+      line-height: 1.6;
+    }
+    .btn-solid-gold {
+      display: inline-block;
+      background-color: var(--secondary-gold);
+      color: white;
+      padding: 14px 32px;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 2px;
+      transition: background-color 0.3s ease;
+    }
+    .btn-solid-gold:hover {
+      background-color: #b38b4d;
     }
 
-    /* Responsive adjustments */
+    /* Contact Details */
+    .contact-details {
+      text-align: center;
+      padding: 60px 20px;
+      background-color: var(--off-white);
+    }
+    .contact-details h3 {
+      font-size: 24px;
+      margin-bottom: 24px;
+    }
+    .contact-info {
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+    .contact-info a {
+      color: var(--primary-navy);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
     @media (max-width: 900px) {
-      .intro-grid {
+      .intro-section {
+        flex-direction: column;
+      }
+      .academic-grid {
         grid-template-columns: 1fr;
+      }
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
         gap: 40px;
       }
-      .pathways-grid {
-        grid-template-columns: 1fr;
-      }
-      .stats-strip-inner {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .intro-image {
-        height: 320px;
+      .stat-item {
+        border-right: none;
       }
     }
     @media (max-width: 600px) {
-      .stats-strip-inner {
+      .stats-grid {
         grid-template-columns: 1fr;
-      }
-      .floating-stats-badge {
-        position: relative;
-        left: 0;
-        bottom: 0;
-        margin-top: 20px;
-        max-width: 100%;
       }
     }
   </style>
@@ -417,320 +438,224 @@
     <a href="contact.html">Plan Your Visit</a>
   </div>
 
-  <!-- Page Hero -->
-  <div class="page-hero">
-    <span class="section-eyebrow" style="color:var(--amber);">A semi-autonomous division of Hope Church</span>
+  <!-- Classic Hero -->
+  <header class="classic-hero">
+    <span class="hero-eyebrow-text">A Ministry of Hope Community Church</span>
     <h1>Anchor Bible College</h1>
     <p>A higher education institution dedicated to equipping Christians with rigorous, affordable biblical studies.</p>
-  </div>
+  </header>
 
-  <!-- Asymmetrical Overview Section -->
-  <section class="section" style="background:var(--warm-white);">
-    <div class="intro-grid reveal">
-      <div class="intro-text">
-        <span class="section-eyebrow">Deepen Your Calling</span>
-        <h2 class="section-title">High-Quality, Flexible biblical Training</h2>
-        <div class="warm-divider"></div>
-        <p style="font-size:18px; color:var(--navy); font-weight:500; line-height:1.6; margin-bottom:20px;">
+  <!-- Introduction -->
+  <section class="container reveal">
+    <div class="intro-section">
+      <div class="intro-content">
+        <h2>Deepen Your Calling</h2>
+        <p>
           Anchor Bible College provides structured higher education solely designed for, directed toward, and attended by students preparing for Christian ministry.
         </p>
-        <p style="margin-bottom:20px;">
-          Operating in Ypsilanti, Michigan, ABC merges rigorous academic study with active personal discipleship. Classes are taught by instructors with a pastoral calling, ensuring your theological education translates directly to spiritual and practical growth.
+        <p>
+          Operating in Ypsilanti, Michigan, Anchor Bible College merges rigorous academic study with active personal discipleship. Classes are taught by instructors with a pastoral calling, ensuring your theological education translates directly to spiritual and practical growth.
         </p>
-        <p style="margin-bottom:32px;">
-          Whether you want to audit a single class for personal enrichment or build toward an accredited degree, ABC's hybrid structure fits cleanly into a busy schedule.
+        <p>
+          Whether you want to audit a single class for personal enrichment or build toward an accredited degree, Anchor Bible College's hybrid structure fits cleanly into a busy schedule.
         </p>
-        <a href="https://anchorbiblecollege.org/about/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Learn More About ABC ↗</a>
+        <a href="https://anchorbiblecollege.org/about/" target="_blank" rel="noopener noreferrer" class="btn-outline">Learn More About Anchor Bible College</a>
       </div>
-      <div class="intro-image-container">
-        <div class="intro-frame-decoration"></div>
-        <img src="images/abc_classroom.png" alt="Anchor Bible College Classroom Lecture" class="intro-image" />
-        <div class="floating-stats-badge">
-          <div class="floating-stats-title">Affordable Tuition</div>
-          <div class="floating-stats-value">$75</div>
-          <div class="floating-stats-desc">Per Credit Hour. Exceptional education built to be accessible to all.</div>
-        </div>
+      <div class="intro-image-wrapper">
+        <img src="images/abc_classroom.png" alt="Anchor Bible College Classroom" />
       </div>
     </div>
   </section>
 
-  <!-- Quick Stats Strip -->
-  <section class="stats-strip">
-    <div class="stats-strip-inner reveal">
-      <div>
-        <div class="strip-stat-num">12</div>
-        <div class="strip-stat-label">Average Class Size</div>
+  <!-- Fast Facts -->
+  <section class="stats-band reveal">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number">12</div>
+        <div class="stat-label">Average Class Size</div>
       </div>
-      <div>
-        <div class="strip-stat-num">3 hrs</div>
-        <div class="strip-stat-label">Weekly Class Time</div>
+      <div class="stat-item">
+        <div class="stat-number">3 hrs</div>
+        <div class="stat-label">Weekly Class Time</div>
       </div>
-      <div>
-        <div class="strip-stat-num">NCCRS</div>
-        <div class="strip-stat-label">Transfer Network</div>
+      <div class="stat-item">
+        <div class="stat-number">NCCRS</div>
+        <div class="stat-label">Transfer Network</div>
       </div>
-      <div>
-        <div class="strip-stat-num">ABHE</div>
-        <div class="strip-stat-label">Applicant Status</div>
+      <div class="stat-item">
+        <div class="stat-number">$75</div>
+        <div class="stat-label">Per Credit Hour</div>
       </div>
     </div>
   </section>
 
-  <!-- Pathway Split Section -->
-  <section class="section pathways-section">
-    <div style="text-align:center;max-width:700px;margin:0 auto 56px;" class="reveal">
-      <span class="section-eyebrow">Academic Tracks</span>
-      <h2 class="section-title">Two Pathways to Biblical Knowledge</h2>
-      <div class="warm-divider" style="margin:16px auto;"></div>
+  <!-- Academic Pathways -->
+  <section class="container reveal">
+    <div class="section-header">
+      <h2>Academic Offerings</h2>
+      <div class="divider"></div>
       <p>Choose the level of commitment that matches your seasonal availability and long-term ministry goals.</p>
     </div>
-
-    <div class="pathways-grid reveal">
-      <!-- Degree Pathway -->
-      <div class="pathway-card highlighted">
-        <div class="pathway-icon">📜</div>
-        <h3 class="pathway-title">Degree &amp; Diploma Programs</h3>
-        <p class="pathway-desc">
-          Structured programs for students looking to earn recognized certifications in biblical studies. Features credit evaluation recommended for transfer within the NCCRS network.
-        </p>
-        <ul class="pathways-features">
-          <li class="pathway-feature">
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
-            <span>Associate Degree in Biblical Studies</span>
-          </li>
-          <li class="pathway-feature">
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
-            <span>Transfer agreements with Liberty, Cairn, and more</span>
-          </li>
-          <li class="pathway-feature">
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
-            <span>Fulfills requirements for pastoral/mission preparation</span>
-          </li>
+    
+    <div class="academic-grid">
+      <div class="academic-card">
+        <h3>Degree &amp; Diploma Programs</h3>
+        <p>Structured programs for students looking to earn recognized certifications in biblical studies. Features credit evaluation recommended for transfer within the NCCRS network.</p>
+        <ul class="academic-list">
+          <li>Associate Degree in Biblical Studies</li>
+          <li>Transfer agreements with partner universities</li>
+          <li>Fulfills requirements for pastoral/mission preparation</li>
         </ul>
-        <a href="https://anchorbiblecollege.org/associates-degree-in-biblical-studies/" target="_blank" rel="noopener noreferrer" class="btn" style="background:var(--amber); color:white; margin-top:auto; text-align:center;">Degree Requirements ↗</a>
+        <a href="https://anchorbiblecollege.org/associates-degree-in-biblical-studies/" target="_blank" rel="noopener noreferrer" class="btn-outline">Degree Requirements</a>
       </div>
-
-      <!-- Audit Pathway -->
-      <div class="pathway-card">
-        <div class="pathway-icon">📖</div>
-        <h3 class="pathway-title">Personal Enrichment (Audit)</h3>
-        <p class="pathway-desc">
-          Perfect for students seeking personal edification, Bible training, and spiritual development without working toward exams or an official degree.
-        </p>
-        <ul class="pathways-features">
-          <li class="pathway-feature">
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
-            <span style="color:var(--text);">Audit any course for spiritual development</span>
-          </li>
-          <li class="pathway-feature">
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
-            <span style="color:var(--text);">No pressure of tests, writing, or homework</span>
-          </li>
-          <li class="pathway-feature">
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
-            <span style="color:var(--text);">Deep fellowship with classmates and instructors</span>
-          </li>
+      
+      <div class="academic-card">
+        <h3>Personal Enrichment (Audit)</h3>
+        <p>Perfect for students seeking personal edification, Bible training, and spiritual development without working toward exams or an official degree.</p>
+        <ul class="academic-list">
+          <li>Audit any course for spiritual development</li>
+          <li>No pressure of tests, writing, or homework</li>
+          <li>Deep fellowship with classmates and instructors</li>
         </ul>
-        <a href="https://anchorbiblecollege.org/course-descriptions/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-top:auto; text-align:center;">Browse Course Catalog ↗</a>
+        <a href="https://anchorbiblecollege.org/course-descriptions/" target="_blank" rel="noopener noreferrer" class="btn-outline">Browse Course Catalog</a>
       </div>
     </div>
   </section>
 
-  <!-- Transfer Partners Tag Cloud -->
-  <section class="section partners-section">
-    <div class="partners-intro reveal">
-      <span class="section-eyebrow">Transfer Pathways</span>
-      <h2 class="section-title">Transfer Credit Partners</h2>
-      <div class="warm-divider" style="margin:16px auto;"></div>
-      <p>
-        ABC is a member of the National College Credit Recommendation Service (NCCRS). Our degree program courses are evaluated and recommended for transferable credit at over 1,300 cooperating institutions, including:
-      </p>
-    </div>
-    <div class="partners-grid reveal">
-      <div class="partner-tag">Liberty University</div>
-      <div class="partner-tag">Cairn University</div>
-      <div class="partner-tag">Emmaus Bible College</div>
-      <div class="partner-tag">Bethlehem College &amp; Seminary</div>
-      <div class="partner-tag">Rochester University</div>
-      <div class="partner-tag">Detroit Baptist Theological Seminary</div>
-      <div class="partner-tag">God&rsquo;s Bible School &amp; College</div>
-    </div>
-  </section>
-
-  <!-- Student Testimonials (Grid style) -->
-  <section class="section" style="background:var(--white);">
-    <div style="text-align:center;max-width:600px;margin:0 auto 48px;" class="reveal">
-      <span class="section-eyebrow">Alumni Stories</span>
-      <h2 class="section-title">The Student Experience</h2>
-      <div class="warm-divider" style="margin:16px auto;"></div>
-    </div>
-    <div class="abc-highlights reveal">
-      <div class="testimonial-bubble-card">
-        <span class="quote-decoration">&ldquo;</span>
-        <p class="testimonial-quote-text">
-          &ldquo;I took a New Testament survey class and it was a great blessing. If you want to learn more about the Bible and grow in your Christian faith, I think this is the place for you. The staff is wonderful and supportive.&rdquo;
-        </p>
-        <div class="testimonial-user-info">
-          <div class="testimonial-avatar">RR</div>
-          <div>
-            <div class="testimonial-user-name">Reggie Rodrigues</div>
-            <div class="testimonial-user-label">Bible Student</div>
-          </div>
-        </div>
+  <!-- Transfer Partners -->
+  <section class="partners-section">
+    <div class="container reveal">
+      <div class="section-header">
+        <h2>Transfer Credit Partners</h2>
+        <div class="divider"></div>
+        <p>Anchor Bible College is a member of the National College Credit Recommendation Service (NCCRS). Our degree program courses are evaluated and recommended for transferable credit at over 1,300 cooperating institutions, including:</p>
       </div>
-
-      <div class="testimonial-bubble-card">
-        <span class="quote-decoration">&ldquo;</span>
-        <p class="testimonial-quote-text">
-          &ldquo;The biblical truths learned at Anchor Bible College go far beyond academics and have helped tremendously to deepen my relationship with Christ. Having classmates who are serious in their walk is a huge blessing.&rdquo;
-        </p>
-        <div class="testimonial-user-info">
-          <div class="testimonial-avatar">RD</div>
-          <div>
-            <div class="testimonial-user-name">Ruth Derby</div>
-            <div class="testimonial-user-label">Bible Student</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial-bubble-card">
-        <span class="quote-decoration">&ldquo;</span>
-        <p class="testimonial-quote-text">
-          &ldquo;I have taken two classes and both have been life changing, deepening both my personal relationship with God and my effectiveness in ministry. ABC combined with regular ministry at Hope is special.&rdquo;
-        </p>
-        <div class="testimonial-user-info">
-          <div class="testimonial-avatar">AB</div>
-          <div>
-            <div class="testimonial-user-name">Andrew Berry</div>
-            <div class="testimonial-user-label">Bible Student</div>
-          </div>
-        </div>
+      <div class="partners-list">
+        <div class="partner-item">Liberty University</div>
+        <div class="partner-item">Cairn University</div>
+        <div class="partner-item">Emmaus Bible College</div>
+        <div class="partner-item">Bethlehem College &amp; Seminary</div>
+        <div class="partner-item">Rochester University</div>
+        <div class="partner-item">Detroit Baptist Theological Seminary</div>
+        <div class="partner-item">God&rsquo;s Bible School &amp; College</div>
       </div>
     </div>
   </section>
 
-  <!-- Interactive Accordion FAQs -->
-  <section class="section faq-section">
-    <div style="text-align:center;max-width:600px;margin:0 auto 48px;" class="reveal">
-      <span class="section-eyebrow">Got Questions?</span>
-      <h2 class="section-title">Frequently Asked Questions</h2>
-      <div class="warm-divider" style="margin:16px auto;"></div>
+  <!-- Testimonials -->
+  <section class="container reveal">
+    <div class="section-header">
+      <h2>Alumni Experiences</h2>
+      <div class="divider"></div>
     </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-item">
+        <p class="testimonial-quote">&ldquo;I took a New Testament survey class and it was a great blessing. If you want to learn more about the Bible and grow in your Christian faith, I think this is the place for you. The staff is wonderful and supportive.&rdquo;</p>
+        <div class="testimonial-author">Reggie Rodrigues</div>
+      </div>
+      <div class="testimonial-item">
+        <p class="testimonial-quote">&ldquo;The biblical truths learned at Anchor Bible College go far beyond academics and have helped tremendously to deepen my relationship with Christ. Having classmates who are serious in their walk is a huge blessing.&rdquo;</p>
+        <div class="testimonial-author">Ruth Derby</div>
+      </div>
+      <div class="testimonial-item">
+        <p class="testimonial-quote">&ldquo;I have taken two classes and both have been life changing, deepening both my personal relationship with God and my effectiveness in ministry. Anchor Bible College combined with regular ministry at Hope is special.&rdquo;</p>
+        <div class="testimonial-author">Andrew Berry</div>
+      </div>
+    </div>
+  </section>
 
-    <div class="faq-container reveal">
-      <div class="faq-item">
-        <button class="faq-trigger">
+  <!-- FAQ Accordion -->
+  <section class="container reveal">
+    <div class="section-header">
+      <h2>Frequently Asked Questions</h2>
+      <div class="divider"></div>
+    </div>
+    
+    <div class="accordion">
+      <div class="accordion-item">
+        <button class="accordion-header">
           <span>Can I take classes even if I&rsquo;m not working towards a degree?</span>
-          <span class="faq-icon-box">+</span>
+          <span class="accordion-icon">+</span>
         </button>
-        <div class="faq-content">
-          <div class="faq-content-inner">
-            Yes. Anchor Bible College offers certificates and degrees in biblical studies but also offers the opportunity for students to take courses simply for their own personal edification and spiritual growth. Many students choose to audit classes or work at their own relaxed pace.
-          </div>
+        <div class="accordion-content">
+          <p>Yes. Anchor Bible College offers certificates and degrees in biblical studies but also offers the opportunity for students to take courses simply for their own personal edification and spiritual growth. Many students choose to audit classes or work at their own relaxed pace.</p>
         </div>
       </div>
-
-      <div class="faq-item">
-        <button class="faq-trigger">
+      <div class="accordion-item">
+        <button class="accordion-header">
           <span>Is Anchor Bible College accredited?</span>
-          <span class="faq-icon-box">+</span>
+          <span class="accordion-icon">+</span>
         </button>
-        <div class="faq-content">
-          <div class="faq-content-inner">
-            Anchor Bible College holds applicant status with the Association for Biblical Higher Education Commission on Accreditation (ABHE). ABHE is recognized by the Council for Higher Education Accreditation (CHEA) and the U.S. Department of Education, and is the premier accrediting body for biblical higher education.
-          </div>
+        <div class="accordion-content">
+          <p>Anchor Bible College holds applicant status with the Association for Biblical Higher Education Commission on Accreditation (ABHE). ABHE is recognized by the Council for Higher Education Accreditation (CHEA) and the U.S. Department of Education, and is the premier accrediting body for biblical higher education.</p>
         </div>
       </div>
-
-      <div class="faq-item">
-        <button class="faq-trigger">
+      <div class="accordion-item">
+        <button class="accordion-header">
           <span>How is Anchor Bible College affiliated with Hope Community Church?</span>
-          <span class="faq-icon-box">+</span>
+          <span class="accordion-icon">+</span>
         </button>
-        <div class="faq-content">
-          <div class="faq-content-inner">
-            Anchor Bible College is a semi-autonomous division of Hope Community Church. We utilize classroom facilities owned and operated by Hope Community Church, maintaining a strong operational relationship, while operating under our own independent board of directors in keeping with ABHE standards.
-          </div>
+        <div class="accordion-content">
+          <p>Anchor Bible College is a semi-autonomous division of Hope Community Church. We utilize classroom facilities owned and operated by Hope Community Church, maintaining a strong operational relationship, while operating under our own independent board of directors in keeping with ABHE standards.</p>
         </div>
       </div>
-
-      <div class="faq-item">
-        <button class="faq-trigger">
+      <div class="accordion-item">
+        <button class="accordion-header">
           <span>How is the tuition kept so affordable?</span>
-          <span class="faq-icon-box">+</span>
+          <span class="accordion-icon">+</span>
         </button>
-        <div class="faq-content">
-          <div class="faq-content-inner">
-            Thanks to generous donors, volunteer leadership, and shared facilities with Hope Community Church, we minimize institutional overhead. This allow us to pass direct savings to our students, keeping tuition at an affordable $75 per credit hour.
-          </div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-trigger">
-          <span>Is ABC authorized by the State of Michigan?</span>
-          <span class="faq-icon-box">+</span>
-        </button>
-        <div class="faq-content">
-          <div class="faq-content-inner">
-            Yes. The office of post-secondary schools at the State of Michigan has authorized Anchor Bible College to operate as a religious higher education institution as a division of Hope Community Church, specifically designed to prepare students for Christian ministry.
-          </div>
+        <div class="accordion-content">
+          <p>Thanks to generous donors, volunteer leadership, and shared facilities with Hope Community Church, we minimize institutional overhead. This allow us to pass direct savings to our students, keeping tuition at an affordable $75 per credit hour.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Modern CTA Box -->
-  <section class="section" style="background:var(--warm-white);">
-    <div class="abc-cta reveal">
-      <span class="section-eyebrow" style="color:var(--amber);">Application Period Open</span>
-      <h2>Apply for the Next Semester</h2>
-      <p>Enrollment is open for the upcoming academic session. Head over to the official Anchor Bible College registration page to submit your application or view the active course catalog.</p>
-      <div class="abc-cta-buttons">
-        <a href="https://anchorbiblecollege.org/application-registration/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size:16px;padding:16px 36px; background:var(--amber);">Apply &amp; Register ↗</a>
-        <a href="https://anchorbiblecollege.org/" target="_blank" rel="noopener noreferrer" class="btn" style="font-size:16px;padding:16px 36px;background:rgba(255,255,255,0.12);color:white;border:1.5px solid rgba(255,255,255,0.3);border-radius:100px;">Visit Official Site ↗</a>
-      </div>
-    </div>
+  <!-- Call to Action -->
+  <section class="cta-section reveal">
+    <h2>Apply for the Next Semester</h2>
+    <p>Enrollment is open for the upcoming academic session. Visit the official Anchor Bible College website to submit your application or view the active course catalog.</p>
+    <a href="https://anchorbiblecollege.org/application-registration/" target="_blank" rel="noopener noreferrer" class="btn-solid-gold">Apply &amp; Register</a>
   </section>
 
-  <!-- Contact Info Grid -->
-  <section class="section" style="background:var(--cream); text-align:center; border-top:1px solid rgba(29, 52, 97, 0.04);">
-    <div class="reveal" style="max-width:600px;margin:0 auto;">
-      <span class="section-eyebrow">Academic Office</span>
-      <h2 class="section-title" style="font-size:28px;">Connect with Admissions</h2>
-      <div class="warm-divider" style="margin:16px auto;"></div>
-      <p style="margin-bottom:12px;">📍 <strong>Location:</strong> <a href="https://www.google.com/maps/search/?api=1&query=2100+Ellsworth+Rd+Ypsilanti+MI+48197" target="_blank" rel="noopener noreferrer" style="color:var(--amber);">2100 Ellsworth Rd, Ypsilanti, MI 48197</a></p>
-      <p style="margin-bottom:12px;">📞 <strong>Phone:</strong> <a href="tel:7347218190" style="color:var(--amber);">734-721-8190</a></p>
-      <p>✉️ <strong>Email:</strong> <a href="mailto:admissions@anchorbiblecollege.org" style="color:var(--amber);">admissions@anchorbiblecollege.org</a></p>
+  <!-- Contact -->
+  <section class="contact-details">
+    <h3>Academic Office</h3>
+    <div class="contact-info">
+      <p>2100 Ellsworth Rd, Ypsilanti, MI 48197</p>
+      <p><a href="tel:7347218190">734-721-8190</a></p>
+      <p><a href="mailto:admissions@anchorbiblecollege.org">admissions@anchorbiblecollege.org</a></p>
     </div>
   </section>
 
   <footer>
     <div class="footer-bottom" style="border-top:none;padding-top:0;">
-      <span>&copy; 2025 Hope Community Church · <a href="index.html" style="color:var(--amber);">Back to Home</a></span>
+      <span>&copy; 2025 Hope Community Church · <a href="index.html" style="color:var(--secondary-gold);">Back to Home</a></span>
       <span>(734) 721-8190</span>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
   <script>
-    // FAQ Accordion Script
-    document.querySelectorAll('.faq-trigger').forEach(trigger => {
-      trigger.addEventListener('click', () => {
-        const item = trigger.parentNode;
-        const content = trigger.nextElementSibling;
-        const isActive = item.classList.contains('active');
+    // Classic Accordion Script
+    document.querySelectorAll('.accordion-header').forEach(button => {
+      button.addEventListener('click', () => {
+        const accordionItem = button.parentElement;
+        const accordionContent = button.nextElementSibling;
+        const isActive = accordionItem.classList.contains('active');
 
         // Close all items
-        document.querySelectorAll('.faq-item').forEach(el => {
-          el.classList.remove('active');
-          el.querySelector('.faq-content').style.maxHeight = null;
+        document.querySelectorAll('.accordion-item').forEach(item => {
+          item.classList.remove('active');
+          item.querySelector('.accordion-content').style.maxHeight = null;
+          item.querySelector('.accordion-icon').textContent = '+';
         });
 
-        // Toggle clicked item
+        // Open clicked item if it wasn't active
         if (!isActive) {
-          item.classList.add('active');
-          content.style.maxHeight = content.scrollHeight + "px";
+          accordionItem.classList.add('active');
+          accordionContent.style.maxHeight = accordionContent.scrollHeight + "px";
+          button.querySelector('.accordion-icon').textContent = '×';
         }
       });
     });
