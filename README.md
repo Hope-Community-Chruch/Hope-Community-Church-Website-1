@@ -46,7 +46,7 @@ hope_church_website/
 ### Homepage (`index.html`)
 - **Animated canvas hero** — golden sunrise rays + floating particles
 - **Frosted glass navigation** — transparent on hero, blurs into white on scroll
-- **Animated stat counters** — 33 years, 8 groups, 300+ lives, count up on scroll
+- **Animated stat counters** — 33 years, 8 groups, count up on scroll
 - **🔥 Cross Reveal Section** — Scroll-pinned animation:
   - 4 golden cross arms fly in from opposite directions with 3D tumble
   - Light burst fires when they lock together
