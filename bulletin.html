@@ -99,35 +99,47 @@
   <section class="section" style="background:var(--warm-white);">
     <div class="bulletin-grid">
       <div class="bulletin-list">
-        <div class="bulletin-item reveal">
-          <div class="b-date">Apr 6, 2025 — Announcement</div>
-          <div class="b-title">Easter Sunday Service — Special Celebration</div>
-          <div class="b-excerpt">Join us for a special Easter Sunday celebration on April 20th. Extra seating will be available. Invite your family and friends — there will be special music, a powerful message, and refreshments after service.</div>
-        </div>
-        <div class="bulletin-item reveal delay-1">
-          <div class="b-date">Apr 1, 2025 — Prayer Request</div>
-          <div class="b-title">Community Prayer Chain — Join Us</div>
-          <div class="b-excerpt">We are lifting up several families in our congregation during this season. Contact the church office to be added to our prayer chain or to submit a prayer request. "The prayer of a righteous person is powerful and effective." — James 5:16</div>
-        </div>
-        <div class="bulletin-item reveal delay-2">
-          <div class="b-date">Mar 28, 2025 — Event</div>
-          <div class="b-title">Hope Groups Spring Kickoff — April 12</div>
-          <div class="b-excerpt">New semester of Hope Groups starting April 12. Five days and different times available. Whether you're a longtime member or brand new, there's a group for you. Sign up by April 8th.</div>
-        </div>
-        <div class="bulletin-item reveal">
-          <div class="b-date">Mar 21, 2025 — Update</div>
-          <div class="b-title">Anchor Bible College — Now Enrolling</div>
-          <div class="b-excerpt">Registration is open for the new Anchor Bible College semester. Equip yourself with deeper knowledge of God's Word. Classes available weeknights. Contact us for the full course catalog.</div>
+        <div class="bulletin-item reveal" style="padding: 40px; text-align: left;">
+          <div class="b-date" style="font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); margin-bottom: 12px;">July 5, 2026 — Bulletin News</div>
+          <h2 style="font-family:'Playfair Display',serif; color:var(--navy); margin-bottom: 24px; font-size: clamp(26px, 3.5vw, 36px);">Weekly Bulletin</h2>
+          
+          <div class="b-content" style="font-size: 15px; color: var(--navy); line-height: 1.8; display: flex; flex-direction: column; gap: 24px;">
+            <p><strong>THE LORD’S SUPPER WILL BE SERVED</strong> during our worship today. All who know Jesus as Savior are invited to participate in taking communion.</p>
+            
+            <p><strong>THE PREACHING TODAY</strong> will be based on Daniel chapter 6, where we hear Daniel say, “My God sent His angel and shut the lions’ mouths.”</p>
+            
+            <p><strong>AFTER CHURCH TODAY</strong>, Camp Tikva volunteers will gather for an organizational meeting at 12:45 in the iFire room. They will receive assignments for next week’s Camp Tikva.</p>
+            
+            <div style="background: rgba(244,162,97,0.05); padding: 28px; border-radius: var(--radius-md); border-left: 4px solid var(--amber); margin: 8px 0;">
+              <h4 style="font-family: var(--font-sans); font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Are you ready for the Annual Church Picnic?</h4>
+              <p style="margin-bottom: 12px; font-weight: 500;">Here are the essential details:</p>
+              <ul style="list-style: disc; margin-left: 20px; display: flex; flex-direction: column; gap: 8px; color: var(--text); font-size: 14px;">
+                <li>The picnic is scheduled for this Saturday, <strong>July 11</strong>, at <strong>1:00 pm</strong>.</li>
+                <li>The event will include a wonderful time of food, activities, worship, testimony, and Christian fellowship.</li>
+                <li>Please note that we can accommodate any kind of weather. Please come, rain or shine.</li>
+                <li>Lily Peterson is arranging food for the picnic. You may sign up by calling Lily at <strong>734-368-7358</strong>.</li>
+              </ul>
+            </div>
+            
+            <p><strong>LINA SOPER INVITES YOU</strong> to participate in the Picnic Freebie Exchange. Do you have clothing or household items you would like to give away? Are there things you need that you would like to receive? A display area will be set up and monitored from 1:00-4:00 during the church picnic.</p>
+            
+            <p><strong>NEXT SUNDAY</strong>, after church, there will be a mandatory meeting for Camp Tikva volunteers. This will ensure safety for the children, as well as spiritual preparation for those who serve.</p>
+            
+            <p><strong>CAMP TIKVA IS ONE WEEK AWAY!</strong> The program will begin at 10:00 am on Monday morning, July 13. It will end each day at 3:30 pm. This year we will study the book of Genesis.</p>
+            
+            <p><strong>ALSO COMING IN JULY</strong>, our church will send a ministry team to Shawanaga, Ontario from July 18 to 25.</p>
+            
+            <p><strong>IT IS TIME TO REGISTER FOR A CAMP SITE</strong> for the annual Hope Church Camping trip. The annual camping trip will be August 14-16. To secure a camp site, please contact our Camping Captain, Ben Ferguson at <strong>734-223-2404</strong>.</p>
+          </div>
         </div>
       </div>
 
       <div>
         <div class="sidebar-widget reveal">
           <div class="sw-title">📅 Upcoming Events</div>
-          <div class="event-item"><div class="ev-date">Jan 2</div><div class="ev-name">Intensive Bible Study</div></div>
-          <div class="event-item"><div class="ev-date">Jan 4</div><div class="ev-name">Anchor Winter Semester Starts</div></div>
-          <div class="event-item"><div class="ev-date">Jan 19</div><div class="ev-name">College Luncheon</div></div>
-          <div class="event-item"><div class="ev-date">Jan 25</div><div class="ev-name">Congregational Meeting</div></div>
+          <div id="dynamic-events">
+            <!-- Dynamically populated from yearly calendar -->
+          </div>
         </div>
         <div class="sidebar-widget reveal delay-1">
           <div class="sw-title">🙏 Prayer Requests</div>
@@ -265,5 +277,61 @@
 
   <footer><div class="footer-bottom" style="border-top:none;padding-top:0;"><span>© 2025 Hope Community Church · <a href="index.html" style="color:var(--amber);">Back to Home</a></span><span>(734) 721-8190</span></div></footer>
   <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const monthMap = {
+        jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5, jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11
+      };
+      
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const currentYear = today.getFullYear();
+
+      const calendarItems = Array.from(document.querySelectorAll('.calendar-item'));
+      const parsedEvents = [];
+
+      calendarItems.forEach(item => {
+        const dateText = item.querySelector('.cal-date-badge').textContent.trim();
+        const title = item.querySelector('.cal-event-title').textContent.trim();
+        
+        // Regex matches the first month and day, e.g., "Aug 28 - Sep 2" -> "Aug" and "28"
+        const match = dateText.match(/^(Jan|Feb|Mar|Apr|May|June?|July?|Aug|Sept?|Oct|Nov|Dec)[a-z]*\s+(\d+)/i);
+        if (match) {
+          let mStr = match[1].toLowerCase().substring(0, 3);
+          const day = parseInt(match[2], 10);
+          const eventDate = new Date(currentYear, monthMap[mStr], day);
+          parsedEvents.push({ dateText, title, dateObj: eventDate });
+        }
+      });
+
+      // Filter events: we want those that are today or in the future
+      let upcoming = parsedEvents.filter(e => e.dateObj >= today);
+      
+      // If we have fewer than 4 events left in the current year, wrap around to show next year's events
+      if (upcoming.length < 4) {
+        const nextYearEvents = parsedEvents.map(e => ({
+          ...e,
+          dateObj: new Date(currentYear + 1, e.dateObj.getMonth(), e.dateObj.getDate())
+        }));
+        upcoming = upcoming.concat(nextYearEvents);
+      }
+
+      // Sort events chronologically
+      upcoming.sort((a, b) => a.dateObj - b.dateObj);
+
+      // Get the top 4
+      const nextFour = upcoming.slice(0, 4);
+
+      const container = document.getElementById('dynamic-events');
+      if (container) {
+        container.innerHTML = nextFour.map(e => `
+          <div class="event-item">
+            <div class="ev-date">${e.dateText}</div>
+            <div class="ev-name">${e.title}</div>
+          </div>
+        `).join('');
+      }
+    });
+  </script>
 </body>
 </html>
