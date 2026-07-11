@@ -263,6 +263,27 @@
       border-radius: 2px;
     }
 
+    /* Transfer Partners Logos Grid */
+    .partners-logos-grid {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+    .partners-logos-grid img {
+      max-height: 45px;
+      width: auto;
+      filter: grayscale(100%);
+      opacity: 0.7;
+      transition: all 0.3s ease;
+    }
+    .partners-logos-grid img:hover {
+      filter: grayscale(0%);
+      opacity: 1;
+    }
+
     /* Testimonials */
     .testimonials-grid {
       display: grid;
@@ -454,8 +475,11 @@
 
   <!-- Classic Hero -->
   <header class="classic-hero">
+    <div style="margin-bottom: 24px;">
+      <img src="images/Anchor_bible-college.png" alt="Anchor Bible College" style="max-height: 80px; width: auto; filter: brightness(0) invert(1);" />
+    </div>
     <span class="hero-eyebrow-text">A Ministry of Hope Community Church</span>
-    <h1>Anchor Bible College</h1>
+    <h1 style="display: none;">Anchor Bible College</h1>
     <p>A higher education institution dedicated to equipping Christians with rigorous, affordable biblical studies.</p>
   </header>
 
@@ -539,8 +563,12 @@
         <div class="divider"></div>
         <p>Anchor Bible College is a member of the National College Credit Recommendation Service (NCCRS). Our degree program courses are evaluated and recommended for transferable credit at over 1,300 cooperating institutions, including:</p>
       </div>
-      <div style="text-align: center; margin-top: 40px;">
-        <img src="images/partner_logos.png" alt="Transfer Credit Partners Logos" style="max-width: 100%; height: auto; display: inline-block;" />
+      <div class="partners-logos-grid">
+        <img src="images/logo_liberty.png" alt="Liberty University" />
+        <img src="images/logo_bethlehem.png" alt="Bethlehem College &amp; Seminary" />
+        <img src="images/logo_cairn.png" alt="Cairn University" />
+        <img src="images/logo_emmaus.png" alt="Emmaus University" />
+        <img src="images/logo_rochester.png" alt="Rochester Christian University" />
       </div>
     </div>
   </section>
