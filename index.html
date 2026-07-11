@@ -290,6 +290,9 @@
       box-shadow: var(--shadow-sm);
       border: 1px solid rgba(29,52,97,0.06);
       transition: transform var(--transition), box-shadow var(--transition);
+      text-decoration: none;
+      color: inherit;
+      display: block;
     }
     .community-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
     .comm-img { height: 180px; overflow: hidden; position: relative; }
@@ -764,7 +767,7 @@
 
     <div class="drag-scroll" style="max-width:1300px;margin:0 auto;padding:8px 0 24px;">
 
-      <div class="community-card">
+      <a href="groups.html" class="community-card">
         <div class="comm-img img-zoom">
           <img src="images/community.png" alt="Hope Groups" />
           <div class="comm-overlay"></div>
@@ -775,16 +778,16 @@
           </div>
           <h4>Hope Groups</h4>
           <p>Small groups that meet weekly — studying the Bible, building friendships, and doing life together.</p>
-          <a href="groups.html" class="comm-link">
+          <div class="comm-link">
             Learn More
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </a>
+          </div>
         </div>
-      </div>
+      </a>
 
-      <div class="community-card">
+      <a href="kids.html" class="community-card">
         <div class="comm-img img-zoom">
-          <img src="images/hero_worship.png" alt="Kids & Youth" />
+          <img src="images/hero_worship.png" alt="Kids &amp; Youth" />
           <div class="comm-overlay"></div>
         </div>
         <div class="comm-body">
@@ -793,14 +796,14 @@
           </div>
           <h4>Kids &amp; Youth</h4>
           <p>Fun, faith-filled environments where younger generations discover God's love in age-appropriate ways.</p>
-          <a href="kids.html" class="comm-link">
+          <div class="comm-link">
             Explore
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </a>
+          </div>
         </div>
-      </div>
+      </a>
 
-      <div class="community-card">
+      <a href="sermons.html" class="community-card">
         <div class="comm-img img-zoom">
           <img src="images/community.png" alt="Worship" />
           <div class="comm-overlay"></div>
@@ -811,17 +814,16 @@
           </div>
           <h4>Worship</h4>
           <p>Contemporary worship that invites everyone into a genuine encounter with God every Sunday morning.</p>
-          <a href="sermons.html" class="comm-link">
+          <div class="comm-link">
             Watch Live
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </a>
+          </div>
         </div>
-      </div>
+      </a>
 
-      <div class="community-card">
-        <div class="comm-img img-zoom">
-          <img src="images/hero_worship.png" alt="Bible College" />
-          <div class="comm-overlay"></div>
+      <a href="college.html" class="community-card">
+        <div class="comm-img img-zoom" style="background: var(--navy); display: flex; align-items: center; justify-content: center; padding: 24px;">
+          <img src="images/Anchor_bible-college.png" alt="Anchor Bible College Logo" style="object-fit: contain; width: 100%; height: 100%;" />
         </div>
         <div class="comm-body">
           <div class="comm-icon">
@@ -829,14 +831,14 @@
           </div>
           <h4>Anchor Bible College</h4>
           <p>Deepen your understanding of the Word through structured biblical education and mentorship.</p>
-          <a href="college.html" class="comm-link">
+          <div class="comm-link">
             Enroll
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </a>
+          </div>
         </div>
-      </div>
+      </a>
 
-      <div class="community-card">
+      <a href="bulletin.html" class="community-card">
         <div class="comm-img img-zoom">
           <img src="images/community.png" alt="Bulletin News" />
           <div class="comm-overlay"></div>
@@ -847,12 +849,11 @@
           </div>
           <h4>Bulletin &amp; News</h4>
           <p>Stay up to date on church announcements, events, prayer requests, and upcoming activities.</p>
-          <a href="bulletin.html" class="comm-link">
+          <div class="comm-link">
             Read Now
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </a>
         </div>
-      </div>
+      </a>
 
     </div>
   </section>
