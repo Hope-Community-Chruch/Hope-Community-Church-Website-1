@@ -5,12 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Watch Sunday sermons from Hope Community Church. Browse messages by series and topic." />
   <title>Sunday Sermons | Hope Community Church</title>
+  
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet" />
+  
+  <!-- Styles -->
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="css/animations.css" />
+  
+  <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  
+  <!-- Config -->
+  <script src="js/config.js"></script>
+
   <style>
     .filter-bar {
       display: flex; gap: 10px; flex-wrap: wrap;
@@ -39,6 +49,7 @@
       box-shadow: var(--shadow-sm);
       border: 1px solid rgba(29,52,97,0.06);
       transition: transform var(--transition), box-shadow var(--transition);
+      cursor: pointer;
     }
     .sermon-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
     .sermon-thumb-wrap { position: relative; height: 200px; background: #0a1428; overflow: hidden; }
@@ -66,6 +77,42 @@
     .sc-title { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--navy); margin-bottom: 8px; line-height: 1.3; }
     .sc-meta { display: flex; align-items: center; gap: 14px; font-size: 12px; color: var(--muted); }
     .sc-meta span { display: flex; align-items: center; gap: 4px; }
+
+    /* ── VIDEO PLAYER MODAL ── */
+    .video-modal {
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(15,30,61,0.85);
+      backdrop-filter: blur(10px);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.4s ease;
+      padding: 24px;
+    }
+    .video-modal.open {
+      opacity: 1; pointer-events: auto;
+    }
+    .video-modal-content {
+      position: relative;
+      width: 100%; max-width: 900px;
+      background: #000;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .video-modal-close {
+      position: absolute; top: -44px; right: 0;
+      background: none; border: none;
+      color: white; font-size: 28px; cursor: pointer;
+      padding: 8px; transition: transform var(--transition);
+    }
+    .video-modal-close:hover { transform: scale(1.1); color: var(--amber); }
+    .video-responsive-wrapper {
+      position: relative; padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      height: 0; overflow: hidden;
+    }
+    .video-responsive-wrapper iframe {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+    }
     @media (max-width: 600px) { .sermons-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
@@ -84,10 +131,12 @@
       <li><a href="kids.html">Kids &amp; Youth</a></li>
       <li><a href="bulletin.html">Bulletin</a></li>
       <li><a href="college.html">Bible College</a></li>
+      <li><a href="give.html">Give</a></li>
       <li><a href="contact.html" class="nav-cta">Plan Your Visit</a></li>
     </ul>
     <button class="nav-hamburger"><span></span><span></span><span></span></button>
   </nav>
+  
   <div class="mobile-overlay"></div>
   <div class="mobile-menu">
     <button class="menu-close">✕</button>
@@ -99,6 +148,7 @@
     <a href="kids.html">Kids &amp; Youth</a>
     <a href="bulletin.html">Bulletin</a>
     <a href="college.html">Bible College</a>
+    <a href="give.html">Give</a>
     <a href="contact.html">Plan Your Visit</a>
   </div>
 
@@ -119,8 +169,8 @@
       </div>
 
       <div class="sermons-grid">
-        <!-- Sermon 1 -->
-        <div class="sermon-card reveal" data-category="hope">
+        <!-- Fallback Sermon 1 -->
+        <div class="sermon-card reveal" data-category="hope" data-video-id="dQw4w9WgXcQ">
           <div class="sermon-thumb-wrap">
             <img src="images/hero_worship.png" alt="Sermon" />
             <div class="sermon-play-sm"><div class="play-sm"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
@@ -136,7 +186,8 @@
           </div>
         </div>
 
-        <div class="sermon-card reveal delay-1" data-category="faith">
+        <!-- Fallback Sermon 2 -->
+        <div class="sermon-card reveal delay-1" data-category="faith" data-video-id="dQw4w9WgXcQ">
           <div class="sermon-thumb-wrap">
             <img src="images/community.png" alt="Sermon" />
             <div class="sermon-play-sm"><div class="play-sm"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
@@ -148,7 +199,8 @@
           </div>
         </div>
 
-        <div class="sermon-card reveal delay-2" data-category="community">
+        <!-- Fallback Sermon 3 -->
+        <div class="sermon-card reveal delay-2" data-category="community" data-video-id="dQw4w9WgXcQ">
           <div class="sermon-thumb-wrap">
             <img src="images/hero_worship.png" alt="Sermon" />
             <div class="sermon-play-sm"><div class="play-sm"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
@@ -160,7 +212,8 @@
           </div>
         </div>
 
-        <div class="sermon-card reveal" data-category="bible">
+        <!-- Fallback Sermon 4 -->
+        <div class="sermon-card reveal" data-category="bible" data-video-id="dQw4w9WgXcQ">
           <div class="sermon-thumb-wrap">
             <img src="images/community.png" alt="Sermon" />
             <div class="sermon-play-sm"><div class="play-sm"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
@@ -172,7 +225,8 @@
           </div>
         </div>
 
-        <div class="sermon-card reveal delay-1" data-category="hope">
+        <!-- Fallback Sermon 5 -->
+        <div class="sermon-card reveal delay-1" data-category="hope" data-video-id="dQw4w9WgXcQ">
           <div class="sermon-thumb-wrap">
             <img src="images/hero_worship.png" alt="Sermon" />
             <div class="sermon-play-sm"><div class="play-sm"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
@@ -184,7 +238,8 @@
           </div>
         </div>
 
-        <div class="sermon-card reveal delay-2" data-category="faith">
+        <!-- Fallback Sermon 6 -->
+        <div class="sermon-card reveal delay-2" data-category="faith" data-video-id="dQw4w9WgXcQ">
           <div class="sermon-thumb-wrap">
             <img src="images/community.png" alt="Sermon" />
             <div class="sermon-play-sm"><div class="play-sm"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
@@ -199,6 +254,16 @@
     </div>
   </section>
 
+  <!-- Video Modal Player -->
+  <div id="video-modal" class="video-modal">
+    <div class="video-modal-content">
+      <button class="video-modal-close" aria-label="Close video">✕</button>
+      <div class="video-responsive-wrapper">
+        <iframe id="video-iframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
   <footer>
     <div class="footer-bottom" style="border-top:none;padding-top:0;">
       <span>© 2025 Hope Community Church · <a href="index.html" style="color:var(--amber);">Back to Home</a></span>
@@ -207,21 +272,173 @@
   </footer>
 
   <script src="js/main.js"></script>
+  
   <script>
-    // Filter logic
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.dataset.filter;
-        document.querySelectorAll('.sermon-card').forEach(card => {
-          const show = filter === 'all' || card.dataset.category === filter;
-          card.style.transition = 'opacity 0.3s, transform 0.3s';
-          card.style.opacity = show ? '1' : '0.2';
-          card.style.transform = show ? '' : 'scale(0.97)';
-          card.style.pointerEvents = show ? '' : 'none';
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1. YouTube Data API Configuration
+      const config = window.CHURCH_CONFIG || {};
+      const apiKey = config.youtubeApiKey;
+      const playlistId = config.youtubePlaylistId;
+
+      if (apiKey && playlistId) {
+        fetchSermonsFromYouTube(apiKey, playlistId);
+      } else {
+        console.log("YouTube API key/playlist not configured. Using local fallback cards.");
+        initVideoModal();
+        initFilterButtons();
+      }
+
+      // 2. Fetch playlist items from YouTube Data API v3
+      function fetchSermonsFromYouTube(key, playlist) {
+        const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails&maxResults=24&playlistId=${playlist}&key=${key}`;
+        
+        fetch(url)
+          .then(res => {
+            if (!res.ok) throw new Error("YouTube API HTTP error: " + res.statusText);
+            return res.json();
+          })
+          .then(data => {
+            if (data.items && data.items.length > 0) {
+              renderYouTubeSermons(data.items);
+            } else {
+              throw new Error("No items returned in playlist.");
+            }
+          })
+          .catch(err => {
+            console.error("YouTube Fetch failed. Falling back to local sermons:", err);
+            initVideoModal();
+            initFilterButtons();
+          });
+      }
+
+      // 3. Render dynamic YouTube sermon cards
+      function renderYouTubeSermons(items) {
+        const grid = document.querySelector(".sermons-grid");
+        grid.innerHTML = ""; // Clear fallback cards
+
+        items.forEach((item, index) => {
+          const snippet = item.snippet || {};
+          const videoId = item.contentDetails?.videoId || snippet.resourceId?.videoId;
+          if (!videoId) return;
+
+          const title = snippet.title || "Sunday Sermon";
+          const publishedRaw = snippet.publishedAt || new Date().toISOString();
+          const publishedDate = new Date(publishedRaw).toLocaleDateString(undefined, {
+            year: "numeric",
+            month: "short",
+            day: "numeric"
+          });
+
+          // Thumbnail resolution hierarchy
+          const th = snippet.thumbnails || {};
+          const thumbUrl = th.maxres?.url || th.standard?.url || th.high?.url || th.medium?.url || th.default?.url || "images/hero_worship.png";
+
+          // Extract series (e.g. "Series Name: Title text")
+          let series = "Sunday Message";
+          if (title.includes(":")) {
+            series = title.split(":")[0].trim();
+          } else if (title.includes(" - ")) {
+            series = title.split(" - ")[0].trim();
+          }
+
+          // Category determination for category filters
+          let category = "bible";
+          const lowerTitle = title.toLowerCase();
+          if (lowerTitle.includes("faith")) category = "faith";
+          else if (lowerTitle.includes("hope")) category = "hope";
+          else if (lowerTitle.includes("community")) category = "community";
+
+          const card = document.createElement("div");
+          card.className = "sermon-card reveal";
+          card.dataset.category = category;
+          card.dataset.videoId = videoId;
+
+          card.innerHTML = `
+            <div class="sermon-thumb-wrap">
+              <img src="${thumbUrl}" alt="${title}" loading="lazy" />
+              <div class="sermon-play-sm">
+                <div class="play-sm">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="none">
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                  </svg>
+                </div>
+              </div>
+              ${index === 0 ? '<span class="sermon-badge">Latest</span>' : ''}
+            </div>
+            <div class="sc-body">
+              <div class="sc-series">${series}</div>
+              <div class="sc-title">${title}</div>
+              <div class="sc-meta">
+                <span>📅 ${publishedDate}</span>
+              </div>
+            </div>
+          `;
+
+          grid.appendChild(card);
         });
-      });
+
+        // Initialize modals and filters on dynamic content
+        initVideoModal();
+        initFilterButtons();
+      }
+
+      // 4. Modal player functions
+      function initVideoModal() {
+        const modal = document.getElementById("video-modal");
+        const iframe = document.getElementById("video-iframe");
+        const closeBtn = document.querySelector(".video-modal-close");
+
+        document.querySelectorAll(".sermon-card").forEach(card => {
+          card.addEventListener("click", () => {
+            const videoId = card.getAttribute("data-video-id");
+            if (videoId) {
+              iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+              modal.classList.add("open");
+              document.body.style.overflow = "hidden";
+            }
+          });
+        });
+
+        function closeModal() {
+          modal.classList.remove("open");
+          iframe.src = "";
+          document.body.style.overflow = "";
+        }
+
+        closeBtn.addEventListener("click", closeModal);
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) closeModal();
+        });
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && modal.classList.contains("open")) {
+            closeModal();
+          }
+        });
+      }
+
+      // 5. Category filter logic
+      function initFilterButtons() {
+        document.querySelectorAll(".filter-btn").forEach(btn => {
+          // Remove old listeners to avoid multiple attachments
+          const newBtn = btn.cloneNode(true);
+          btn.parentNode.replaceChild(newBtn, btn);
+
+          newBtn.addEventListener("click", () => {
+            document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+            newBtn.classList.add("active");
+            
+            const filter = newBtn.getAttribute("data-filter");
+            document.querySelectorAll(".sermon-card").forEach(card => {
+              const show = filter === "all" || card.getAttribute("data-category") === filter;
+              card.style.transition = "opacity 0.3s, transform 0.3s";
+              card.style.opacity = show ? "1" : "0.2";
+              card.style.transform = show ? "" : "scale(0.97)";
+              card.style.pointerEvents = show ? "" : "none";
+            });
+          });
+        });
+      }
     });
   </script>
 </body>
