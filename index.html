@@ -543,8 +543,52 @@
       .stat-card { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
       .beliefs-row { grid-template-columns: 1fr; }
     }
+    @media (max-width: 768px) {
+      .nav-logo img { height: 44px !important; }
+      #navbar { padding: 10px 16px !important; }
+      .hero-scroll-hint { display: none !important; }
+    }
     @media (max-width: 600px) {
-      .hero-actions { flex-direction: column; align-items: center; }
+      #hero {
+        height: auto !important;
+        min-height: 100vh !important;
+        padding: 140px 20px 60px !important;
+        display: flex !important;
+        align-items: center !important;
+      }
+      .hero-content {
+        padding: 0 !important;
+      }
+      .hero-eyebrow {
+        font-size: 11px !important;
+        letter-spacing: 1.5px !important;
+        padding: 8px 16px !important;
+        gap: 6px !important;
+        margin-bottom: 24px !important;
+        border-radius: 100px !important;
+        display: inline-flex !important;
+        max-width: 100% !important;
+      }
+      .hero-eyebrow .dot { display: none !important; }
+      .hero-title {
+        font-size: clamp(30px, 7vw, 42px) !important;
+        margin-bottom: 16px !important;
+      }
+      .hero-sub {
+        font-size: 14px !important;
+        margin-bottom: 28px !important;
+      }
+      .hero-actions {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        width: 100% !important;
+        max-width: 300px !important;
+        margin: 0 auto !important;
+      }
+      .hero-actions .btn {
+        width: 100% !important;
+        justify-content: center !important;
+      }
       #signup-form { flex-direction: column; border-radius: var(--radius-md); padding: 16px; }
       #signup-form button { border-radius: var(--radius-md); }
     }
