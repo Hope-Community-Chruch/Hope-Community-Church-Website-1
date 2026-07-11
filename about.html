@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn how Hope Community Church started on Easter Sunday, 1993, and how we continue to grow and reach Ypsilanti, MI." />
+  <title>Our Story | Hope Community Church</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <style>
+    .about-content { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+    .about-img { border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg); margin-bottom: 50px; border: 1px solid rgba(29,52,97,0.06); }
+    .about-img img { width: 100%; height: auto; display: block; }
+    .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 50px; }
+    .about-card { background: var(--warm-white); border-radius: var(--radius-md); padding: 28px 24px; border: 1px solid rgba(29,52,97,0.06); text-align: center; box-shadow: var(--shadow-sm); }
+    .about-card-icon { display: inline-flex; align-items: center; justify-content: center; margin-bottom: 14px; color: var(--amber); }
+    .about-card h4 { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--navy); margin-bottom: 8px; }
+    .about-card p { font-size: 13px; color: var(--muted); line-height: 1.5; }
+    .story-text { font-size: 16px; color: var(--navy); line-height: 1.8; opacity: 0.95; }
+    .story-text p { margin-bottom: 24px; }
+    .story-text strong { color: var(--gold); }
+    .cta-row { display: flex; gap: 16px; justify-content: center; margin-top: 50px; border-top: 1px solid rgba(29,52,97,0.08); padding-top: 40px; }
+    @media(max-width:768px){
+      .cards-grid { grid-template-columns: 1fr; gap: 16px; }
+      .cta-row { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo">
+      <img src="images/logo_mark.png" alt="Hope Community Church" />
+      <div class="nav-logo-text">
+        <span class="logo-name">Hope Community</span>
+        <span class="logo-sub">Church</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="sermons.html">Sermons</a></li>
+      <li><a href="pastor.html">Meet the Pastor</a></li>
+      <li><a href="groups.html">Hope Groups</a></li>
+      <li><a href="kids.html">Kids &amp; Youth</a></li>
+      <li><a href="bulletin.html">Bulletin</a></li>
+      <li><a href="college.html">Bible College</a></li>
+      <li><a href="contact.html" class="nav-cta">Plan Your Visit</a></li>
+    </ul>
+    <button class="nav-hamburger"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="mobile-overlay"></div>
+  <div class="mobile-menu">
+    <button class="menu-close">✕</button>
+    <a href="index.html">Home</a>
+    <a href="about.html" class="active">About</a>
+    <a href="sermons.html">Sermons</a>
+    <a href="pastor.html">Meet the Pastor</a>
+    <a href="groups.html">Hope Groups</a>
+    <a href="kids.html">Kids &amp; Youth</a>
+    <a href="bulletin.html">Bulletin</a>
+    <a href="college.html">Bible College</a>
+    <a href="contact.html">Plan Your Visit</a>
+  </div>
+
+  <div class="page-hero">
+    <span class="section-eyebrow" style="color:var(--amber);">Our Story</span>
+    <h1>How it All Started</h1>
+    <p>A journey of faith, community, and God's grace in Ypsilanti and beyond.</p>
+  </div>
+
+  <section class="section" style="background:var(--cream); padding-top:40px;">
+    <div class="about-content">
+      
+      <!-- Congregation Banner Photo -->
+      <div class="about-img reveal">
+        <img src="images/community_group.png" alt="Hope Community Church Congregation" />
+      </div>
+
+      <!-- Quick Stats / Core Highlights -->
+      <div class="cards-grid">
+        <div class="about-card reveal delay-1">
+          <div class="about-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </div>
+          <h4>Established 1993</h4>
+          <p>Began ministry on Easter Sunday in Michigan.</p>
+        </div>
+        <div class="about-card reveal delay-2">
+          <div class="about-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          </div>
+          <h4>Discipleship-First</h4>
+          <p>Rooted in weekly small groups called Hope Groups.</p>
+        </div>
+        <div class="about-card reveal delay-3">
+          <div class="about-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </div>
+          <h4>Local &amp; Global</h4>
+          <p>Outreach from local neighborhoods to villages in Asia.</p>
+        </div>
+      </div>
+
+      <!-- Narrative Text -->
+      <div class="story-text reveal delay-2">
+        <p>Hope Community Church began when three Christian families recognized a need for reaching a new generation for Jesus Christ in the Ann Arbor and Detroit areas. One of those families, the Manwillers, moved from Alaska to Michigan in 1992 to help establish the new church. After a season of planning and prayer, Hope Church began its ministry on Easter Sunday, 1993.</p>
+
+        <p>In the early years of our church, we saw many young people come to Christ. Some were university students. Others were high school students. Still others were young adults who came out of very needy or broken backgrounds. It was wonderful to watch God change the hearts of these young people and knit them together into a Christ-centered church.</p>
+
+        <p>In 1995 we started ten years of outreach in the city of Detroit. That gave us the experience and courage to reach people in more distant settings, from a Native community in Canada to formerly unreached villages in Asia. But we have not neglected the people where we live. All church members are encouraged to develop their own areas of local ministry and evangelism.</p>
+
+        <p>From the start of the church, we have placed a special value on our home-based discipleship groups, which we call <strong>Hope Groups</strong>. These groups meet every week for worship, Bible teaching, prayer and pastoral care. The people in each Hope Group support and encourage one another throughout the week. The groups meet in many communities, reflecting the church's widening circle of influence. Church members meet with a Hope Group in their own area, then on Sunday drive to Ypsilanti to meet with the entire church body.</p>
+
+        <p>Those who were young children when the church began are now adults, serving in positions of responsibility. Those who once were young parents are now becoming grandparents. And still our church continues to see many people, especially young people, coming to Christ. We have seen God do many beautiful things, and we look forward to God's guidance for the future.</p>
+      </div>
+
+      <!-- Bottom CTAs -->
+      <div class="cta-row reveal delay-3">
+        <a href="pastor.html" class="btn btn-primary">Meet the Pastor</a>
+        <a href="groups.html" class="btn btn-outline">
+          Explore Hope Groups
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:6px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-bottom" style="border-top:none;padding-top:0;">
+      <span>© 2025 Hope Community Church · <a href="index.html" style="color:var(--amber);">Back to Home</a></span>
+      <span>(734) 721-8190</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+</body>
+</html>
