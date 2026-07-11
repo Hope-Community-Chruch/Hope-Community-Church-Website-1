@@ -58,13 +58,20 @@
       max-width: 880px;
     }
     .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-size: 12px; font-weight: 600;
+      display: inline-flex; align-items: center; gap: 14px;
+      font-size: clamp(16px, 2.2vw, 22px); font-weight: 700;
       letter-spacing: 3px; text-transform: uppercase;
-      color: var(--amber);
-      margin-bottom: 24px;
+      color: var(--white);
+      margin-bottom: 32px;
+      background: rgba(244,162,97,0.18);
+      border: 1.5px solid rgba(244,162,97,0.4);
+      padding: 14px 32px;
+      border-radius: 100px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 0 30px rgba(244,162,97,0.15), inset 0 0 20px rgba(244,162,97,0.05);
     }
-    .hero-eyebrow .dot { width: 6px; height: 6px; background: var(--amber); border-radius: 50%; }
+    .hero-eyebrow .dot { width: 8px; height: 8px; background: var(--amber); border-radius: 50%; box-shadow: 0 0 8px var(--amber); }
     .hero-title {
       font-family: 'Playfair Display', serif;
       font-size: clamp(42px, 8vw, 96px);
