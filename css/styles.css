@@ -85,7 +85,7 @@ p  { font-size: clamp(15px, 1.2vw, 17px); line-height: 1.75; color: var(--muted)
 .nav-logo {
   display: flex; align-items: center; gap: 12px;
 }
-.nav-logo img { height: 60px; width: auto; border-radius: 50%; background: transparent; border: none; box-shadow: none; }
+.nav-logo img { height: 62px; width: auto; display: block; filter: drop-shadow(0 4px 12px rgba(15,30,61,0.18)); }
 .nav-logo-text { display: flex; flex-direction: column; }
 .nav-logo-text .logo-name {
   font-family: var(--font-serif);
