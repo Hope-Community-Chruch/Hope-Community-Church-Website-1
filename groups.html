@@ -7,13 +7,27 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" /><link rel="stylesheet" href="css/animations.css" />
   <style>
-    .groups-intro { max-width: 800px; margin: 0 auto 50px; text-align: center; }
-    .intro-text p { font-size: 16px; color: var(--navy); line-height: 1.75; margin-bottom: 20px; text-align: left; }
+    .groups-intro { 
+      max-width: 1100px; 
+      margin: 0 auto 50px; 
+      display: grid; 
+      grid-template-columns: 1fr 1fr; 
+      gap: 60px; 
+      align-items: start;
+    }
+    .intro-text-wrapper { text-align: left; }
+    .intro-text p { font-size: 16px; color: var(--navy); line-height: 1.75; margin-bottom: 20px; }
     .intro-text p strong { color: var(--gold); }
-    .qa-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 900px; margin: 0 auto; text-align: left; }
-    .qa-card { background: var(--white); border-radius: var(--radius-lg); padding: 30px; border: 1px solid rgba(29,52,97,0.06); box-shadow: var(--shadow-sm); }
+    .qa-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 32px; }
+    .qa-card { background: var(--white); border-radius: var(--radius-lg); padding: 24px 30px; border: 1px solid rgba(29,52,97,0.06); box-shadow: var(--shadow-sm); }
     .qa-card h4 { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--navy); margin-bottom: 10px; }
     .qa-card p { font-size: 14.5px; color: var(--muted); line-height: 1.6; }
+    .map-container { width: 100%; height: 100%; min-height: 500px; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-md); border: 4px solid var(--white); }
+    .map-container iframe { width: 100%; height: 100%; min-height: 500px; border: 0; }
+    @media(max-width:900px){
+      .groups-intro { grid-template-columns: 1fr; gap: 40px; }
+      .map-container { min-height: 350px; }
+    }
     
     .day-section { margin-bottom: 60px; max-width: 1200px; margin-left: auto; margin-right: auto; }
     .day-title { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--navy); border-bottom: 2px solid var(--amber); padding-bottom: 8px; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
@@ -80,24 +94,31 @@
   <!-- Intro Section -->
   <section class="section" style="background:var(--cream); padding-bottom: 0;">
     <div class="groups-intro reveal">
-      <div class="intro-text">
-        <span class="section-eyebrow" style="display: block; margin: 0 auto 10px;">Discipleship Model</span>
-        <h2 class="section-title" style="text-align: center;">Meeting &ldquo;From House to House&rdquo;</h2>
-        <div class="warm-divider" style="margin: 16px auto 24px;"></div>
-        <p>The Bible says that the early Christians met together &ldquo;from house to house&rdquo; for teaching, fellowship and prayer. These were places where everyone could share and people quickly grew in their faith.</p>
-        <p>At Hope Church, we are committed to this pattern of meeting in small, home-sized groups. We call them <strong>Hope Groups</strong>. In fact, this is so important to us that you cannot become a member of Hope Church unless you are part of a Hope Group.</p>
-        <p>What happens at a Hope Group? Worship songs. Bible study. Sharing needs with one another. Counsel and care for one another. Prayer. Sometimes supper or a snack. Close relationships that extend throughout the week. Love.</p>
-      </div>
+      <div class="intro-text-wrapper">
+        <span class="section-eyebrow" style="display: block; margin-bottom: 10px;">Discipleship Model</span>
+        <h2 class="section-title">Meeting &ldquo;From House to House&rdquo;</h2>
+        <div class="warm-divider" style="margin: 16px 0 24px;"></div>
+        <div class="intro-text">
+          <p>The Bible says that the early Christians met together &ldquo;from house to house&rdquo; for teaching, fellowship and prayer. These were places where everyone could share and people quickly grew in their faith.</p>
+          <p>At Hope Church, we are committed to this pattern of meeting in small, home-sized groups. We call them <strong>Hope Groups</strong>. In fact, this is so important to us that you cannot become a member of Hope Church unless you are part of a Hope Group.</p>
+          <p>What happens at a Hope Group? Worship songs. Bible study. Sharing needs with one another. Counsel and care for one another. Prayer. Sometimes supper or a snack. Close relationships that extend throughout the week. Love.</p>
+        </div>
 
-      <div class="qa-grid">
-        <div class="qa-card">
-          <h4>👪 Should the children come?</h4>
-          <p>Of course. This is God&rsquo;s family meeting together. The children participate in most of the meeting and they have a great time.</p>
+        <div class="qa-grid">
+          <div class="qa-card">
+            <h4>👪 Should the children come?</h4>
+            <p>Of course. This is God&rsquo;s family meeting together. The children participate in most of the meeting and they have a great time.</p>
+          </div>
+          <div class="qa-card">
+            <h4>📞 Times &amp; Locations</h4>
+            <p>The list below shows the times and locations. Please note that there may be last minute scheduling changes, so it is a good idea to call the Hope Group Shepherd before you visit a group.</p>
+          </div>
         </div>
-        <div class="qa-card">
-          <h4>📞 Times &amp; Locations</h4>
-          <p>The list below shows the times and locations. Please note that there may be last minute scheduling changes, so it is a good idea to call the Hope Group Shepherd before you visit a group.</p>
-        </div>
+      </div>
+      
+      <div class="map-container">
+        <!-- Interactive Google Map representing Ypsilanti / Ann Arbor region where Hope Groups meet -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118151.72591605634!2d-83.6934440539121!3d42.24723522207908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x883ca83500d00f91%3A0xb36ed6598c1cd861!2sYpsilanti%2C%20MI!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </section>
