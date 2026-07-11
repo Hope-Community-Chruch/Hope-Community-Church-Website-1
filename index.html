@@ -277,13 +277,20 @@
     .community-header { text-align: center; margin-bottom: 52px; }
     .community-header .section-subtitle { margin: 0 auto; }
     .drag-scroll {
-      display: flex; gap: 24px;
-      overflow-x: auto; padding-bottom: 16px;
-      scrollbar-width: none;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
     }
-    .drag-scroll::-webkit-scrollbar { display: none; }
+    @media (max-width: 1200px) {
+      .drag-scroll { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .drag-scroll { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .drag-scroll { grid-template-columns: 1fr; }
+    }
     .community-card {
-      flex: 0 0 300px;
       border-radius: var(--radius-lg);
       overflow: hidden;
       background: var(--white);
@@ -339,7 +346,11 @@
       display: flex; align-items: flex-start; gap: 14px;
       padding: 18px 0;
       border-bottom: 1px solid rgba(29,52,97,0.07);
+      text-decoration: none;
+      color: inherit;
+      transition: transform var(--transition);
     }
+    .visit-detail:hover { transform: translateX(6px); }
     .visit-detail:last-of-type { border-bottom: none; }
     .detail-icon {
       width: 40px; height: 40px; flex-shrink: 0;
@@ -596,7 +607,7 @@
     <div class="hero-content">
       <div class="hero-eyebrow">
         <span class="dot"></span>
-        Every Sunday · 10:00 AM · Ypsilanti, MI
+        Every Sunday · 10:00 AM · <a href="https://maps.google.com/?q=2100+Ellsworth+Rd,+Ypsilanti,+MI+48197" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline; text-decoration-color: var(--amber);">Ypsilanti, MI</a>
         <span class="dot"></span>
       </div>
 
@@ -870,7 +881,7 @@
         <div class="visit-time-big reveal">10:00 <span style="font-size:0.5em;color:var(--amber)">AM</span></div>
         <p class="reveal" style="margin:16px 0 32px;">We'd love to meet you this Sunday. Come as you are — no dress code, no pressure. Just come and experience the warmth of our community.</p>
 
-        <div class="visit-detail reveal delay-1">
+        <a href="https://maps.google.com/?q=2100+Ellsworth+Rd,+Ypsilanti,+MI+48197" target="_blank" rel="noopener noreferrer" class="visit-detail reveal delay-1">
           <div class="detail-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
           </div>
@@ -878,8 +889,8 @@
             <strong>2100 Ellsworth Rd, Ypsilanti, MI 48197</strong>
             <span>Free parking available — enter from Ellsworth Road</span>
           </div>
-        </div>
-        <div class="visit-detail reveal delay-2">
+        </a>
+        <a href="tel:+17347218190" class="visit-detail reveal delay-2">
           <div class="detail-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.46 2 2 0 0 1 3.57 1.29h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.83a16 16 0 0 0 5.66 5.66l.84-.84a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 16.92z"></path></svg>
           </div>
@@ -887,8 +898,8 @@
             <strong>(734) 721-8190</strong>
             <span>Call or text anytime Mon–Fri</span>
           </div>
-        </div>
-        <div class="visit-detail reveal delay-3">
+        </a>
+        <a href="mailto:pastormanwiller@gmail.com" class="visit-detail reveal delay-3">
           <div class="detail-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
           </div>
@@ -896,7 +907,7 @@
             <strong>pastormanwiller@gmail.com</strong>
             <span>We'd love to hear from you</span>
           </div>
-        </div>
+        </a>
 
         <div style="margin-top:32px;" class="reveal delay-4">
           <a href="contact.html" class="btn btn-primary">Plan Your Visit</a>
@@ -938,18 +949,18 @@
         <div style="width:40px;height:2px;background:var(--amber);border-radius:2px;margin:10px 0;"></div>
         <p>A welcoming, Bible-believing community in Ypsilanti, MI — where faith grows and lives are transformed.</p>
         <div style="margin-top:24px;">
-          <div class="footer-contact-item">
+          <a href="https://maps.google.com/?q=2100+Ellsworth+Rd,+Ypsilanti,+MI+48197" target="_blank" rel="noopener noreferrer" class="footer-contact-item" style="text-decoration: none; color: inherit;">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
             2100 Ellsworth Rd, Ypsilanti, MI 48197
-          </div>
-          <div class="footer-contact-item">
+          </a>
+          <a href="tel:+17347218190" class="footer-contact-item" style="text-decoration: none; color: inherit;">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.46 2 2 0 0 1 3.57 1.29h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.83a16 16 0 0 0 5.66 5.66l.84-.84a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 16.92z"></path></svg>
             (734) 721-8190
-          </div>
-          <div class="footer-contact-item">
+          </a>
+          <a href="mailto:pastormanwiller@gmail.com" class="footer-contact-item" style="text-decoration: none; color: inherit;">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
             pastormanwiller@gmail.com
-          </div>
+          </a>
         </div>
       </div>
 
