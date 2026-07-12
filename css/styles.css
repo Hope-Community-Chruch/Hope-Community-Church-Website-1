@@ -67,39 +67,39 @@ p  { font-size: clamp(15px, 1.2vw, 17px); line-height: 1.75; color: var(--muted)
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 1000;
-  padding: 24px 48px 16px 48px;
+  padding: 16px 48px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 16px;
-  transition: background var(--transition), padding var(--transition), box-shadow var(--transition), gap var(--transition);
+  justify-content: center;
+  gap: 40px;
+  transition: background var(--transition), padding var(--transition), box-shadow var(--transition);
 }
 
 #navbar.scrolled {
   background: rgba(255,250,244,0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  padding: 12px 48px 8px 48px;
+  padding: 8px 48px;
   box-shadow: 0 1px 40px rgba(29,52,97,0.08);
-  gap: 8px;
 }
 
 .nav-logo {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   text-align: center;
 }
 .nav-logo img {
-  height: 105px;
+  height: 86px;
   width: auto;
   display: block;
   filter: drop-shadow(0 4px 12px rgba(15,30,61,0.18));
   transition: height var(--transition);
 }
 #navbar.scrolled .nav-logo img {
-  height: 68px;
+  height: 60px;
 }
 .nav-logo-text { display: flex; flex-direction: column; align-items: center; }
 .nav-logo-text .logo-name {
