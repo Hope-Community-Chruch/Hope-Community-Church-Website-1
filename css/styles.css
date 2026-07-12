@@ -488,7 +488,7 @@ p {
   content: '';
   position: absolute;
   inset: 0;
-  background: url('../images/hero_worship.png') center/cover;
+  background: url('../images/worship_stage.png') center/cover;
   opacity: 0.15;
 }
 
