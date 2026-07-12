@@ -13,64 +13,64 @@ Built with pure HTML, CSS, and JavaScript — no frameworks, no build step requi
 hope_church_website/
 │
 ├── index.html          ← Homepage (with hero canvas + cross reveal animation)
+├── about.html          ← About Page (with history + Affirmation of Faith accordion)
 ├── sermons.html        ← Sunday Sermons (filterable card grid)
 ├── pastor.html         ← Meet the Pastor
 ├── groups.html         ← Hope Groups
 ├── kids.html           ← Kids & Youth (tabbed age groups)
-├── bulletin.html       ← Bulletin News + Events sidebar
-├── college.html        ← Anchor Bible College
-├── contact.html        ← Contact / Plan Your Visit form
+├── bulletin.html       ← Bulletin News + dynamic upcoming events
+├── college.html        ← Anchor Bible College (Ministry of Hope Community Church)
+├── give.html           ← Give & Support details
+├── contact.html        ← Contact Us (Send us a message form + map)
 │
 ├── css/
-│   ├── styles.css      ← Global design system (variables, nav, footer, cards)
+│   ├── styles.css      ← Global design system (variables, nav, footer, cards, accordions)
 │   └── animations.css  ← Scroll reveals, keyframes, motion utilities
 │
 ├── js/
-│   ├── main.js         ← Nav scroll behavior, mobile menu, counters
+│   ├── main.js         ← Nav scroll, mobile menu, counters, accordions, dynamic events
 │   ├── hero-canvas.js  ← Animated sunrise canvas (hero background)
-│   └── animations.js   ← GSAP ScrollTrigger setup for all scroll animations
+│   └── animations.js   ← GSAP ScrollTrigger setup for scroll animations
 │
 └── images/
     ├── hero_worship.png    ← Worship service hero photo
-    ├── community.png       ← Community group photo
+    ├── community_group.png ← Community group banner
     ├── pastor.png          ← Pastor portrait
-    ├── logo_mark.png       ← Warm sunrise hands logo
-    ├── logo_community.png  ← Community circle logo concept
-    └── logo_dove.png       ← Dove logo concept
+    ├── logo_hope.png       ← Custom oval stitched leather logo (transparent)
+    ├── bulletin_news.png   ← Corrected church bulletin flyer/card
+    └── Anchor_bible-college.png ← Anchor Bible College logo
 ```
 
 ---
 
-## ✨ Features
+## ✨ Features & Latest Updates
 
-### Homepage (`index.html`)
-- **Animated canvas hero** — golden sunrise rays + floating particles
-- **Frosted glass navigation** — transparent on hero, blurs into white on scroll
-- **Animated stat counters** — 33 years, 8 groups, count up on scroll
-- **🔥 Cross Reveal Section** — Scroll-pinned animation:
-  - 4 golden cross arms fly in from opposite directions with 3D tumble
-  - Light burst fires when they lock together
-  - "HOPE" letters explode in from 4 directions
-  - Gold underline sweeps across
-  - Jeremiah 29:11 verse fades in
-- **Split "Who We Are"** section with parallax photo
-- **Featured sermon** card with play button
-- **Horizontal drag-scroll** community cards
-- **Visit section** with embedded Google Map
-- **Email signup** with animated form
+### 🧭 Split Centered Navigation (New)
+- **Centered Split-Menu** — Navigation links are split on desktop layout:
+  - **Left menu:** *Home, About, Sermons, Meet the Pastor, Hope Groups*
+  - **Center:** Circular/Oval stitched leather **Hope Community Church logo** with text label below it
+  - **Right menu:** *Kids & Youth, Bulletin, Bible College, Give, Contact Us*
+- **Dynamic Text Label** — The text label below the logo transitions smoothly from **white** (for high contrast on the dark hero header) to **navy** when the user scrolls down onto the light cream sticky navbar.
+- **Mobile-Responsive** — Collapses into a clean row layout on mobile viewports: logo badge on the left, mobile header text next to it, and a standard hamburger menu on the right.
 
-### Sermons Page
-- Filterable card grid (All / Faith / Hope / Community / Bible Study)
-- Smooth filter animation
+### 📜 Affirmation of Faith Accordion (New)
+- **Interactive Accordion** — Added an interactive beliefs list (points A through K) on the **About page** (`about.html`).
+- **Modern UI** — Built with gold letter badges, bold serif headers, rotating expansion indicators (`+`/`-`), and distinct citation labels.
+- **Expanded Indentation** — Text is padded inwards so it aligns neatly under the title headers, letting the circular badges float on the left.
 
-### Kids & Youth Page
-- Interactive age tabs (Nursery / Kids / Youth)
-- Content swaps with smooth transitions
+### 📅 Dynamic Calendar Events (New)
+- **Automatic Upcoming Events** — Replaced the static event cards on the **Bulletin page** (`bulletin.html`) with dynamic JavaScript. It automatically calculates the user's current date and renders the **next 4 upcoming events** from the church's yearly schedule list, keeping the page constantly fresh and up to date without manual weekly edits.
 
-### Contact Page
-- Animated input form with focus states
-- Google Maps embed
-- Form submission confirmation
+### ✉️ Direct "Send Us a Message" Form (New)
+- Replaced the "Plan to Visit" form on the **Contact page** (`contact.html`) with a clean, centered direct-message contact form featuring Name, Email, Subject, and Message inputs.
+
+### 🎨 Graphics & Transparency (New)
+- **Clean Oval Logo** — Processed the new oval logo badge to have true alpha transparency, removing checkered artifacts, and added CSS clipping fallbacks to prevent fringe pixels on dark headers.
+- **Church Bulletin Image** — Regenerated `images/bulletin_news.png` to read **"Hope Community Church"** instead of the placeholder text.
+
+### 📐 Padding & Overlap Fixes (New)
+- Shifted the hero text block down in `index.html` by `60px` to clear the taller split navbar.
+- Increased top padding of `.page-hero` and `.classic-hero` globally to `210px` to ensure sub-pages and the Bible College page never overlap the navigation logo.
 
 ---
 
@@ -84,7 +84,7 @@ Double-click index.html to open in your browser.
 **Option 2 — Local server (recommended for best results):**
 ```bash
 # Python 3 (if installed)
-cd hope_church_website
+cd Hope-Community-Church-Website-1
 python -m http.server 8080
 # Then open: http://localhost:8080
 ```
@@ -114,39 +114,4 @@ python -m http.server 8080
 
 ---
 
-## 📋 Pages Checklist
-
-| Page          | Status | Key Feature                          |
-|---------------|--------|--------------------------------------|
-| Homepage      | ✅     | Canvas hero + cross animation        |
-| Sermons       | ✅     | Filter system                        |
-| Meet Pastor   | ✅     | Bio + parallax photo                 |
-| Hope Groups   | ✅     | Group cards                          |
-| Kids & Youth  | ✅     | Interactive age tabs                 |
-| Bulletin      | ✅     | News feed + events sidebar           |
-| Bible College | ✅     | Course grid + enrollment CTA         |
-| Contact       | ✅     | Form + map                           |
-
----
-
-## 📍 Church Info (Update these for production)
-
-```
-Address:  2100 Ellsworth Rd, Ypsilanti, MI 48197
-Phone:    (734) 721-8190
-Email:    pastormanwiller@gmail.com
-Service:  Every Sunday at 10:00 AM
-```
-
----
-
-## 🔄 To Customize
-
-1. **Replace images** in `/images/` with real church photos
-2. **Update content** (pastor name, sermon titles, group schedules) directly in each `.html` file
-3. **Add YouTube link** — search `href="#"` on the sermons page  
-4. **Connect email form** — replace the JS `preventDefault` handler with a real form backend (Formspree, Netlify Forms, etc.)
-
----
-
-*© 2025 Hope Community Church · Ypsilanti, MI*
+*© 2026 Hope Community Church · Ypsilanti, MI*
