@@ -33,12 +33,24 @@ hope_church_website/
 │   └── animations.js   ← GSAP ScrollTrigger setup for scroll animations
 │
 └── images/
-    ├── hero_worship.png    ← Worship service hero photo
-    ├── community_group.png ← Community group banner
-    ├── pastor.png          ← Pastor portrait
-    ├── logo_hope.png       ← Custom oval stitched leather logo (transparent)
-    ├── bulletin_news.png   ← Corrected church bulletin flyer/card
-    └── Anchor_bible-college.png ← Anchor Bible College logo
+    ├── logo_hope.png            ← Center header oval stitched logo (transparent)
+    ├── Anchor_bible-college.png ← Anchor Bible College branding logo
+    ├── logo_*.png               ← Partner Bible College logos (Bethlehem, Cairn, Emmaus, Liberty, Rochester)
+    ├── partner_logos.png        ← Combined partner colleges graphic
+    │
+    ├── hero_worship.png         ← Worship service hero background photo
+    ├── worship_stage.png        ← Worship stage background overlay
+    ├── community.png            ← Community card graphic
+    ├── community_group.png      ← Congregation banner on About page
+    ├── hope_groups_map.png      ← Hope Groups locations map image
+    ├── kids_classroom.jpg       ← Kids & Youth ministry photo
+    │
+    ├── pastor.png               ← Pastor portrait bio photo
+    ├── pastor_family.jpg        ← Pastor family portrait photo
+    ├── pastor_preaching.png     ← Pastor preaching on stage photo
+    │
+    ├── bulletin_news.png        ← Church bulletin mock-up flyer
+    └── abc_classroom.png        ← Anchor Bible College class photo
 ```
 
 ---
