@@ -662,3 +662,124 @@ footer {
     text-align: center;
   }
 }
+
+/* ── FAITH ACCORDION ── */
+.faith-accordion {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faith-item {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(29, 52, 97, 0.06);
+  overflow: hidden;
+  transition: box-shadow var(--transition), border-color var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.faith-item:hover {
+  border-color: rgba(244, 162, 97, 0.3);
+  box-shadow: var(--shadow-md);
+}
+
+.faith-trigger {
+  width: 100%;
+  padding: 20px 24px;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  text-align: left;
+  outline: none;
+}
+
+.faith-letter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(244, 162, 97, 0.12);
+  color: var(--amber);
+  font-weight: 700;
+  font-size: 14px;
+  flex-shrink: 0;
+  transition: background var(--transition), color var(--transition);
+}
+
+.faith-title {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--navy);
+  flex-grow: 1;
+}
+
+.faith-icon {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.faith-icon::before,
+.faith-icon::after {
+  content: '';
+  position: absolute;
+  background: var(--navy);
+  transition: transform var(--transition);
+}
+
+/* Horizontal line */
+.faith-icon::before {
+  top: 9px; left: 2px;
+  width: 16px; height: 2px;
+}
+
+/* Vertical line */
+.faith-icon::after {
+  top: 2px; left: 9px;
+  width: 2px; height: 16px;
+}
+
+.faith-item.active .faith-icon::after {
+  transform: rotate(90deg);
+  opacity: 0;
+}
+
+.faith-item.active .faith-icon::before {
+  transform: rotate(180deg);
+}
+
+.faith-item.active .faith-letter {
+  background: var(--amber);
+  color: var(--white);
+}
+
+.faith-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition) ease-out;
+}
+
+.faith-panel p {
+  padding: 0 24px 24px 72px;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--muted);
+  margin: 0;
+}
+
+.faith-panel p em {
+  color: var(--coral);
+  font-size: 14px;
+  font-weight: 500;
+  display: block;
+  margin-top: 12px;
+}

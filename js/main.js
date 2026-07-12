@@ -129,4 +129,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ── Faith Accordion ── */
+  document.querySelectorAll('.faith-trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const item = trigger.parentElement;
+      const panel = item.querySelector('.faith-panel');
+      const isActive = item.classList.contains('active');
+      
+      // Toggle active class on trigger item
+      if (isActive) {
+        item.classList.remove('active');
+        panel.style.maxHeight = null;
+      } else {
+        // Optionally close other items first to act as a proper accordion
+        document.querySelectorAll('.faith-item').forEach(otherItem => {
+          otherItem.classList.remove('active');
+          otherItem.querySelector('.faith-panel').style.maxHeight = null;
+        });
+        
+        item.classList.add('active');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+    });
+  });
+
 });
