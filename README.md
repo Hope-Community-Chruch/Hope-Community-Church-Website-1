@@ -42,7 +42,7 @@ hope_church_website/
     ├── worship_stage.png        ← Worship stage background overlay
     ├── community.png            ← Community card graphic
     ├── community_group.png      ← Congregation banner on About page
-    ├── hope_groups_map.png      ← Hope Groups locations map image
+    ├── hope_groups_map.jpg      ← Hope Groups locations map image
     ├── kids_classroom.jpg       ← Kids & Youth ministry photo
     │
     ├── pastor.png               ← Pastor portrait bio photo
