@@ -1345,15 +1345,15 @@
         </div>
         <div style="display:flex;gap:14px;flex-wrap:wrap;">
           <a href="sermons.html" class="btn btn-primary">Browse All Sermons</a>
-          <a href="#" class="btn btn-secondary">Watch Live Sunday</a>
+          <a href="https://www.youtube.com/channel/UChCVLkmfIEXWp7_OaBy1Lhg/live" target="_blank" class="btn btn-secondary">Watch Live Sunday</a>
         </div>
       </div>
 
       <div class="sermon-featured reveal delay-2">
         <div class="sermon-thumb">
-          <img src="images/worship_stage.png" alt="Latest sermon" />
+          <img id="latest-sermon-thumb" src="images/worship_stage.png" alt="Latest sermon" />
           <div class="sermon-play">
-            <a href="sermons.html" class="play-btn">
+            <a id="latest-sermon-link" href="sermons.html" class="play-btn">
               <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="white"
                 stroke="white" stroke-width="0">
                 <polygon points="5 3 19 12 5 21 5 3"></polygon>
@@ -1362,8 +1362,8 @@
           </div>
         </div>
         <div class="sermon-info">
-          <div class="sermon-series">Current Series</div>
-          <div class="sermon-title">Walking in the Light of His Promise</div>
+          <div id="latest-sermon-date" class="sermon-series">Latest Message</div>
+          <div id="latest-sermon-title" class="sermon-title">Loading...</div>
           <div class="sermon-pastor">Pastor Manwiller · Hope Community Church</div>
         </div>
       </div>
@@ -1713,6 +1713,7 @@
 
 
   <!-- Scripts -->
+  <script src="js/config.js"></script>
   <script src="js/main.js"></script>
   <script src="js/hero-canvas.js"></script>
   <script src="js/animations.js"></script>
@@ -1724,6 +1725,44 @@
       btn.textContent = '✓ Message Sent! We\'ll be in touch soon.';
       btn.style.background = '#4CAF50';
       btn.disabled = true;
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const config = window.CHURCH_CONFIG || {};
+      const apiKey = config.youtubeApiKey;
+      const playlistId = config.youtubePlaylistId;
+
+      if (apiKey && playlistId) {
+        const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails&maxResults=1&playlistId=${playlistId}&key=${apiKey}`;
+        
+        fetch(url)
+          .then(res => res.json())
+          .then(data => {
+            if (data.items && data.items.length > 0) {
+              const latest = data.items[0].snippet;
+              const videoId = data.items[0].contentDetails.videoId;
+              
+              const titleEl = document.getElementById("latest-sermon-title");
+              const thumbEl = document.getElementById("latest-sermon-thumb");
+              const linkEl = document.getElementById("latest-sermon-link");
+              const dateEl = document.getElementById("latest-sermon-date");
+              
+              if (titleEl) titleEl.innerText = latest.title;
+              if (dateEl) {
+                const pubDate = new Date(latest.publishedAt);
+                dateEl.innerText = pubDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+              }
+              if (thumbEl && latest.thumbnails && latest.thumbnails.high) {
+                thumbEl.src = latest.thumbnails.high.url;
+              }
+              if (linkEl) {
+                linkEl.href = `https://www.youtube.com/watch?v=${videoId}`;
+                linkEl.target = "_blank";
+              }
+            }
+          })
+          .catch(err => console.error("Error fetching latest sermon for homepage:", err));
+      }
     });
   </script>
 </body>
