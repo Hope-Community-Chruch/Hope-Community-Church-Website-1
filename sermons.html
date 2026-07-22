@@ -167,10 +167,8 @@
     <div class="container">
       <div class="filter-bar">
         <button class="filter-btn active" data-filter="all">All Messages</button>
-        <button class="filter-btn" data-filter="faith">Faith</button>
-        <button class="filter-btn" data-filter="hope">Hope</button>
-        <button class="filter-btn" data-filter="community">Community</button>
-        <button class="filter-btn" data-filter="bible">Bible Study</button>
+        <button class="filter-btn" data-filter="wedding">Wedding</button>
+        <button class="filter-btn" data-filter="fur">Fur Rendezvous</button>
       </div>
 
       <div class="sermons-grid">
@@ -284,108 +282,75 @@
       const config = window.CHURCH_CONFIG || {};
       const apiKey = config.youtubeApiKey;
       const playlistId = config.youtubePlaylistId;
+      const furPlaylistId = config.youtubeFurPlaylistId;
+      
+      let allSermons = [];
+      let furSermons = [];
+      let currentFilter = "all";
 
       if (apiKey && playlistId) {
-        fetchSermonsFromYouTube(apiKey, playlistId);
+        fetchSermonsFromYouTube(apiKey, playlistId, 'main');
       } else {
         console.log("YouTube API key/playlist not configured. Using local fallback cards.");
         initVideoModal();
         initFilterButtons();
       }
 
-      // 2. Fetch playlist items from YouTube Data API v3
-      function fetchSermonsFromYouTube(key, playlist) {
+      function fetchSermonsFromYouTube(key, playlist, type) {
         const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails&maxResults=24&playlistId=${playlist}&key=${key}`;
         
         fetch(url)
           .then(res => {
-            if (!res.ok) {
-              return res.json().then(errData => {
-                const errMsg = errData.error?.message || res.statusText;
-                throw new Error(errMsg);
-              }).catch(() => {
-                throw new Error("HTTP error " + res.status);
-              });
-            }
+            if (!res.ok) throw new Error("HTTP error " + res.status);
             return res.json();
           })
           .then(data => {
             if (data.items && data.items.length > 0) {
-              try {
-                renderYouTubeSermons(data.items);
-              } catch (renderErr) {
-                console.error("YouTube render failed:", renderErr);
-                throw new Error("Render error: " + renderErr.message);
+              if (type === 'main') {
+                allSermons = data.items;
+                renderYouTubeSermons(allSermons);
+              } else if (type === 'fur') {
+                furSermons = data.items;
+                renderYouTubeSermons(furSermons);
               }
-            } else {
-              throw new Error("No items returned in playlist.");
             }
           })
           .catch(err => {
-            console.error("YouTube Fetch failed. Falling back to local sermons:", err);
-            
-            const grid = document.querySelector(".sermons-grid");
-            if (grid) {
-              const errDiv = document.createElement("div");
-              errDiv.style.color = "#d9534f";
-              errDiv.style.backgroundColor = "#fdf7f7";
-              errDiv.style.border = "1px solid #d9534f";
-              errDiv.style.padding = "15px";
-              errDiv.style.borderRadius = "5px";
-              errDiv.style.margin = "10px 0 20px 0";
-              errDiv.style.gridColumn = "1 / -1";
-              errDiv.style.textAlign = "center";
-              errDiv.style.fontWeight = "500";
-              errDiv.innerText = `YouTube API Request Info: ${err.message}. (Showing fallback sermons).`;
-              grid.insertBefore(errDiv, grid.firstChild);
+            console.error("YouTube Fetch failed:", err);
+            if (type === 'main') {
+              // Fallback logic
+              initVideoModal();
+              initFilterButtons();
             }
-
-            // Force reveal all fallback cards immediately so they aren't hidden by the animation observer
-            document.querySelectorAll(".sermon-card.reveal").forEach(card => {
-              card.classList.add("revealed");
-            });
-
-            initVideoModal();
-            initFilterButtons();
           });
       }
 
-      // 3. Render dynamic YouTube sermon cards
       function renderYouTubeSermons(items) {
         const grid = document.querySelector(".sermons-grid");
-        grid.innerHTML = ""; // Clear fallback cards
+        grid.innerHTML = ""; 
 
         items.forEach((item, index) => {
           const snippet = item.snippet || {};
           const videoId = item.contentDetails?.videoId || snippet.resourceId?.videoId;
           if (!videoId) return;
 
-          const title = snippet.title || "Sunday Sermon";
+          const title = snippet.title || "Message";
           const publishedRaw = snippet.publishedAt || new Date().toISOString();
           const publishedDate = new Date(publishedRaw).toLocaleDateString(undefined, {
-            year: "numeric",
-            month: "short",
-            day: "numeric"
+            year: "numeric", month: "short", day: "numeric"
           });
 
-          // Thumbnail resolution hierarchy
           const th = snippet.thumbnails || {};
           const thumbUrl = th.maxres?.url || th.standard?.url || th.high?.url || th.medium?.url || th.default?.url || "images/worship_stage.png";
 
-          // Extract series (e.g. "Series Name: Title text")
-          let series = "Sunday Message";
-          if (title.includes(":")) {
-            series = title.split(":")[0].trim();
-          } else if (title.includes(" - ")) {
-            series = title.split(" - ")[0].trim();
-          }
+          let series = currentFilter === 'fur' ? "Fur Rendezvous" : "Sunday Message";
+          if (title.includes(":")) series = title.split(":")[0].trim();
+          else if (title.includes(" - ")) series = title.split(" - ")[0].trim();
 
-          // Category determination for category filters
-          let category = "bible";
+          let category = "other";
           const lowerTitle = title.toLowerCase();
-          if (lowerTitle.includes("faith")) category = "faith";
-          else if (lowerTitle.includes("hope")) category = "hope";
-          else if (lowerTitle.includes("community")) category = "community";
+          if (lowerTitle.includes("wedding")) category = "wedding";
+          if (currentFilter === 'fur') category = "fur";
 
           const card = document.createElement("div");
           card.className = "sermon-card reveal";
@@ -395,32 +360,22 @@
           card.innerHTML = `
             <div class="sermon-thumb-wrap">
               <img src="${thumbUrl}" alt="${title}" loading="lazy" />
-              <div class="sermon-play-sm">
-                <div class="play-sm">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="none">
-                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                  </svg>
-                </div>
-              </div>
-              ${index === 0 ? '<span class="sermon-badge">Latest</span>' : ''}
+              <div class="sermon-play-sm"><div class="play-sm"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
+              ${index === 0 && currentFilter === 'all' ? '<span class="sermon-badge">Latest</span>' : ''}
             </div>
             <div class="sc-body">
               <div class="sc-series">${series}</div>
               <div class="sc-title">${title}</div>
-              <div class="sc-meta">
-                <span>📅 ${publishedDate}</span>
-              </div>
+              <div class="sc-meta"><span>📅 ${publishedDate}</span></div>
             </div>
           `;
-
           grid.appendChild(card);
         });
 
-        // Initialize modals and filters on dynamic content
         initVideoModal();
-        initFilterButtons();
+        applyFilter(currentFilter);
 
-        // Trigger reveal animations on dynamically added cards
+        // Reveal animations
         const dynamicRevealEls = grid.querySelectorAll('.reveal');
         if (dynamicRevealEls.length) {
           const dynamicRevealObs = new IntersectionObserver(entries => {
@@ -435,15 +390,16 @@
         }
       }
 
-      // 4. Modal player functions
       function initVideoModal() {
         const modal = document.getElementById("video-modal");
         const iframe = document.getElementById("video-iframe");
         const closeBtn = document.querySelector(".video-modal-close");
 
         document.querySelectorAll(".sermon-card").forEach(card => {
-          card.addEventListener("click", () => {
-            const videoId = card.getAttribute("data-video-id");
+          const newCard = card.cloneNode(true);
+          card.parentNode.replaceChild(newCard, card);
+          newCard.addEventListener("click", () => {
+            const videoId = newCard.getAttribute("data-video-id");
             if (videoId) {
               iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
               modal.classList.add("open");
@@ -457,41 +413,48 @@
           iframe.src = "";
           document.body.style.overflow = "";
         }
-
+        
+        closeBtn.removeEventListener("click", closeModal);
         closeBtn.addEventListener("click", closeModal);
-        modal.addEventListener("click", (e) => {
-          if (e.target === modal) closeModal();
-        });
+        modal.onclick = e => { if (e.target === modal) closeModal(); };
+        document.onkeydown = e => { if (e.key === "Escape" && modal.classList.contains("open")) closeModal(); };
+      }
 
-        document.addEventListener("keydown", (e) => {
-          if (e.key === "Escape" && modal.classList.contains("open")) {
-            closeModal();
+      function applyFilter(filter) {
+        document.querySelectorAll(".sermon-card").forEach(card => {
+          const show = filter === "all" || filter === "fur" || card.getAttribute("data-category") === filter;
+          card.style.display = show ? "block" : "none"; // Hide completely if filtering out
+          
+          if (show) {
+            card.style.opacity = "1";
+            card.style.pointerEvents = "";
           }
         });
       }
 
-      // 5. Category filter logic
       function initFilterButtons() {
         document.querySelectorAll(".filter-btn").forEach(btn => {
-          // Remove old listeners to avoid multiple attachments
-          const newBtn = btn.cloneNode(true);
-          btn.parentNode.replaceChild(newBtn, btn);
-
-          newBtn.addEventListener("click", () => {
+          btn.addEventListener("click", () => {
             document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
-            newBtn.classList.add("active");
+            btn.classList.add("active");
             
-            const filter = newBtn.getAttribute("data-filter");
-            document.querySelectorAll(".sermon-card").forEach(card => {
-              const show = filter === "all" || card.getAttribute("data-category") === filter;
-              card.style.transition = "opacity 0.3s, transform 0.3s";
-              card.style.opacity = show ? "1" : "0.2";
-              card.style.transform = show ? "" : "scale(0.97)";
-              card.style.pointerEvents = show ? "" : "none";
-            });
+            const filter = btn.getAttribute("data-filter");
+            currentFilter = filter;
+
+            if (filter === "fur") {
+              if (furSermons.length === 0 && apiKey && furPlaylistId) {
+                fetchSermonsFromYouTube(apiKey, furPlaylistId, 'fur');
+              } else {
+                renderYouTubeSermons(furSermons.length > 0 ? furSermons : allSermons);
+              }
+            } else {
+              renderYouTubeSermons(allSermons);
+            }
           });
         });
       }
+      
+      initFilterButtons(); // Call initially to set up listeners
     });
   </script>
 </body>

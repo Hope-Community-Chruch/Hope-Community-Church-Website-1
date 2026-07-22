@@ -11,6 +11,9 @@ window.CHURCH_CONFIG = {
   // The ID of the playlist containing your sermon uploads (typically starts with 'UU' or 'PL')
   youtubePlaylistId: "UUhCVLkmfIEXWp7_OaBy1Lhg",
 
+  // Fur Rendezvous Playlist ID
+  youtubeFurPlaylistId: "PLUzm97oxf_jZubUeaWO0_Y_TdZgJBR0np",
+
   // PayPal Integration Config
   // Use 'sb' for testing (Sandbox). Replace with your Live PayPal Client ID for production.
   paypalClientId: "sb"
