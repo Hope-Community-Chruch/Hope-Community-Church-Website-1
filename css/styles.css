@@ -275,6 +275,7 @@ p {
   gap: 4px;
   box-shadow: -20px 0 60px rgba(29, 52, 97, 0.15);
   transition: right var(--transition-slow);
+  overflow-y: auto;
 }
 
 .mobile-menu.open {
