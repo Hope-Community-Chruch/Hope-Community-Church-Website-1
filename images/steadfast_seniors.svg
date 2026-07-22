@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%" style="background-color: #FDFBF7;">
+  <g transform="translate(50, 80)" fill="none" stroke="#1D3461" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Left Mountain -->
+    <path d="M 0 100 L 70 30 L 140 100" />
+    <!-- Right Mountain -->
+    <path d="M 100 100 L 170 30 L 250 110" />
+    <!-- Inner Right Mountain peak -->
+    <path d="M 130 100 L 170 60 L 220 110" />
+    <!-- Small curve (sun/bird) -->
+    <path d="M 160 45 Q 170 35 180 45" stroke-width="6"/>
+  </g>
+  <text x="200" y="240" font-family="'Inter', Arial, sans-serif" font-weight="900" font-size="40" fill="#1D3461" text-anchor="middle" letter-spacing="4">STEADFAST</text>
+</svg>
