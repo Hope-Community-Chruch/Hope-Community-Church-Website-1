@@ -385,6 +385,20 @@
         // Initialize modals and filters on dynamic content
         initVideoModal();
         initFilterButtons();
+
+        // Trigger reveal animations on dynamically added cards
+        const dynamicRevealEls = grid.querySelectorAll('.reveal');
+        if (dynamicRevealEls.length) {
+          const dynamicRevealObs = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+              if (e.isIntersecting) {
+                e.target.classList.add('revealed');
+                dynamicRevealObs.unobserve(e.target);
+              }
+            });
+          }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+          dynamicRevealEls.forEach(el => dynamicRevealObs.observe(el));
+        }
       }
 
       // 4. Modal player functions
