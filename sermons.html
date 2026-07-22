@@ -299,18 +299,52 @@
         
         fetch(url)
           .then(res => {
-            if (!res.ok) throw new Error("YouTube API HTTP error: " + res.statusText);
+            if (!res.ok) {
+              return res.json().then(errData => {
+                const errMsg = errData.error?.message || res.statusText;
+                throw new Error(errMsg);
+              }).catch(() => {
+                throw new Error("HTTP error " + res.status);
+              });
+            }
             return res.json();
           })
           .then(data => {
             if (data.items && data.items.length > 0) {
-              renderYouTubeSermons(data.items);
+              try {
+                renderYouTubeSermons(data.items);
+              } catch (renderErr) {
+                console.error("YouTube render failed:", renderErr);
+                throw new Error("Render error: " + renderErr.message);
+              }
             } else {
               throw new Error("No items returned in playlist.");
             }
           })
           .catch(err => {
             console.error("YouTube Fetch failed. Falling back to local sermons:", err);
+            
+            const grid = document.querySelector(".sermons-grid");
+            if (grid) {
+              const errDiv = document.createElement("div");
+              errDiv.style.color = "#d9534f";
+              errDiv.style.backgroundColor = "#fdf7f7";
+              errDiv.style.border = "1px solid #d9534f";
+              errDiv.style.padding = "15px";
+              errDiv.style.borderRadius = "5px";
+              errDiv.style.margin = "10px 0 20px 0";
+              errDiv.style.gridColumn = "1 / -1";
+              errDiv.style.textAlign = "center";
+              errDiv.style.fontWeight = "500";
+              errDiv.innerText = `YouTube API Request Info: ${err.message}. (Showing fallback sermons).`;
+              grid.insertBefore(errDiv, grid.firstChild);
+            }
+
+            // Force reveal all fallback cards immediately so they aren't hidden by the animation observer
+            document.querySelectorAll(".sermon-card.reveal").forEach(card => {
+              card.classList.add("revealed");
+            });
+
             initVideoModal();
             initFilterButtons();
           });
