@@ -296,33 +296,44 @@
         initFilterButtons();
       }
 
-      function fetchSermonsFromYouTube(key, playlist, type) {
-        const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails&maxResults=24&playlistId=${playlist}&key=${key}`;
-        
-        fetch(url)
-          .then(res => {
+      async function fetchSermonsFromYouTube(key, playlist, type) {
+        let items = [];
+        let pageToken = '';
+        const maxPages = 4; // up to 200 videos
+        let pageCount = 0;
+
+        try {
+          while (pageCount < maxPages) {
+            let url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails&maxResults=50&playlistId=${playlist}&key=${key}`;
+            if (pageToken) url += `&pageToken=${pageToken}`;
+
+            const res = await fetch(url);
             if (!res.ok) throw new Error("HTTP error " + res.status);
-            return res.json();
-          })
-          .then(data => {
-            if (data.items && data.items.length > 0) {
-              if (type === 'main') {
-                allSermons = data.items;
-                renderYouTubeSermons(allSermons);
-              } else if (type === 'fur') {
-                furSermons = data.items;
-                renderYouTubeSermons(furSermons);
-              }
-            }
-          })
-          .catch(err => {
-            console.error("YouTube Fetch failed:", err);
+            
+            const data = await res.json();
+            if (data.items) items = items.concat(data.items);
+            
+            pageToken = data.nextPageToken;
+            pageCount++;
+            if (!pageToken) break;
+          }
+
+          if (items.length > 0) {
             if (type === 'main') {
-              // Fallback logic
-              initVideoModal();
-              initFilterButtons();
+              allSermons = items;
+              renderYouTubeSermons(allSermons);
+            } else if (type === 'fur') {
+              furSermons = items;
+              renderYouTubeSermons(furSermons);
             }
-          });
+          }
+        } catch (err) {
+          console.error("YouTube Fetch failed:", err);
+          if (type === 'main') {
+            initVideoModal();
+            initFilterButtons();
+          }
+        }
       }
 
       function renderYouTubeSermons(items) {
