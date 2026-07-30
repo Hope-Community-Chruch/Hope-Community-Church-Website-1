@@ -634,10 +634,11 @@
       const carousels = document.querySelectorAll('.carousel-container-3d');
       
       carousels.forEach((carousel) => {
+        const wrapper = carousel.closest('.carousel-wrapper-3d');
         const cards = carousel.querySelectorAll('.carousel-card-3d');
-        const dots = carousel.parentElement.querySelectorAll('.carousel-dot');
-        const prevBtn = carousel.parentElement.querySelector('.prev-btn');
-        const nextBtn = carousel.parentElement.querySelector('.next-btn');
+        const dots = wrapper.querySelectorAll('.carousel-dot');
+        const prevBtn = wrapper.querySelector('.prev-btn');
+        const nextBtn = wrapper.querySelector('.next-btn');
         
         let currentIndex = 0;
         let rotationAngle = 0;
