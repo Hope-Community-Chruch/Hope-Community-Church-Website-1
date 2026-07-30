@@ -6,7 +6,7 @@
   <title>Camp Tikva | Hope Community Church</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/styles.css?v=1.1" />
   <link rel="stylesheet" href="css/animations.css" />
   
   <style>
@@ -290,21 +290,21 @@
         height: 180px;
       }
       .carousel-container-3d {
-        width: 200px;
-        height: 145px;
+        width: 180px;
+        height: 130px;
       }
-      /* R = 200 * 0.866 = ~173px */
-      .carousel-card-3d:nth-child(1) { transform: rotateY(0deg) translateZ(173px); }
-      .carousel-card-3d:nth-child(2) { transform: rotateY(60deg) translateZ(173px); }
-      .carousel-card-3d:nth-child(3) { transform: rotateY(120deg) translateZ(173px); }
-      .carousel-card-3d:nth-child(4) { transform: rotateY(180deg) translateZ(173px); }
-      .carousel-card-3d:nth-child(5) { transform: rotateY(240deg) translateZ(173px); }
-      .carousel-card-3d:nth-child(6) { transform: rotateY(300deg) translateZ(173px); }
+      /* R = 180 * 0.866 = ~156px */
+      .carousel-card-3d:nth-child(1) { transform: rotateY(0deg) translateZ(156px); }
+      .carousel-card-3d:nth-child(2) { transform: rotateY(60deg) translateZ(156px); }
+      .carousel-card-3d:nth-child(3) { transform: rotateY(120deg) translateZ(156px); }
+      .carousel-card-3d:nth-child(4) { transform: rotateY(180deg) translateZ(156px); }
+      .carousel-card-3d:nth-child(5) { transform: rotateY(240deg) translateZ(156px); }
+      .carousel-card-3d:nth-child(6) { transform: rotateY(300deg) translateZ(156px); }
       
-      /* Hide background cards completely on mobile to prevent clipping */
+      /* Keep background cards visible on mobile for the 3D effect */
       .carousel-card-3d:not(.active-card) {
-        opacity: 0;
-        visibility: hidden;
+        opacity: 0.35;
+        filter: blur(1px) scale(0.9);
       }
     }
   </style>
