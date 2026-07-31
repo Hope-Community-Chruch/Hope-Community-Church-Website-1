@@ -313,7 +313,7 @@
       color: var(--amber);
     }
 
-    .belief-card h4 {
+    .belief-card h3 {
       font-family: 'Playfair Display', serif;
       font-size: 18px;
       color: var(--navy);
@@ -1102,25 +1102,32 @@
 
   <!-- ════ NAV ════ -->
   <nav id="navbar">
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="beliefs.html">Beliefs</a></li>
-      <li><a href="sermons.html">Sermons</a></li>
-      <li><a href="pastor.html">Meet the Pastor</a></li>
-      <li><a href="groups.html">Hope Groups</a></li>
-    </ul>
-
     <a href="index.html" class="nav-logo">
       <img src="images/logo_hope.png" alt="Hope Community Church Logo" />
       <span class="logo-text-below">HOPE Community Church</span>
     </a>
 
     <ul class="nav-links">
-      <li><a href="kids.html">Kids &amp; Youth</a></li>
-      <li><a href="camp-tikva.html">Camp Tikva</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li class="nav-dropdown">
+        <a href="about.html">About Us</a>
+        <ul class="dropdown-menu">
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="beliefs.html">Affirmation of Faith</a></li>
+          <li><a href="pastor.html">Meet the Pastor</a></li>
+        </ul>
+      </li>
+      <li><a href="sermons.html">Sermons</a></li>
+      <li><a href="groups.html">Hope Groups</a></li>
+      <li class="nav-dropdown">
+        <a href="#">Ministries</a>
+        <ul class="dropdown-menu">
+          <li><a href="kids.html">Kids &amp; Youth</a></li>
+          <li><a href="camp-tikva.html">Camp Tikva</a></li>
+          <li><a href="college.html">Bible College</a></li>
+        </ul>
+      </li>
       <li><a href="bulletin.html">Bulletin</a></li>
-      <li><a href="college.html">Bible College</a></li>
       <li><a href="give.html">Give</a></li>
       <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
     </ul>
@@ -1135,15 +1142,16 @@
   <div class="mobile-menu">
     <button class="menu-close" aria-label="Close menu">✕</button>
     <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="beliefs.html">Beliefs</a>
+    <a href="about.html">About Us</a>
+    <a href="beliefs.html" style="font-size: 16px; padding-left: 20px; font-family: var(--font-sans); font-weight: 500;">· Beliefs</a>
+    <a href="pastor.html" style="font-size: 16px; padding-left: 20px; font-family: var(--font-sans); font-weight: 500;">· Meet the Pastor</a>
     <a href="sermons.html">Sermons</a>
-    <a href="pastor.html">Meet the Pastor</a>
     <a href="groups.html">Hope Groups</a>
-    <a href="kids.html">Kids &amp; Youth</a>
-    <a href="camp-tikva.html">Camp Tikva</a>
-    <a href="bulletin.html">Bulletin News</a>
-    <a href="college.html">Anchor Bible College</a>
+    <div style="font-family: var(--font-serif); font-size: 22px; font-weight: 700; color: var(--navy); padding: 14px 0 6px;">Ministries</div>
+    <a href="kids.html" style="font-size: 16px; padding-left: 20px; font-family: var(--font-sans); font-weight: 500; border-top: none;">· Kids &amp; Youth</a>
+    <a href="camp-tikva.html" style="font-size: 16px; padding-left: 20px; font-family: var(--font-sans); font-weight: 500;">· Camp Tikva</a>
+    <a href="college.html" style="font-size: 16px; padding-left: 20px; font-family: var(--font-sans); font-weight: 500;">· Bible College</a>
+    <a href="bulletin.html">Bulletin</a>
     <a href="give.html">Give</a>
     <a href="contact.html">Contact Us</a>
   </div>
@@ -1217,7 +1225,7 @@
             <line x1="3" y1="10" x2="21" y2="10"></line>
           </svg>
         </div>
-        <div class="stat-number" data-target="33" data-suffix="">0</div>
+        <div class="stat-number" data-target="33" data-suffix="">33</div>
         <div class="stat-label">Years of Community</div>
       </div>
       <div class="stat-card">
@@ -1230,8 +1238,8 @@
             <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
           </svg>
         </div>
-        <div class="stat-number" data-target="18" data-suffix="">0</div>
-        <div class="stat-label">Hope Groups</div>
+        <div class="stat-number" data-target="18" data-suffix="">18</div>
+        <div class="stat-label">Small Groups</div>
       </div>
 
     </div>
@@ -1244,7 +1252,7 @@
       <div class="wwa-text reveal">
         <span class="section-eyebrow">Who We Are</span>
         <h2 class="section-title">A Church Built on <em style="font-style:italic;color:var(--amber)">Community</em></h2>
-        <div class="warm-divider"></div>
+        <hr class="warm-divider" />
         <p>We are a Bible-believing, non-denominational Christian church. We love and worship Jesus Christ and believe
           He is the only way to salvation. Whether you're just beginning your faith journey or have walked with God for
           decades, you belong here.</p>
@@ -1279,7 +1287,7 @@
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
           </svg>
         </div>
-        <h4>Believe</h4>
+        <h3>Believe</h3>
         <p>Grounded in the truth of Scripture and the saving grace of Jesus Christ.</p>
       </div>
       <div class="belief-card reveal delay-2">
@@ -1291,7 +1299,7 @@
             </path>
           </svg>
         </div>
-        <h4>Welcome</h4>
+        <h3>Welcome</h3>
         <p>Every person, every background. Our doors and hearts are always open.</p>
       </div>
       <div class="belief-card reveal delay-3">
@@ -1301,7 +1309,7 @@
             <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
           </svg>
         </div>
-        <h4>Grow</h4>
+        <h3>Grow</h3>
         <p>Together through worship, groups, and everyday life lived with purpose.</p>
       </div>
     </div>
@@ -1314,7 +1322,7 @@
       <div class="sermon-text reveal">
         <span class="section-eyebrow">Latest Message</span>
         <h2 class="section-title" style="color:var(--white)">Sunday Sermons</h2>
-        <div class="warm-divider"></div>
+        <hr class="warm-divider" />
         <p style="color:rgba(255,255,255,0.6)">Each week Pastor Manwiller opens the Word and brings a message that is
           practical, Bible-grounded, and life-changing. Watch live or catch up on past messages.</p>
         <div class="sermon-meta">
@@ -1380,8 +1388,8 @@
   <section id="community" class="section">
     <div class="community-header reveal">
       <span class="section-eyebrow">Get Involved</span>
-      <h2 class="section-title">Life at Hope Church</h2>
-      <div class="warm-divider" style="margin:16px auto 16px;"></div>
+      <h2 class="section-title">Life Together</h2>
+      <hr class="warm-divider" style="margin:16px auto 16px;" />
       <p class="section-subtitle">From Hope Groups to Kids & Youth, there's a place for everyone in our family.</p>
     </div>
 
@@ -1556,9 +1564,9 @@
         </div>
       </a>
 
-      <div class="community-card">
+      <a href="groups.html" class="community-card">
         <div class="comm-img img-zoom">
-          <img src="images/steadfast_seniors.svg" alt="Steadfast Seniors" style="object-fit: contain; padding: 20px; background-color: #FDFBF7;" />
+          <img src="images/steadfast_seniors.jpg" alt="Steadfast Seniors" />
           <div class="comm-overlay"></div>
         </div>
         <div class="comm-body">
@@ -1573,8 +1581,16 @@
           </div>
           <h4>Steadfast Seniors</h4>
           <p>A ministry to older saints, meets on the first Friday of every month for lunch, worship, Bible teaching, prayer and fellowship together. 12:30pm.</p>
+          <div class="comm-link">
+            Learn More
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
         </div>
-      </div>
+      </a>
 
     </div>
   </section>
@@ -1756,10 +1772,10 @@
       <div class="footer-col">
         <h4>Service Times</h4>
         <ul>
-          <li><a href="#">Sunday: 10:00 AM</a></li>
-          <li><a href="#">In Person &amp; Online</a></li>
-          <li><a href="#">2100 Ellsworth Rd</a></li>
-          <li><a href="#">Ypsilanti, MI 48197</a></li>
+          <li>Sunday: 10:00 AM</li>
+          <li>In Person &amp; Online</li>
+          <li><a href="https://maps.google.com/?q=2100+Ellsworth+Rd,+Ypsilanti,+MI+48197" target="_blank" rel="noopener noreferrer">2100 Ellsworth Rd</a></li>
+          <li><a href="https://maps.google.com/?q=2100+Ellsworth+Rd,+Ypsilanti,+MI+48197" target="_blank" rel="noopener noreferrer">Ypsilanti, MI 48197</a></li>
         </ul>
       </div>
     </div>

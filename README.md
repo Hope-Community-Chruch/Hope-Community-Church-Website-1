@@ -1,6 +1,6 @@
 # Hope Community Church — Website Redesign
 
-**Live Website:** [hope-community-chruch.github.io/Hope-Community-Church-Website-1](https://hope-community-chruch.github.io/Hope-Community-Church-Website-1/)
+**Live Website:** [hope-community-church.github.io/Hope-Community-Church-Website-1](https://hope-community-church.github.io/Hope-Community-Church-Website-1/)
 
 A fully modern, interactive website for **Hope Community Church** (Ypsilanti, MI).  
 Built with pure HTML, CSS, and JavaScript — no frameworks, no build step required.

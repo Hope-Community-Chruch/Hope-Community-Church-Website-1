@@ -14,6 +14,9 @@
   const NRAYS  = 18;
   const NDOTS  = 55;
 
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let isAnimating = !prefersReducedMotion.matches;
+
   /* ── Resize ── */
   function resize() {
     W = canvas.width  = window.innerWidth;
@@ -117,13 +120,41 @@
     ctx.fill();
   }
 
+  /* ── Draw static snapshot ── */
+  function drawStaticFrame() {
+    ctx.clearRect(0, 0, W, H);
+    rays.forEach(r => r.draw(0));
+    drawGlow(0);
+    dots.forEach(d => {
+      if (d.life === 0) d.life = Math.floor(d.maxLife / 2);
+      d.draw();
+    });
+  }
+
   /* ── Animation loop ── */
   function animate(t) {
+    if (!isAnimating) return;
     ctx.clearRect(0, 0, W, H);
     rays.forEach(r => r.draw(t));
     drawGlow(t);
     dots.forEach(d => { d.update(); d.draw(); });
     raf = requestAnimationFrame(animate);
+  }
+
+  /* ── Update motion preferences ── */
+  function updateMotionPreferences() {
+    isAnimating = !prefersReducedMotion.matches;
+    if (!isAnimating) {
+      if (raf) {
+        cancelAnimationFrame(raf);
+        raf = null;
+      }
+      drawStaticFrame();
+    } else {
+      if (!raf) {
+        raf = requestAnimationFrame(animate);
+      }
+    }
   }
 
   /* ── Init ── */
@@ -138,9 +169,32 @@
       dots.push(d);
     }
     if (raf) cancelAnimationFrame(raf);
-    raf = requestAnimationFrame(animate);
+    raf = null;
+
+    prefersReducedMotion.addEventListener('change', updateMotionPreferences);
+    updateMotionPreferences();
   }
 
-  window.addEventListener('resize', () => { resize(); rays.forEach((r, i) => r.reset()); });
-  init();
+  window.addEventListener('resize', () => {
+    resize();
+    rays.forEach((r, i) => r.reset());
+    if (!isAnimating) drawStaticFrame();
+  });
+
+  // Defer initialization until page load & requestIdleCallback
+  if (document.readyState === 'complete') {
+    if (window.requestIdleCallback) {
+      requestIdleCallback(() => init());
+    } else {
+      setTimeout(init, 50);
+    }
+  } else {
+    window.addEventListener('load', () => {
+      if (window.requestIdleCallback) {
+        requestIdleCallback(() => init());
+      } else {
+        setTimeout(init, 50);
+      }
+    });
+  }
 })();

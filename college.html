@@ -176,6 +176,7 @@
       height: 2px;
       background-color: var(--secondary-gold);
       margin: 0 auto 24px;
+      border: none;
     }
     .section-header p {
       color: var(--text-muted);
@@ -434,25 +435,32 @@
 </head>
 <body>
   <nav id="navbar">
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="beliefs.html">Beliefs</a></li>
-      <li><a href="sermons.html">Sermons</a></li>
-      <li><a href="pastor.html">Meet the Pastor</a></li>
-      <li><a href="groups.html">Hope Groups</a></li>
-    </ul>
-
     <a href="index.html" class="nav-logo">
       <img src="images/logo_hope.png" alt="Hope Community Church" />
       <span class="logo-text-below">HOPE Community Church</span>
     </a>
 
     <ul class="nav-links">
-      <li><a href="kids.html">Kids &amp; Youth</a></li>
-      <li><a href="camp-tikva.html">Camp Tikva</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li class="nav-dropdown">
+        <a href="about.html">About Us</a>
+        <ul class="dropdown-menu">
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="beliefs.html">Affirmation of Faith</a></li>
+          <li><a href="pastor.html">Meet the Pastor</a></li>
+        </ul>
+      </li>
+      <li><a href="sermons.html">Sermons</a></li>
+      <li><a href="groups.html">Hope Groups</a></li>
+      <li class="nav-dropdown">
+        <a href="#" class="active">Ministries</a>
+        <ul class="dropdown-menu">
+          <li><a href="kids.html">Kids &amp; Youth</a></li>
+          <li><a href="camp-tikva.html">Camp Tikva</a></li>
+          <li><a href="college.html" class="active">Bible College</a></li>
+        </ul>
+      </li>
       <li><a href="bulletin.html">Bulletin</a></li>
-      <li><a href="college.html">Bible College</a></li>
       <li><a href="give.html">Give</a></li>
       <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
     </ul>
@@ -463,15 +471,16 @@
   <div class="mobile-menu">
     <button class="menu-close">✕</button>
     <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="beliefs.html">Beliefs</a>
+    <a href="about.html">About Us</a>
+    <a href="beliefs.html" style="font-size: 16px; padding-left: 20px; font-family: var(--font-sans); font-weight: 500;">· Beliefs</a>
+    <a href="pastor.html" style="font-size: 16px; padding-left: 20px; font-family: var(--font-sans); font-weight: 500;">· Meet the Pastor</a>
     <a href="sermons.html">Sermons</a>
-    <a href="pastor.html">Meet the Pastor</a>
     <a href="groups.html">Hope Groups</a>
-    <a href="kids.html">Kids &amp; Youth</a>
-    <a href="camp-tikva.html">Camp Tikva</a>
+    <div style="font-family: var(--font-serif); font-size: 22px; font-weight: 700; color: var(--navy); padding: 14px 0 6px;">Ministries</div>
+    <a href="kids.html" style="font-size: 16px; padding-left: 20px; font-family: var(--font-sans); font-weight: 500; border-top: none;">· Kids &amp; Youth</a>
+    <a href="camp-tikva.html" style="font-size: 16px; padding-left: 20px; font-family: var(--font-sans); font-weight: 500;">· Camp Tikva</a>
+    <a href="college.html" class="active" style="font-size: 16px; padding-left: 20px; font-family: var(--font-sans); font-weight: 500;">· Bible College</a>
     <a href="bulletin.html">Bulletin</a>
-    <a href="college.html">Bible College</a>
     <a href="give.html">Give</a>
     <a href="contact.html">Contact Us</a>
   </div>
@@ -538,7 +547,7 @@
   <section class="container reveal">
     <div class="section-header">
       <h2>Academic Offerings</h2>
-      <div class="divider"></div>
+      <hr class="divider" />
       <p>Choose the level of commitment that matches your seasonal availability and long-term ministry goals.</p>
     </div>
     
@@ -572,7 +581,7 @@
     <div class="container reveal">
       <div class="section-header">
         <h2>Transfer Credit Partners</h2>
-        <div class="divider"></div>
+        <hr class="divider" />
         <p>Anchor Bible College is a member of the National College Credit Recommendation Service (NCCRS). Our degree program courses are evaluated and recommended for transferable credit at over 1,300 cooperating institutions, including:</p>
       </div>
       <div class="partners-logos-grid">
@@ -589,7 +598,7 @@
   <section class="container reveal">
     <div class="section-header">
       <h2>Alumni Experiences</h2>
-      <div class="divider"></div>
+      <hr class="divider" />
     </div>
     <div class="testimonials-grid">
       <div class="testimonial-item">
@@ -611,7 +620,7 @@
   <section class="container reveal">
     <div class="section-header">
       <h2>Frequently Asked Questions</h2>
-      <div class="divider"></div>
+      <hr class="divider" />
     </div>
     
     <div class="accordion">

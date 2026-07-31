@@ -49,26 +49,33 @@
 </head>
 <body>
   <nav id="navbar">
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="beliefs.html">Beliefs</a></li>
-      <li><a href="sermons.html">Sermons</a></li>
-      <li><a href="pastor.html">Meet the Pastor</a></li>
-      <li><a href="groups.html">Hope Groups</a></li>
-    </ul>
-
     <a href="index.html" class="nav-logo">
       <img src="images/logo_hope.png" alt="Hope Community Church" />
       <span class="logo-text-below">HOPE Community Church</span>
     </a>
 
     <ul class="nav-links">
-      <li><a href="kids.html">Kids &amp; Youth</a></li>
-      <li><a href="camp-tikva.html">Camp Tikva</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li class="nav-dropdown">
+        <a href="about.html">About Us</a>
+        <ul class="dropdown-menu">
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="beliefs.html">Affirmation of Faith</a></li>
+          <li><a href="pastor.html">Meet the Pastor</a></li>
+        </ul>
+      </li>
+      <li><a href="sermons.html">Sermons</a></li>
+      <li><a href="groups.html">Hope Groups</a></li>
+      <li class="nav-dropdown">
+        <a href="#">Ministries</a>
+        <ul class="dropdown-menu">
+          <li><a href="kids.html">Kids &amp; Youth</a></li>
+          <li><a href="camp-tikva.html">Camp Tikva</a></li>
+          <li><a href="college.html">Bible College</a></li>
+        </ul>
+      </li>
       <li><a href="bulletin.html">Bulletin</a></li>
-      <li><a href="college.html">Bible College</a></li>
-      <li><a href="give.html">Give</a></li>
+      <li><a href="give.html" class="active">Give</a></li>
       <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
     </ul>
 
@@ -79,16 +86,17 @@
   <div class="mobile-menu">
     <button class="menu-close">✕</button>
     <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="beliefs.html">Beliefs</a>
+    <a href="about.html">About Us</a>
+    <a href="beliefs.html" style="font-size: 16px; padding-left: 20px; font-family: var(--font-sans); font-weight: 500;">· Beliefs</a>
+    <a href="pastor.html" style="font-size: 16px; padding-left: 20px; font-family: var(--font-sans); font-weight: 500;">· Meet the Pastor</a>
     <a href="sermons.html">Sermons</a>
-    <a href="pastor.html">Meet the Pastor</a>
     <a href="groups.html">Hope Groups</a>
-    <a href="kids.html">Kids &amp; Youth</a>
-    <a href="camp-tikva.html">Camp Tikva</a>
+    <div style="font-family: var(--font-serif); font-size: 22px; font-weight: 700; color: var(--navy); padding: 14px 0 6px;">Ministries</div>
+    <a href="kids.html" style="font-size: 16px; padding-left: 20px; font-family: var(--font-sans); font-weight: 500; border-top: none;">· Kids &amp; Youth</a>
+    <a href="camp-tikva.html" style="font-size: 16px; padding-left: 20px; font-family: var(--font-sans); font-weight: 500;">· Camp Tikva</a>
+    <a href="college.html" style="font-size: 16px; padding-left: 20px; font-family: var(--font-sans); font-weight: 500;">· Bible College</a>
     <a href="bulletin.html">Bulletin</a>
-    <a href="college.html">Bible College</a>
-    <a href="give.html">Give</a>
+    <a href="give.html" class="active">Give</a>
     <a href="contact.html">Contact Us</a>
   </div>
 
@@ -104,7 +112,7 @@
       <div class="reveal">
         <span class="section-eyebrow">Why We Give</span>
         <h2 class="section-title">Fueling Ministry, Transforming Lives</h2>
-        <div class="warm-divider" style="margin-bottom:28px;"></div>
+        <hr class="warm-divider" style="margin-bottom:28px;" />
         
         <p style="margin-bottom:32px; color:var(--muted); line-height:1.7;">
           At Hope Community Church, we believe giving is an act of worship and a tangible expression of gratitude to God. Your support enables us to provide Sunday services, run youth and kids ministries, offer biblical courses through Anchor Bible College, and serve our local community in Ypsilanti.
