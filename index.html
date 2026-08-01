@@ -19,7 +19,7 @@
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 
   <!-- Styles -->
-  <link rel="stylesheet" href="css/styles.css?v=1.2" />
+  <link rel="stylesheet" href="css/styles.css?v=1.3" />
   <link rel="stylesheet" href="css/animations.css" />
 
   <!-- GSAP -->
@@ -27,6 +27,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
   <style>
+    /* Prevent cream body background from bleeding behind the transparent fixed navbar.
+       All sections below the hero have their own explicit background values. */
+    body {
+      background: #0f1e3d;
+    }
+
     /* ── HERO ── */
     #hero {
       position: relative;
