@@ -124,6 +124,14 @@ p {
   box-shadow: 0 2px 32px rgba(29, 52, 97, 0.10);
 }
 
+#navbar.scrolled-dark {
+  background: rgba(29, 52, 97, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 8px clamp(24px, 4vw, 64px);
+  box-shadow: 0 4px 24px rgba(15, 30, 61, 0.15);
+}
+
 .nav-logo {
   display: flex;
   flex-direction: row;
@@ -140,7 +148,8 @@ p {
   transition: height var(--transition);
 }
 
-#navbar.scrolled .nav-logo img {
+#navbar.scrolled .nav-logo img,
+#navbar.scrolled-dark .nav-logo img {
   height: 48px;
 }
 
@@ -695,7 +704,8 @@ footer {
     height: 52px !important;
   }
 
-  #navbar.scrolled .nav-logo img {
+  #navbar.scrolled .nav-logo img,
+  #navbar.scrolled-dark .nav-logo img {
     height: 52px !important;
   }
 

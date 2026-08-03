@@ -8,9 +8,37 @@ document.addEventListener('DOMContentLoaded', () => {
   const navbar = document.getElementById('navbar');
   if (navbar) {
     const onScroll = () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 60);
+      const hero = document.getElementById('hero') || document.querySelector('.page-hero') || document.querySelector('.classic-hero');
+      const scrollY = window.scrollY;
+      
+      if (hero) {
+        const heroHeight = hero.offsetHeight;
+        const navHeight = navbar.offsetHeight || 80;
+        const threshold = heroHeight - navHeight;
+        
+        if (scrollY === 0) {
+          navbar.classList.remove('scrolled-dark', 'scrolled');
+        } else if (scrollY > 0 && scrollY <= threshold) {
+          navbar.classList.add('scrolled-dark');
+          navbar.classList.remove('scrolled');
+        } else {
+          navbar.classList.remove('scrolled-dark');
+          navbar.classList.add('scrolled');
+        }
+      } else {
+        if (scrollY > 60) {
+          navbar.classList.add('scrolled');
+          navbar.classList.remove('scrolled-dark');
+        } else if (scrollY > 0) {
+          navbar.classList.add('scrolled-dark');
+          navbar.classList.remove('scrolled');
+        } else {
+          navbar.classList.remove('scrolled-dark', 'scrolled');
+        }
+      }
     };
     window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
     onScroll();
   }
 
