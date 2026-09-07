@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Other Ministries | Hope Community Church</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css?v=1.2" /><link rel="stylesheet" href="css/animations.css" />
+  <style>
+    .ministry-section {
+      padding: 80px 0;
+    }
+    .ministry-section:nth-child(even) {
+      background: var(--cream);
+    }
+    .ministry-section:nth-child(odd) {
+      background: var(--warm-white);
+    }
+    .ministry-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .ministry-grid.reverse .ministry-text {
+      order: 2;
+    }
+    .ministry-grid.reverse .ministry-image {
+      order: 1;
+    }
+    .ministry-image img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-lg);
+    }
+    .ministry-meta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--navy-light);
+      background: rgba(61, 126, 166, 0.08);
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+    .ministry-meta a {
+        color: var(--navy-light);
+        text-decoration: none;
+    }
+    .ministry-meta a:hover {
+        color: var(--amber);
+        text-decoration: underline;
+    }
+    .ministry-meta svg {
+      color: var(--gold);
+    }
+    @media (max-width: 992px) {
+      .ministry-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .ministry-grid.reverse .ministry-text,
+      .ministry-grid.reverse .ministry-image {
+        order: unset;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ── NAVBAR ── -->
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo">
+      <img src="images/logo_hope.png" alt="Hope Community Church" />
+      <span class="logo-text-below">HOPE Community Church</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li class="nav-dropdown">
+        <a href="#">About Us</a>
+        <ul class="dropdown-menu">
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="beliefs.html">Affirmation of Faith</a></li>
+          <li><a href="pastor.html">Meet the Pastor</a></li>
+        </ul>
+      </li>
+      <li><a href="sermons.html">Sermons</a></li>
+      <li class="nav-dropdown">
+        <a href="#" class="active">Ministries</a>
+        <ul class="dropdown-menu">
+          <li><a href="groups.html">Hope Groups</a></li>
+          <li><a href="kids.html">Kids &amp; Youth</a></li>
+          <li><a href="camp-tikva.html">Camp Tikva</a></li>
+          <li><a href="college.html">Bible College</a></li>
+          <li><a href="other-ministries.html" class="active">Other Ministries</a></li>
+        </ul>
+      </li>
+      <li><a href="bulletin.html">Bulletin</a></li>
+      <li><a href="give.html">Give</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+    </ul>
+
+    <button class="nav-hamburger"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div class="mobile-overlay"></div>
+  <div class="mobile-menu">
+    <button class="menu-close">✕</button>
+    <a href="index.html">Home</a>
+    <div style="font-family: var(--font-serif); font-size: 22px; font-weight: 700; color: var(--navy); padding: 14px 0 6px;">About Us</div>
+    <a href="about.html" style="font-size: 16px; padding-left: 20px; font-family: var(--font-sans); font-weight: 500; border-top: none;">· Our Story</a>
+    <a href="beliefs.html" style="font-size: 16px; padding-left: 20px; font-family: var(--font-sans); font-weight: 500;">· Beliefs</a>
+    <a href="pastor.html" style="font-size: 16px; padding-left: 20px; font-family: var(--font-sans); font-weight: 500;">· Meet the Pastor</a>
+    <a href="sermons.html">Sermons</a>
+    <div style="font-family: var(--font-serif); font-size: 22px; font-weight: 700; color: var(--navy); padding: 14px 0 6px;">Ministries</div>
+    <a href="groups.html" style="font-size: 16px; padding-left: 20px; font-family: var(--font-sans); font-weight: 500; border-top: none;">· Hope Groups</a>
+    <a href="kids.html" style="font-size: 16px; padding-left: 20px; font-family: var(--font-sans); font-weight: 500;">· Kids &amp; Youth</a>
+    <a href="camp-tikva.html" style="font-size: 16px; padding-left: 20px; font-family: var(--font-sans); font-weight: 500;">· Camp Tikva</a>
+    <a href="college.html" style="font-size: 16px; padding-left: 20px; font-family: var(--font-sans); font-weight: 500;">· Bible College</a>
+    <a href="other-ministries.html" class="active" style="font-size: 16px; padding-left: 20px; font-family: var(--font-sans); font-weight: 500;">· Other Ministries</a>
+    <a href="bulletin.html">Bulletin</a>
+    <a href="give.html">Give</a>
+    <a href="contact.html">Contact Us</a>
+  </div>
+
+  <!-- ── HERO ── -->
+  <div class="page-hero">
+    <span class="section-eyebrow" style="color:var(--amber);">Reaching the World</span>
+    <h1>Other Ministries</h1>
+    <p>Serving beyond our walls to spread the Gospel, equip the saints, and bring the light of Christ to all nations.</p>
+  </div>
+
+  <!-- ── WORLD MISSIONARY PRESS ── -->
+  <section class="ministry-section reveal">
+    <div class="container">
+      <div class="ministry-grid">
+        <div class="ministry-text">
+          <span class="section-eyebrow">Global Reach</span>
+          <h2 class="section-title">World Missionary Press</h2>
+          <div class="warm-divider"></div>
+          
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+              <div class="ministry-meta">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                4 Days (Each June)
+              </div>
+              <div class="ministry-meta">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <a href="https://maps.google.com/?q=19168+Co+Rd+146,+New+Paris,+IN+46553" target="_blank" rel="noopener noreferrer">19168 Co Rd 146, New Paris, IN</a>
+              </div>
+          </div>
+
+          <p style="font-size:16px; margin-bottom:20px; color:var(--text);">
+            World Missionary Press produces New Testaments and Scripture portions in hundreds of languages to ship around the world. Every June, we send several groups of volunteers (ages 14 and up) to serve for 4 days in their factory. 
+          </p>
+          <p style="font-size:16px; color:var(--muted); margin-bottom:20px;">
+            It is a powerful time of dedicating our hands to the Lord’s work. Alongside the practical work of packing and preparing materials, our groups experience deep worship and sweet fellowship with one another and with the missionaries serving there.
+          </p>
+          <a href="contact.html?subject=World%20Missionary%20Press%20Trip" class="btn btn-outline">Join the Next Trip</a>
+        </div>
+        <div class="ministry-image">
+          <img src="images/community.png" id="img-wmp" alt="World Missionary Press" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FERRIS STATE CAMPUS EVANGELISM ── -->
+  <section class="ministry-section reveal">
+    <div class="container">
+      <div class="ministry-grid reverse">
+        <div class="ministry-text">
+          <span class="section-eyebrow">Campus Ministry</span>
+          <h2 class="section-title">Ferris State Evangelism</h2>
+          <div class="warm-divider"></div>
+          
+           <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+              <div class="ministry-meta">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                End of August (Fri - Wed)
+              </div>
+              <div class="ministry-meta">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <a href="https://maps.google.com/?q=15085+220th+Ave,+Big+Rapids,+MI+49307" target="_blank" rel="noopener noreferrer">Big Rapids, MI</a>
+              </div>
+          </div>
+
+          <p style="font-size:16px; margin-bottom:20px; color:var(--text);">
+            Reaching the next generation with the truth of the Gospel is vital. At the end of August, as college reopens, we embark on a campus evangelism trip to Ferris State University. We stay at <a href="https://www.cranhillranch.com/" target="_blank" style="color:var(--amber); font-weight:500;">CranHill Ranch</a>, a Christian retreat center, providing a base for spiritual preparation and rest.
+          </p>
+          <p style="font-size:16px; color:var(--muted); margin-bottom:20px;">
+            During this trip, we boldly share Christ with students and invite them to connect with <a href="https://reallifecm.org/" target="_blank" style="color:var(--amber); font-weight:500;">Real Life Campus Ministry</a> and <a href="https://maps.google.com/?q=15085+220th+Ave,+Big+Rapids,+MI+49307" target="_blank" style="color:var(--amber); font-weight:500;">Trinity Fellowship EFC</a> to ensure they have a local church home and supportive community while away at school.
+          </p>
+          <a href="contact.html?subject=Ferris%20State%20Evangelism" class="btn btn-outline">Learn More</a>
+        </div>
+        <div class="ministry-image">
+          <img src="images/community.png" id="img-ferris" alt="Ferris State Campus Evangelism" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── RENEW WORLD OUTREACH ── -->
+  <section class="ministry-section reveal">
+    <div class="container">
+      <div class="ministry-grid">
+        <div class="ministry-text">
+          <span class="section-eyebrow">Equipping the Church</span>
+          <h2 class="section-title">Renew World Outreach</h2>
+          <div class="warm-divider"></div>
+          
+           <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+              <div class="ministry-meta">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                6 Days (May &amp; August)
+              </div>
+              <div class="ministry-meta">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                <a href="https://renewoutreach.org/" target="_blank" rel="noopener noreferrer">renewoutreach.org</a>
+              </div>
+          </div>
+
+          <p style="font-size:16px; margin-bottom:20px; color:var(--text);">
+            <a href="https://renewoutreach.org/" target="_blank" style="color:var(--amber); font-weight:500;">Renew World Outreach</a> empowers believers by developing innovative technology—like solar-powered audio Bibles and portable media systems—to spread God's Word to the most remote and unreached areas of the globe.
+          </p>
+          <p style="font-size:16px; color:var(--muted); margin-bottom:20px;">
+            Our church takes two 6-day trips each year (Girls in May, Boys in August) to serve at their headquarters. During the day, we offer our diverse, God-given skills to support their operations. The evenings are devoted to spiritual training, earnest prayer, and strengthening our fellowship in Christ.
+          </p>
+          <a href="contact.html?subject=Renew%20World%20Outreach%20Trip" class="btn btn-outline">Serve With Us</a>
+        </div>
+        <div class="ministry-image">
+          <img src="images/community.png" id="img-renew" alt="Renew World Outreach" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-bottom" style="border-top:none;padding-top:0;">
+      <span>© 2025 Hope Community Church · <a href="index.html" style="color:var(--amber);">Back to Home</a></span>
+      <span>(734) 721-8190</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
