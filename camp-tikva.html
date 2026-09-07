@@ -330,6 +330,53 @@
         filter: blur(1px) scale(0.9);
       }
     }
+
+    /* ── HERO COLLAGE BACKGROUND ── */
+    .page-hero {
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      display: none !important; /* Hide standard background image */
+    }
+    .hero-collage {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 6px;
+      padding: 6px;
+      opacity: 0.95;
+      filter: saturate(1.1) brightness(1.0);
+    }
+    .hero-collage img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(15, 28, 54, 0.55) 0%, rgba(10, 20, 40, 0.75) 100%);
+      z-index: 1;
+    }
+    .page-hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    .page-hero-content h1,
+    .page-hero-content p,
+    .page-hero-content .section-eyebrow {
+      text-shadow: 0 3px 12px rgba(0, 0, 0, 0.85);
+    }
+    @media (max-width: 600px) {
+      .hero-collage {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+      }
+    }
   </style>
 </head>
 <body>
@@ -392,9 +439,22 @@
 
   <!-- ── HERO ── -->
   <div class="page-hero">
-    <span class="section-eyebrow" style="color:var(--amber);">Children's Summer School</span>
-    <h1>Camp Tikva</h1>
-    <p>Where faith, fun, and lifelong friendships grow. Conducted in four locations across the country.</p>
+    <div class="hero-collage">
+      <img src="images/camp-tikva/pa/1.jpg" alt="Camp Tikva Pennsylvania" />
+      <img src="images/camp-tikva/ak/1.jpg" alt="Camp Tikva Alaska" />
+      <img src="images/camp-tikva/yp/1.jpg" alt="Camp Tikva Ypsilanti" />
+      <img src="images/camp-tikva/wb/1.jpg" alt="Camp Tikva West Branch" />
+      <img src="images/camp-tikva/pa/2.jpg" alt="Camp Tikva Pennsylvania 2" />
+      <img src="images/camp-tikva/ak/2.jpg" alt="Camp Tikva Alaska 2" />
+      <img src="images/camp-tikva/yp/2.jpg" alt="Camp Tikva Ypsilanti 2" />
+      <img src="images/camp-tikva/wb/2.jpg" alt="Camp Tikva West Branch 2" />
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="page-hero-content">
+      <span class="section-eyebrow" style="color:var(--amber);">Children's Summer School</span>
+      <h1>Camp Tikva</h1>
+      <p>Where faith, fun, and lifelong friendships grow. Conducted in four locations across the country.</p>
+    </div>
   </div>
 
   <!-- ── INTRODUCTION & BIBLE SCRIPTURE ── -->
