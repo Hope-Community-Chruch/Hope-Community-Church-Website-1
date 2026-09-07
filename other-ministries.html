@@ -176,9 +176,43 @@
       cursor: pointer;
       transition: all var(--transition);
     }
-    .carousel-dot.active {
-      background: var(--amber);
-      transform: scale(1.3);
+    /* ── HERO COLLAGE BACKGROUND ── */
+    .page-hero {
+      position: relative;
+    }
+    .page-hero::before {
+      display: none !important; /* Hide standard background image */
+    }
+    .hero-collage {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 4px;
+      opacity: 0.28;
+      filter: saturate(1.1) brightness(0.9);
+    }
+    .hero-collage img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(29, 52, 97, 0.92) 0%, rgba(38, 70, 128, 0.88) 100%);
+      z-index: 1;
+    }
+    .page-hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    @media (max-width: 600px) {
+      .hero-collage {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+      }
     }
   </style>
 </head>
@@ -241,9 +275,22 @@
 
   <!-- ── HERO ── -->
   <div class="page-hero">
-    <span class="section-eyebrow" style="color:var(--amber);">Reaching the World</span>
-    <h1>Other Ministries</h1>
-    <p>Serving beyond our walls to spread the Gospel, equip the saints, and bring the light of Christ to all nations.</p>
+    <div class="hero-collage">
+      <img src="images/other-ministries/wmp/1.jpg" alt="Collage 1" />
+      <img src="images/other-ministries/ferris/1.jpg" alt="Collage 2" />
+      <img src="images/other-ministries/renew/1.jpeg" alt="Collage 3" />
+      <img src="images/other-ministries/wmp/3.jpg" alt="Collage 4" />
+      <img src="images/other-ministries/renew/3.jpeg" alt="Collage 5" />
+      <img src="images/other-ministries/ferris/3.jpeg" alt="Collage 6" />
+      <img src="images/other-ministries/wmp/2.jpg" alt="Collage 7" />
+      <img src="images/other-ministries/ferris/2.jpg" alt="Collage 8" />
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="page-hero-content">
+      <span class="section-eyebrow" style="color:var(--amber);">Reaching the World</span>
+      <h1>Other Ministries</h1>
+      <p>Serving beyond our walls to spread the Gospel, equip the saints, and bring the light of Christ to all nations.</p>
+    </div>
   </div>
 
   <!-- ── WORLD MISSIONARY PRESS ── -->
