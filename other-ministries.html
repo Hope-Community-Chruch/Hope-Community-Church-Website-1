@@ -191,24 +191,29 @@
       grid-template-rows: repeat(2, 1fr);
       gap: 6px;
       padding: 6px;
-      opacity: 0.65;
-      filter: saturate(1.1) brightness(0.95);
+      opacity: 0.95;
+      filter: saturate(1.1) brightness(1.0);
     }
     .hero-collage img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 4px;
+      border-radius: 6px;
     }
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(29, 52, 97, 0.72) 0%, rgba(38, 70, 128, 0.68) 100%);
+      background: radial-gradient(circle at center, rgba(15, 28, 54, 0.55) 0%, rgba(10, 20, 40, 0.75) 100%);
       z-index: 1;
     }
     .page-hero-content {
       position: relative;
       z-index: 2;
+    }
+    .page-hero-content h1,
+    .page-hero-content p,
+    .page-hero-content .section-eyebrow {
+      text-shadow: 0 3px 12px rgba(0, 0, 0, 0.85);
     }
     @media (max-width: 600px) {
       .hero-collage {
