@@ -32,21 +32,21 @@
 
     /* Classic Hero */
     .classic-hero {
-      background-color: var(--primary-navy);
-      color: white;
+      background-color: #f9f7f1; /* Cream background */
+      color: var(--primary-navy);
       padding: 210px 20px 80px;
       text-align: center;
       border-bottom: 4px solid var(--secondary-gold);
     }
     .classic-hero h1 {
-      color: white;
+      color: var(--primary-navy);
       font-size: clamp(40px, 6vw, 64px);
       font-weight: 600;
       margin-bottom: 20px;
       letter-spacing: -0.5px;
     }
     .classic-hero p {
-      color: rgba(255, 255, 255, 0.9);
+      color: rgba(29, 52, 97, 0.9);
       font-size: 18px;
       max-width: 600px;
       margin: 0 auto;
@@ -59,6 +59,14 @@
       letter-spacing: 2px;
       font-size: 13px;
       font-weight: 600;
+    }
+
+    /* Force Navbar text to be dark on this page when not scrolled */
+    #navbar:not(.scrolled):not(.scrolled-dark) .logo-name { color: var(--primary-navy); }
+    #navbar:not(.scrolled):not(.scrolled-dark) .logo-sub { color: rgba(29, 52, 97, 0.7); }
+    #navbar:not(.scrolled):not(.scrolled-dark) .nav-links a { color: rgba(29, 52, 97, 0.9); }
+    #navbar:not(.scrolled):not(.scrolled-dark) .nav-hamburger span { background-color: var(--primary-navy); }
+
       display: block;
       margin-bottom: 16px;
     }
@@ -491,7 +499,7 @@
   <!-- Classic Hero -->
   <header class="classic-hero">
     <div style="display: flex; justify-content: center; margin-bottom: 24px;">
-      <img src="images/Anchor_bible-college.png" alt="Anchor Bible College" style="max-height: 100px; width: auto; display: block; background-color: #ffffff; padding: 10px 20px; border-radius: 8px;" />
+      <img src="images/Anchor_bible-college.png" alt="Anchor Bible College" style="max-height: 100px; width: auto; display: block;" />
     </div>
     <span class="hero-eyebrow-text">A Ministry of Hope Community Church</span>
     <h1 style="display: none;">Anchor Bible College</h1>
