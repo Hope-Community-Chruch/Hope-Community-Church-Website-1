@@ -7,13 +7,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css?v=1.2" /><link rel="stylesheet" href="css/animations.css" />
   <style>
-    .age-tabs { display: flex; gap: 0; border-radius: var(--radius-md); overflow: hidden; border: 1.5px solid rgba(29,52,97,0.12); margin:0 auto 48px; width: fit-content; }
-    .age-tab { padding: 12px 28px; font-size: 14px; font-weight: 600; background: var(--white); color: var(--muted); cursor: pointer; border: none; font-family: var(--font-sans); transition: all var(--transition); }
-    .age-tab.active { background: var(--amber); color: white; }
-    .age-content { display: none; max-width: 900px; margin: 0 auto; }
-    .age-content.show { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .age-content { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; max-width: 900px; margin: 0 auto 80px; }
+    .age-content:last-child { margin-bottom: 0; }
     .age-content img { border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); width: 100%; height: 360px; object-fit: cover; }
-    @media(max-width:768px){ .age-content.show{grid-template-columns:1fr;} .age-tabs{flex-wrap:wrap;} }
+    @media(max-width:768px){ .age-content{grid-template-columns:1fr;} }
   </style>
 </head>
 <body>
@@ -78,13 +75,7 @@
   </div>
 
   <section class="section" style="background:var(--warm-white);text-align:center;">
-    <div class="age-tabs">
-      <button class="age-tab active" onclick="showAge('nursery',this)">Nursery (0–2)</button>
-      <button class="age-tab" onclick="showAge('kids',this)">Sunday School</button>
-      <button class="age-tab" onclick="showAge('youth',this)">iFire Youth</button>
-    </div>
-
-    <div id="nursery-content" class="age-content show">
+    <div id="nursery-content" class="age-content">
       <img src="images/hope_nursery.jpg" alt="Hope Nursery" />
       <div style="text-align:left;">
         <span class="section-eyebrow">Ages 0–2</span>
@@ -139,13 +130,5 @@
 
   <footer><div class="footer-bottom" style="border-top:none;padding-top:0;"><span>© 2025 Hope Community Church · <a href="index.html" style="color:var(--amber);">Back to Home</a></span><span>(734) 721-8190</span></div></footer>
   <script src="js/main.js"></script>
-  <script>
-    function showAge(id, btn) {
-      document.querySelectorAll('.age-content').forEach(el => el.classList.remove('show'));
-      document.querySelectorAll('.age-tab').forEach(b => b.classList.remove('active'));
-      document.getElementById(id + '-content').classList.add('show');
-      btn.classList.add('active');
-    }
-  </script>
 </body>
 </html>
