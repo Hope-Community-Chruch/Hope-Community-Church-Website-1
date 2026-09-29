@@ -198,13 +198,14 @@
             form.reset();
           } else {
             console.error(res);
-            // fallback to direct form submission
-            form.submit();
+            btn.textContent = res.message || 'Error sending message. Try again?';
+            btn.disabled = false;
           }
         })
         .catch(error => {
           console.error(error);
-          form.submit();
+          btn.textContent = 'Network error. Try again?';
+          btn.disabled = false;
         });
       });
     }

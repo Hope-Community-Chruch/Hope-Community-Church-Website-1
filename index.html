@@ -1848,12 +1848,14 @@
             contactForm.reset();
           } else {
             console.error(res);
-            contactForm.submit();
+            btn.textContent = res.message || 'Error sending message. Try again?';
+            btn.disabled = false;
           }
         })
         .catch(error => {
           console.error(error);
-          contactForm.submit();
+          btn.textContent = 'Network error. Try again?';
+          btn.disabled = false;
         });
       });
     }
