@@ -1672,11 +1672,13 @@
         <h3 style="font-family:'Playfair Display',serif;color:var(--navy);margin-bottom:6px;">Send Us a Message</h3>
         <p style="margin-bottom:28px;font-size:14px;color:var(--muted);">Have questions? Want to let us know you're
           visiting? We'll get back to you quickly!</p>
-        <form id="contact-form" action="https://formsubmit.co/jman543210@gmail.com" method="POST">
-          <!-- FormSubmit Configuration -->
-          <input type="hidden" name="_subject" value="New Contact Form Submission (Home Page)">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="https://hope-community-chruch.github.io/Hope-Community-Church-Website-1/index.html?sent=1#contact">
+        <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+          <!-- Web3Forms Configuration -->
+          <input type="hidden" name="access_key" value="7cda9113-ac11-4bad-ba5c-8658cf4f11d2">
+          <input type="hidden" name="subject" value="New Contact Message from Hope Church Website (Home Page)">
+          <input type="hidden" name="from_name" value="Hope Community Church">
+          <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
+          <input type="hidden" name="redirect" value="https://hope-community-chruch.github.io/Hope-Community-Church-Website-1/index.html?sent=1#contact">
 
           <div class="form-group">
             <label for="name">Your Name</label>
@@ -1810,13 +1812,51 @@
   <script src="js/animations.js"></script>
 
   <script>
-    if (new URLSearchParams(window.location.search).get('sent') === '1') {
-      const btn = document.querySelector('#contact-form button[type="submit"]');
-      if (btn) {
-        btn.textContent = '✓ Message Sent! We\'ll be in touch soon.';
-        btn.style.background = '#4CAF50';
-        btn.disabled = true;
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      if (new URLSearchParams(window.location.search).get('sent') === '1') {
+        const btn = contactForm.querySelector('button[type="submit"]');
+        if (btn) {
+          btn.textContent = '✓ Message Sent! We\'ll be in touch soon.';
+          btn.style.background = '#4CAF50';
+          btn.disabled = true;
+        }
       }
+
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const btn = contactForm.querySelector('button[type="submit"]');
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
+
+        const formData = new FormData(contactForm);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: json
+        })
+        .then(async (response) => {
+          let res = await response.json();
+          if (response.status === 200) {
+            btn.textContent = '✓ Message Sent! We\'ll be in touch soon.';
+            btn.style.background = '#4CAF50';
+            contactForm.reset();
+          } else {
+            console.error(res);
+            contactForm.submit();
+          }
+        })
+        .catch(error => {
+          console.error(error);
+          contactForm.submit();
+        });
+      });
     }
 
     document.addEventListener("DOMContentLoaded", () => {
