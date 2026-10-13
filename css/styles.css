@@ -576,8 +576,7 @@ p {
   content: '';
   position: absolute;
   inset: 0;
-  background: url('../images/worship_stage.png') center/cover;
-  opacity: 0.15;
+  pointer-events: none;
 }
 
 .page-hero h1 {
