@@ -179,8 +179,7 @@
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      divide: row;
+      grid-template-columns: repeat(4, 1fr);
     }
 
     .stat-card {
@@ -479,26 +478,31 @@
     }
 
     .drag-scroll {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
     }
 
-    @media (max-width: 1200px) {
-      .drag-scroll {
-        grid-template-columns: repeat(3, 1fr);
+    .drag-scroll > * {
+      flex: 0 0 calc((100% - 72px) / 4);
+    }
+
+    @media (max-width: 1100px) {
+      .drag-scroll > * {
+        flex-basis: calc((100% - 48px) / 3);
       }
     }
 
     @media (max-width: 768px) {
-      .drag-scroll {
-        grid-template-columns: repeat(2, 1fr);
+      .drag-scroll > * {
+        flex-basis: calc((100% - 24px) / 2);
       }
     }
 
     @media (max-width: 480px) {
-      .drag-scroll {
-        grid-template-columns: 1fr;
+      .drag-scroll > * {
+        flex-basis: 100%;
       }
     }
 
@@ -1011,12 +1015,17 @@
       }
 
       .stats-inner {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .stat-card {
+        padding: 40px 20px;
         border-right: none;
         border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .stat-card:nth-child(odd) {
+        border-right: 1px solid rgba(255, 255, 255, 0.08);
       }
 
       .beliefs-row {
@@ -1252,6 +1261,28 @@
         <div class="stat-number" data-target="18" data-suffix="">18</div>
         <div class="stat-label">Hope Groups</div>
       </div>
+      <div class="stat-card">
+        <div class="stat-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+        </div>
+        <div class="stat-number" data-target="4" data-suffix="">4</div>
+        <div class="stat-label">Camp Tikva Locations</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </div>
+        <div class="stat-number">10 AM</div>
+        <div class="stat-label">Every Sunday</div>
+      </div>
 
     </div>
   </section>
@@ -1282,7 +1313,7 @@
       </div>
 
       <div class="wwa-image reveal delay-2">
-        <img src="images/pastor_preaching.png" alt="Hope Community Church Worship and Teaching" />
+        <img loading="lazy" decoding="async" src="images/pastor_preaching.jpg" alt="Hope Community Church Worship and Teaching" />
         <div class="wwa-image-badge">
           <div class="badge-big">10 AM</div>
           <div class="badge-label">Every Sunday · All Are Welcome</div>
@@ -1374,7 +1405,7 @@
 
       <div class="sermon-featured reveal delay-2">
         <div class="sermon-thumb">
-          <img id="latest-sermon-thumb" src="images/pastor_preaching.png" alt="Latest sermon" />
+          <img loading="lazy" decoding="async" id="latest-sermon-thumb" src="images/pastor_preaching.jpg" alt="Latest sermon" />
           <div class="sermon-play">
             <a id="latest-sermon-link" href="sermons.html" class="play-btn">
               <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="white"
@@ -1408,7 +1439,7 @@
 
       <a href="groups.html" class="community-card">
         <div class="comm-img img-zoom">
-          <img src="images/hope_groups_photo.jpg" alt="Hope Groups" />
+          <img loading="lazy" decoding="async" src="images/hope_groups_photo.jpg" alt="Hope Groups" />
           <div class="comm-overlay"></div>
         </div>
         <div class="comm-body">
@@ -1436,7 +1467,7 @@
 
       <a href="kids.html" class="community-card">
         <div class="comm-img img-zoom">
-          <img src="images/kids_classroom.jpg" alt="Kids &amp; Youth" />
+          <img loading="lazy" decoding="async" src="images/kids_classroom.jpg" alt="Kids &amp; Youth" />
           <div class="comm-overlay"></div>
         </div>
         <div class="comm-body">
@@ -1465,7 +1496,7 @@
 
       <a href="camp-tikva.html" class="community-card">
         <div class="comm-img img-zoom">
-          <img src="images/camp-tikva/yp/1.jpg" alt="Camp Tikva Children's Summer Bible School" />
+          <img loading="lazy" decoding="async" src="images/camp-tikva/yp/1.jpg" alt="Camp Tikva Children's Summer Bible School" />
           <div class="comm-overlay"></div>
         </div>
         <div class="comm-body">
@@ -1498,7 +1529,7 @@
 
       <a href="sermons.html" class="community-card">
         <div class="comm-img img-zoom">
-          <img src="images/hero_worship.png" alt="Worship" />
+          <img loading="lazy" decoding="async" src="images/worship_stage.jpg" alt="Worship" />
           <div class="comm-overlay"></div>
         </div>
         <div class="comm-body">
@@ -1525,7 +1556,7 @@
 
       <a href="college.html" class="community-card">
         <div class="comm-img img-zoom">
-          <img src="images/abc_classroom.png" alt="Anchor Bible College Classroom" />
+          <img loading="lazy" decoding="async" src="images/abc_classroom.jpg" alt="Anchor Bible College Classroom" />
           <div class="comm-overlay"></div>
         </div>
         <div class="comm-body">
@@ -1551,7 +1582,7 @@
 
       <a href="bulletin.html" class="community-card">
         <div class="comm-img img-zoom">
-          <img src="images/bulletin_news.png" alt="Bulletin News" />
+          <img loading="lazy" decoding="async" src="images/bulletin_news.jpg" alt="Bulletin News" />
           <div class="comm-overlay"></div>
         </div>
         <div class="comm-body">
@@ -1577,7 +1608,7 @@
 
       <a href="contact.html" class="community-card">
         <div class="comm-img img-zoom">
-          <img src="images/steadfast_seniors.jpg" alt="Steadfast Seniors" />
+          <img loading="lazy" decoding="async" src="images/steadfast_seniors.jpg" alt="Steadfast Seniors" />
           <div class="comm-overlay"></div>
         </div>
         <div class="comm-body">
@@ -1716,7 +1747,11 @@
       <p style="color:rgba(255,255,255,0.85);margin:16px auto 40px;max-width:420px;">Sermon recaps, upcoming events, and
         community news — delivered to your inbox every week.</p>
       <form id="signup-form" novalidate>
-        <input type="email" placeholder="Your email address" required aria-label="Email address" />
+        <input type="hidden" name="access_key" value="7cda9113-ac11-4bad-ba5c-8658cf4f11d2">
+        <input type="hidden" name="subject" value="Hope Update Addition">
+        <input type="hidden" name="from_name" value="Hope Community Church">
+        <input type="text" name="name" placeholder="Your name" required aria-label="Your name" />
+        <input type="email" name="email" placeholder="Your email address" required aria-label="Email address" />
         <button type="submit">Sign Up Free</button>
       </form>
       <p style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:18px;">No spam. Unsubscribe anytime. We respect
@@ -1798,7 +1833,6 @@
 
     <div class="footer-bottom">
       <span>© 2025 Hope Community Church. All rights reserved.</span>
-      <span>Made with ♡ for the community of Ypsilanti</span>
     </div>
   </footer>
 

@@ -198,7 +198,7 @@
         <!-- Fallback Sermon 1 -->
         <div class="sermon-card reveal" data-category="hope">
           <div class="sermon-thumb-wrap">
-            <img src="images/pastor_preaching.png" alt="Sermon" />
+            <img loading="lazy" decoding="async" src="images/pastor_preaching.jpg" alt="Sermon" />
             <div class="sermon-play-sm"><div class="play-sm"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
             <span class="sermon-badge">Latest</span>
           </div>
@@ -215,7 +215,7 @@
         <!-- Fallback Sermon 2 -->
         <div class="sermon-card reveal delay-1" data-category="faith">
           <div class="sermon-thumb-wrap">
-            <img src="images/community.png" alt="Sermon" />
+            <img loading="lazy" decoding="async" src="images/community.jpg" alt="Sermon" />
             <div class="sermon-play-sm"><div class="play-sm"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
           </div>
           <div class="sc-body">
@@ -228,7 +228,7 @@
         <!-- Fallback Sermon 3 -->
         <div class="sermon-card reveal delay-2" data-category="community">
           <div class="sermon-thumb-wrap">
-            <img src="images/hero_worship.png" alt="Sermon" />
+            <img loading="lazy" decoding="async" src="images/hero_worship.jpg" alt="Sermon" />
             <div class="sermon-play-sm"><div class="play-sm"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
           </div>
           <div class="sc-body">
@@ -241,7 +241,7 @@
         <!-- Fallback Sermon 4 -->
         <div class="sermon-card reveal" data-category="bible">
           <div class="sermon-thumb-wrap">
-            <img src="images/community.png" alt="Sermon" />
+            <img loading="lazy" decoding="async" src="images/community.jpg" alt="Sermon" />
             <div class="sermon-play-sm"><div class="play-sm"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
           </div>
           <div class="sc-body">
@@ -254,7 +254,7 @@
         <!-- Fallback Sermon 5 -->
         <div class="sermon-card reveal delay-1" data-category="hope">
           <div class="sermon-thumb-wrap">
-            <img src="images/pastor_preaching.png" alt="Sermon" />
+            <img loading="lazy" decoding="async" src="images/pastor_preaching.jpg" alt="Sermon" />
             <div class="sermon-play-sm"><div class="play-sm"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
           </div>
           <div class="sc-body">
@@ -267,7 +267,7 @@
         <!-- Fallback Sermon 6 -->
         <div class="sermon-card reveal delay-2" data-category="faith">
           <div class="sermon-thumb-wrap">
-            <img src="images/community.png" alt="Sermon" />
+            <img loading="lazy" decoding="async" src="images/community.jpg" alt="Sermon" />
             <div class="sermon-play-sm"><div class="play-sm"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
           </div>
           <div class="sc-body">
@@ -383,7 +383,7 @@
           });
 
           const th = snippet.thumbnails || {};
-          const thumbUrl = th.maxres?.url || th.standard?.url || th.high?.url || th.medium?.url || th.default?.url || "images/pastor_preaching.png";
+          const thumbUrl = th.maxres?.url || th.standard?.url || th.high?.url || th.medium?.url || th.default?.url || "images/pastor_preaching.jpg";
 
           let series = currentFilter === 'fur' ? "Fur Rendezvous" : "Sunday Message";
           if (title.includes(":")) series = title.split(":")[0].trim();

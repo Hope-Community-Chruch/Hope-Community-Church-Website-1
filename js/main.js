@@ -150,10 +150,30 @@ document.addEventListener('DOMContentLoaded', () => {
     signupForm.addEventListener('submit', e => {
       e.preventDefault();
       const btn = signupForm.querySelector('button[type="submit"]');
-      btn.textContent = '✓ You\'re signed up!';
-      btn.style.background = '#4CAF50';
+      if (!signupForm.checkValidity()) {
+        signupForm.reportValidity();
+        return;
+      }
+      btn.textContent = 'Signing up...';
       btn.disabled = true;
-      signupForm.reset();
+
+      // Sends the sign-up to the church inbox via Web3Forms (same service as the contact form)
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(signupForm)))
+      })
+        .then(res => {
+          if (!res.ok) throw new Error('Sign-up failed');
+          btn.textContent = '✓ Thank you for signing up!';
+          btn.style.background = '#4CAF50';
+          btn.style.color = '#fff';
+          signupForm.reset();
+        })
+        .catch(() => {
+          btn.textContent = 'Something went wrong. Try again?';
+          btn.disabled = false;
+        });
     });
   }
 
