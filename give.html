@@ -24,9 +24,6 @@
   <style>
     .giving-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; max-width: 1100px; margin: 0 auto; align-items: start; }
     .giving-form-wrap { background: var(--white); border-radius: var(--radius-xl); padding: 48px; box-shadow: var(--shadow-md); border: 1px solid rgba(29,52,97,0.06); position: relative; }
-    .frequency-tabs { display: flex; border: 1.5px solid rgba(29,52,97,0.12); border-radius: 8px; overflow: hidden; background: var(--cream); padding: 4px; margin-bottom: 24px; }
-    .freq-btn { flex: 1; padding: 10px; border: none; background: none; font-size: 13px; font-weight: 600; color: var(--muted); cursor: pointer; border-radius: 6px; transition: all var(--transition); font-family: var(--font-sans); }
-    .freq-btn.active { background: var(--amber); color: white; box-shadow: var(--shadow-sm); }
     .amount-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 18px; }
     .amount-btn { padding: 16px; font-size: 15px; font-weight: 700; border-radius: var(--radius-md); border: 1.5px solid rgba(29,52,97,0.1); background: var(--white); color: var(--navy); cursor: pointer; transition: all var(--transition); font-family: var(--font-sans); }
     .amount-btn.active { background: var(--navy); color: white; border-color: var(--navy); }
@@ -43,7 +40,10 @@
     .success-icon { width: 68px; height: 68px; background: rgba(76, 175, 80, 0.1); color: #4CAF50; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; }
     .success-icon svg { color: #4CAF50; }
     .error-banner { background: #fee2e2; border: 1px solid #fca5a5; color: #b91c1c; padding: 14px 18px; border-radius: 8px; font-size: 13px; margin-bottom: 18px; display: none; }
-    #paypal-button-container { margin-top: 24px; min-height: 150px; }
+    #paypal-button-container { margin-top: 24px; }
+    .paypal-donate-btn { display: flex; align-items: center; justify-content: center; width: 100%; padding: 16px; border-radius: 999px; background: #ffc439; color: #111; font-family: var(--font-sans); font-size: 16px; font-weight: 700; text-decoration: none; transition: filter var(--transition); }
+    .paypal-donate-btn:hover { filter: brightness(0.95); }
+    .paypal-note { margin-top: 12px; font-size: 12px; color: var(--muted); text-align: center; line-height: 1.5; }
     @media(max-width:900px){ .giving-grid { grid-template-columns: 1fr; gap: 40px; } }
   </style>
 </head>
@@ -126,10 +126,6 @@
           <p>Conveniently support the church online using credit cards or your PayPal account.</p>
         </div>
         <div class="giving-info-stat">
-          <h4>Recurring Offerings</h4>
-          <p>Establish predictable, monthly tithing and support to automate your regular gifts.</p>
-        </div>
-        <div class="giving-info-stat">
           <h4>Tax Deductible</h4>
           <p>All donations are tax-deductible. Annual statements are sent out for tax filing purposes.</p>
         </div>
@@ -145,12 +141,6 @@
               ❤️ Support Hope
             </h3>
             <p style="font-size:12px; color:var(--muted);">Safe, secure online giving for offerings and donations.</p>
-          </div>
-
-          <!-- Giving Frequency Type Selector -->
-          <div class="frequency-tabs">
-            <button class="freq-btn active" id="btn-one-time">One-Time Gift</button>
-            <button class="freq-btn" id="btn-monthly">Give Monthly</button>
           </div>
 
           <!-- Amount Presets -->
@@ -177,11 +167,16 @@
           <!-- Error Banner -->
           <div class="error-banner" id="payment-error"></div>
 
-          <!-- PayPal Buttons Container -->
-          <div id="paypal-button-container"></div>
+          <!-- PayPal Donate Button -->
+          <div id="paypal-button-container">
+            <a id="paypal-donate-link" class="paypal-donate-btn" href="#" rel="noopener">
+              <span id="paypal-donate-label">Donate with PayPal</span>
+            </a>
+            <p class="paypal-note">You'll complete your gift securely on PayPal using your PayPal account or a debit/credit card.</p>
+          </div>
           
           <div class="btn-donation-lock" id="invalid-amount-message" style="display:none;">
-            Please enter a valid gift amount to show payment methods.
+            Please enter a valid gift amount to continue.
           </div>
         </div>
 
@@ -192,7 +187,7 @@
           </div>
           <h3 style="font-family:'Playfair Display',serif; color:var(--navy); margin-bottom:12px; font-size:24px;">Thank You!</h3>
           <p style="font-size:14px; color:var(--muted); line-height:1.6; margin-bottom:32px;">
-            Your generous gift of <span style="font-weight:700; color:var(--navy);" id="success-amount-display">$0.00</span> has been received. Your support enables Hope Community Church to continue sharing hope and serving our community.
+            Your generous gift has been received. Your support enables Hope Community Church to continue sharing hope and serving our community.
           </p>
           <button id="btn-give-again" class="btn btn-primary" style="width:100%; justify-content:center;">Give Again</button>
         </div>
@@ -214,53 +209,31 @@
     document.addEventListener("DOMContentLoaded", () => {
       // Configuration values
       const config = window.CHURCH_CONFIG || {};
-      const paypalClientId = config.paypalClientId || "sb";
+      const paypalDonateEmail = config.paypalDonateEmail || "";
 
       // Form State Variables
-      let currentFrequency = "one-time"; // 'one-time' | 'monthly'
       let selectedAmount = 50; // number | 'custom'
       let customAmountValue = "";
-      let paypalButtonsInstance = null;
 
       // DOM Elements
-      const btnOneTime = document.getElementById("btn-one-time");
-      const btnMonthly = document.getElementById("btn-monthly");
       const amountButtons = document.querySelectorAll(".amount-btn");
       const customAmountContainer = document.getElementById("custom-amount-container");
       const inputCustomAmount = document.getElementById("input-custom-amount");
       const errorBanner = document.getElementById("payment-error");
       const invalidAmountMsg = document.getElementById("invalid-amount-message");
       const paypalContainer = document.getElementById("paypal-button-container");
+      const donateLink = document.getElementById("paypal-donate-link");
+      const donateLabel = document.getElementById("paypal-donate-label");
       const formBody = document.getElementById("giving-form-body");
       const successCard = document.getElementById("giving-success-card");
-      const successAmountDisplay = document.getElementById("success-amount-display");
       const btnGiveAgain = document.getElementById("btn-give-again");
-
-      // Set tithing frequency tab handlers
-      btnOneTime.addEventListener("click", () => {
-        if (currentFrequency !== "one-time") {
-          currentFrequency = "one-time";
-          btnOneTime.classList.add("active");
-          btnMonthly.classList.remove("active");
-          renderPaypalButtons();
-        }
-      });
-
-      btnMonthly.addEventListener("click", () => {
-        if (currentFrequency !== "monthly") {
-          currentFrequency = "monthly";
-          btnMonthly.classList.add("active");
-          btnOneTime.classList.remove("active");
-          renderPaypalButtons();
-        }
-      });
 
       // Amount preset button click handlers
       amountButtons.forEach(btn => {
         btn.addEventListener("click", () => {
           amountButtons.forEach(b => b.classList.remove("active"));
           btn.classList.add("active");
-          
+
           const val = btn.getAttribute("data-val");
           if (val === "custom") {
             selectedAmount = "custom";
@@ -270,14 +243,14 @@
             selectedAmount = Number(val);
             customAmountContainer.style.display = "none";
           }
-          renderPaypalButtons();
+          updateDonateButton();
         });
       });
 
       // Custom amount input event handler
       inputCustomAmount.addEventListener("input", (e) => {
         customAmountValue = e.target.value;
-        renderPaypalButtons();
+        updateDonateButton();
       });
 
       // Helper: get the current donation amount
@@ -295,119 +268,70 @@
         errorBanner.style.display = "block";
       }
 
-      // Hide payment error banner
-      function hideError() {
-        errorBanner.style.display = "none";
-      }
-
-      // Function to dynamically load the PayPal Script
-      let paypalScriptLoaded = false;
-      function loadPaypalScript(clientId, onComplete) {
-        if (window.paypal) {
-          onComplete();
-          return;
-        }
-
-        const script = document.createElement("script");
-        script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}&currency=USD&disable-funding=credit`;
-        script.onload = () => {
-          paypalScriptLoaded = true;
-          onComplete();
-        };
-        script.onerror = () => {
-          showError("Could not load PayPal billing SDK. Please check your internet connection.");
-        };
-        document.head.appendChild(script);
-      }
-
-      // Render or recreate the PayPal buttons
-      function renderPaypalButtons() {
-        hideError();
+      // Point the Donate button at PayPal's donation page for the current amount.
+      // Same method as the church's previous IONOS PayPal widget: funds go to the
+      // PayPal account registered to paypalDonateEmail.
+      function updateDonateButton() {
         const amt = getDonationAmount();
 
         if (amt <= 0) {
           paypalContainer.style.display = "none";
           invalidAmountMsg.style.display = "block";
           return;
-        } else {
-          paypalContainer.style.display = "block";
-          invalidAmountMsg.style.display = "none";
         }
+        paypalContainer.style.display = "block";
+        invalidAmountMsg.style.display = "none";
 
-        // Initialize script, then render buttons
-        loadPaypalScript(paypalClientId, () => {
-          // Clear container before rendering new buttons
-          paypalContainer.innerHTML = "";
-          
-          const buttonStyle = {
-            layout: "vertical",
-            color: "gold",
-            shape: "pill",
-            label: currentFrequency === "monthly" ? "subscribe" : "donate"
-          };
-
-          // Render button
-          window.paypal.Buttons({
-            style: buttonStyle,
-            
-            createOrder: (data, actions) => {
-              hideError();
-              const formattedAmt = amt.toFixed(2);
-              return actions.order.create({
-                purchase_units: [{
-                  amount: {
-                    currency_code: "USD",
-                    value: formattedAmt
-                  },
-                  description: `Hope Community Church - ${currentFrequency === 'monthly' ? 'Monthly offering' : 'Online donation'}`
-                }]
-              });
-            },
-
-            onApprove: (data, actions) => {
-              return actions.order.capture().then((details) => {
-                const payerName = details.payer.name?.given_name || "Generous Supporter";
-                successAmountDisplay.textContent = `$${amt.toFixed(2)}`;
-                formBody.style.display = "none";
-                successCard.style.display = "block";
-              });
-            },
-
-            onError: (err) => {
-              console.error("PayPal Error:", err);
-              showError("An error occurred during payment processing. Please try again.");
-            }
-          }).render("#paypal-button-container");
+        // PayPal sends donors back here afterwards to see the thank-you message
+        const returnUrl = `${window.location.origin}${window.location.pathname}?thanks=1`;
+        const params = new URLSearchParams({
+          business: paypalDonateEmail,
+          amount: amt.toFixed(2),
+          currency_code: "USD",
+          item_name: "Hope Community Church - Online donation",
+          return: returnUrl,
+          cancel_return: `${window.location.origin}${window.location.pathname}`
         });
+        donateLink.href = `https://www.paypal.com/donate/?${params.toString()}`;
+        donateLabel.textContent = `Donate $${amt.toFixed(2)} with PayPal`;
       }
 
       // Give again button handler
       btnGiveAgain.addEventListener("click", () => {
         successCard.style.display = "none";
         formBody.style.display = "block";
-        
-        // Reset states
-        currentFrequency = "one-time";
-        btnOneTime.classList.add("active");
-        btnMonthly.classList.remove("active");
+        history.replaceState(null, "", window.location.pathname);
 
+        // Reset states
         selectedAmount = 50;
         customAmountValue = "";
         inputCustomAmount.value = "";
         customAmountContainer.style.display = "none";
-        
+
         amountButtons.forEach(b => {
           b.classList.remove("active");
           if (b.getAttribute("data-val") === "50") {
             b.classList.add("active");
           }
         });
-        
-        renderPaypalButtons();
+
+        updateDonateButton();
       });
 
+      if (!paypalDonateEmail) {
+        paypalContainer.style.display = "none";
+        showError("Online giving is temporarily unavailable. Please contact the church office.");
+        return;
+      }
+
+      // Returning from PayPal after a completed donation
+      if (new URLSearchParams(window.location.search).get("thanks") === "1") {
+        formBody.style.display = "none";
+        successCard.style.display = "block";
+      }
+
       // Initial render call
-      renderPaypalButtons();
+      updateDonateButton();
     });
   </script>
 </body>

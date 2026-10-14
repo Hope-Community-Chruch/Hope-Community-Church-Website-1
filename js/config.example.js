@@ -2,7 +2,7 @@
    HOPE CHURCH — Web Application Configuration Template
    ══════════════════════════════════════
    Copy this file to 'config.js' in the same directory and fill in your keys.
-   The 'config.js' file is ignored by Git to keep your credentials secure.
+   config.js is public (committed and served to browsers) - browser-safe values only.
    ══════════════════════════════════════ */
 
 window.CHURCH_CONFIG = {
@@ -13,8 +13,6 @@ window.CHURCH_CONFIG = {
   // The ID of the playlist containing your sermon uploads (typically starts with 'UU' or 'PL')
   youtubePlaylistId: "",
 
-  // PayPal Integration Config
-  // Use 'sb' for testing (Sandbox). Replace with your Live PayPal Client ID for production.
-  // Obtain it at https://developer.paypal.com/
-  paypalClientId: "sb"
+  // PayPal account (email) that receives online donations
+  paypalDonateEmail: ""
 };
