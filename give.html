@@ -41,7 +41,7 @@
     .success-icon svg { color: #4CAF50; }
     .error-banner { background: #fee2e2; border: 1px solid #fca5a5; color: #b91c1c; padding: 14px 18px; border-radius: 8px; font-size: 13px; margin-bottom: 18px; display: none; }
     #paypal-button-container { margin-top: 24px; }
-    .paypal-donate-btn { display: flex; align-items: center; justify-content: center; width: 100%; padding: 16px; border-radius: 999px; background: #ffc439; color: #111; font-family: var(--font-sans); font-size: 16px; font-weight: 700; text-decoration: none; transition: filter var(--transition); }
+    .paypal-donate-btn { border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; width: 100%; padding: 16px; border-radius: 999px; background: #ffc439; color: #111; font-family: var(--font-sans); font-size: 16px; font-weight: 700; text-decoration: none; transition: filter var(--transition); }
     .paypal-donate-btn:hover { filter: brightness(0.95); }
     .paypal-note { margin-top: 12px; font-size: 12px; color: var(--muted); text-align: center; line-height: 1.5; }
     @media(max-width:900px){ .giving-grid { grid-template-columns: 1fr; gap: 40px; } }
@@ -169,9 +169,22 @@
 
           <!-- PayPal Donate Button -->
           <div id="paypal-button-container">
-            <a id="paypal-donate-link" class="paypal-donate-btn" href="#" rel="noopener">
-              <span id="paypal-donate-label">Donate with PayPal</span>
-            </a>
+            <!-- Same fields the old IONOS PayPal widget posts (classic donations form) -->
+            <form id="paypal-donate-form" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+              <input type="hidden" name="cmd" value="_donations">
+              <input type="hidden" name="business" value="">
+              <input type="hidden" name="lc" value="US">
+              <input type="hidden" name="item_name" value="">
+              <input type="hidden" name="amount" value="">
+              <input type="hidden" name="currency_code" value="USD">
+              <input type="hidden" name="no_note" value="0">
+              <input type="hidden" name="cn" value="Add special instructions to the seller">
+              <input type="hidden" name="no_shipping" value="2">
+              <input type="hidden" name="charset" value="utf-8">
+              <button type="submit" id="paypal-donate-link" class="paypal-donate-btn">
+                <span id="paypal-donate-label">Donate with PayPal</span>
+              </button>
+            </form>
             <p class="paypal-note">You'll complete your gift securely on PayPal using your PayPal account or a debit/credit card.</p>
           </div>
           
@@ -222,7 +235,7 @@
       const errorBanner = document.getElementById("payment-error");
       const invalidAmountMsg = document.getElementById("invalid-amount-message");
       const paypalContainer = document.getElementById("paypal-button-container");
-      const donateLink = document.getElementById("paypal-donate-link");
+      const donateForm = document.getElementById("paypal-donate-form");
       const donateLabel = document.getElementById("paypal-donate-label");
       const formBody = document.getElementById("giving-form-body");
       const successCard = document.getElementById("giving-success-card");
@@ -282,22 +295,8 @@
         paypalContainer.style.display = "block";
         invalidAmountMsg.style.display = "none";
 
-        // PayPal sends donors back here afterwards to see the thank-you message
-        const returnUrl = `${window.location.origin}${window.location.pathname}?thanks=1`;
-        // Classic PayPal donation form (cmd=_donations), the same one the old IONOS widget used
-        const params = new URLSearchParams({
-          cmd: "_donations",
-          business: paypalDonateEmail,
-          lc: "US",
-          amount: amt.toFixed(2),
-          currency_code: "USD",
-          item_name: "Hope Community Church - Online donation",
-          no_shipping: "2",
-          charset: "utf-8",
-          return: returnUrl,
-          cancel_return: `${window.location.origin}${window.location.pathname}`
-        });
-        donateLink.href = `https://www.paypal.com/cgi-bin/webscr?${params.toString()}`;
+        donateForm.elements.business.value = paypalDonateEmail;
+        donateForm.elements.amount.value = amt.toFixed(2);
         donateLabel.textContent = `Donate $${amt.toFixed(2)} with PayPal`;
       }
 
