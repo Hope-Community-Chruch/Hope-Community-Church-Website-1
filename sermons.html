@@ -37,6 +37,10 @@
     .filter-btn:hover, .filter-btn.active {
       background: var(--amber); color: white; border-color: var(--amber);
     }
+    .yt-channel-btn { position: relative; margin-top: 28px; }
+    .yt-channel-btn svg, .yt-more svg { flex-shrink: 0; }
+    .yt-more { text-align: center; margin-top: 56px; }
+    .yt-more p { color: var(--muted); margin-bottom: 18px; }
     .sermons-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -176,6 +180,10 @@
     <span class="section-eyebrow" style="color:var(--amber);">Every Sunday</span>
     <h1>Sunday Sermons</h1>
     <p>Practical, Bible-grounded messages to help you live with purpose and hope.</p>
+    <a href="https://www.youtube.com/channel/UChCVLkmfIEXWp7_OaBy1Lhg" target="_blank" rel="noopener" class="btn btn-primary yt-channel-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
+      Visit Our YouTube Channel
+    </a>
   </div>
 
   <section class="section">
@@ -188,7 +196,7 @@
 
       <div class="sermons-grid">
         <!-- Fallback Sermon 1 -->
-        <div class="sermon-card reveal" data-category="hope" data-video-id="dQw4w9WgXcQ">
+        <div class="sermon-card reveal" data-category="hope">
           <div class="sermon-thumb-wrap">
             <img src="images/pastor_preaching.png" alt="Sermon" />
             <div class="sermon-play-sm"><div class="play-sm"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
@@ -205,7 +213,7 @@
         </div>
 
         <!-- Fallback Sermon 2 -->
-        <div class="sermon-card reveal delay-1" data-category="faith" data-video-id="dQw4w9WgXcQ">
+        <div class="sermon-card reveal delay-1" data-category="faith">
           <div class="sermon-thumb-wrap">
             <img src="images/community.png" alt="Sermon" />
             <div class="sermon-play-sm"><div class="play-sm"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
@@ -218,7 +226,7 @@
         </div>
 
         <!-- Fallback Sermon 3 -->
-        <div class="sermon-card reveal delay-2" data-category="community" data-video-id="dQw4w9WgXcQ">
+        <div class="sermon-card reveal delay-2" data-category="community">
           <div class="sermon-thumb-wrap">
             <img src="images/hero_worship.png" alt="Sermon" />
             <div class="sermon-play-sm"><div class="play-sm"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
@@ -231,7 +239,7 @@
         </div>
 
         <!-- Fallback Sermon 4 -->
-        <div class="sermon-card reveal" data-category="bible" data-video-id="dQw4w9WgXcQ">
+        <div class="sermon-card reveal" data-category="bible">
           <div class="sermon-thumb-wrap">
             <img src="images/community.png" alt="Sermon" />
             <div class="sermon-play-sm"><div class="play-sm"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
@@ -244,7 +252,7 @@
         </div>
 
         <!-- Fallback Sermon 5 -->
-        <div class="sermon-card reveal delay-1" data-category="hope" data-video-id="dQw4w9WgXcQ">
+        <div class="sermon-card reveal delay-1" data-category="hope">
           <div class="sermon-thumb-wrap">
             <img src="images/pastor_preaching.png" alt="Sermon" />
             <div class="sermon-play-sm"><div class="play-sm"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
@@ -257,7 +265,7 @@
         </div>
 
         <!-- Fallback Sermon 6 -->
-        <div class="sermon-card reveal delay-2" data-category="faith" data-video-id="dQw4w9WgXcQ">
+        <div class="sermon-card reveal delay-2" data-category="faith">
           <div class="sermon-thumb-wrap">
             <img src="images/community.png" alt="Sermon" />
             <div class="sermon-play-sm"><div class="play-sm"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
@@ -268,6 +276,14 @@
             <div class="sc-meta"><span>📅 Mar 2, 2025</span><span>⏱ 37 min</span></div>
           </div>
         </div>
+      </div>
+
+      <div class="yt-more">
+        <p>Looking for an older message or want to get notified of new ones?</p>
+        <a href="https://www.youtube.com/channel/UChCVLkmfIEXWp7_OaBy1Lhg?sub_confirmation=1" target="_blank" rel="noopener" class="btn btn-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
+          Subscribe on YouTube
+        </a>
       </div>
     </div>
   </section>
@@ -430,6 +446,9 @@
               iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
               modal.classList.add("open");
               document.body.style.overflow = "hidden";
+            } else {
+              // Backup cards (shown only if YouTube can't be reached) open the channel
+              window.open("https://www.youtube.com/channel/UChCVLkmfIEXWp7_OaBy1Lhg/videos", "_blank", "noopener");
             }
           });
         });
