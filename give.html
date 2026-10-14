@@ -284,15 +284,20 @@
 
         // PayPal sends donors back here afterwards to see the thank-you message
         const returnUrl = `${window.location.origin}${window.location.pathname}?thanks=1`;
+        // Classic PayPal donation form (cmd=_donations), the same one the old IONOS widget used
         const params = new URLSearchParams({
+          cmd: "_donations",
           business: paypalDonateEmail,
+          lc: "US",
           amount: amt.toFixed(2),
           currency_code: "USD",
           item_name: "Hope Community Church - Online donation",
+          no_shipping: "2",
+          charset: "utf-8",
           return: returnUrl,
           cancel_return: `${window.location.origin}${window.location.pathname}`
         });
-        donateLink.href = `https://www.paypal.com/donate/?${params.toString()}`;
+        donateLink.href = `https://www.paypal.com/cgi-bin/webscr?${params.toString()}`;
         donateLabel.textContent = `Donate $${amt.toFixed(2)} with PayPal`;
       }
 
