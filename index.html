@@ -604,6 +604,74 @@
       gap: 10px;
     }
 
+    /* ── GIVE BAND ── */
+    #give-band {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      padding: 72px 48px;
+    }
+
+    .give-band-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+    }
+
+    .give-band-text {
+      max-width: 620px;
+    }
+
+    .give-band-text h2 {
+      color: var(--white);
+      margin: 8px 0 14px;
+    }
+
+    .give-band-text p {
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.7;
+    }
+
+    .give-band-action {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .give-band-btn {
+      font-size: 17px;
+      padding: 16px 40px;
+    }
+
+    .give-band-note {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    @media (max-width: 768px) {
+      #give-band {
+        padding: 56px 24px;
+      }
+
+      .give-band-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 28px;
+      }
+
+      .give-band-action {
+        width: 100%;
+      }
+
+      .give-band-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
     /* ── VISIT ── */
     #visit {
       background: var(--warm-white);
@@ -856,6 +924,7 @@
       }
 
     }
+      .form-group .req { color: var(--amber); font-weight: 700; }
   </style>
 </head>
 
@@ -1382,6 +1451,29 @@
   </section>
 
 
+  <!-- ════ GIVE ════ -->
+  <section id="give-band">
+    <div class="give-band-inner reveal">
+      <div class="give-band-text">
+        <span class="section-eyebrow" style="color:var(--amber);">Generosity</span>
+        <h2>Support the Ministry</h2>
+        <p>Your giving helps us share hope in Ypsilanti and beyond, through Sunday worship, kids and youth
+          ministries, Camp Tikva, and Anchor Bible College.</p>
+      </div>
+      <div class="give-band-action">
+        <a href="give.html" class="btn btn-primary give-band-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"
+            aria-hidden="true">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+          </svg>
+          Give Online
+        </a>
+        <span class="give-band-note">Secure giving through PayPal &middot; debit or credit card</span>
+      </div>
+    </div>
+  </section>
+
+
   <!-- ════ VISIT ════ -->
   <section id="visit" class="section">
     <div class="visit-grid">
@@ -1454,16 +1546,20 @@
           <input type="hidden" name="redirect" value="https://hopechurch.info/index.html?sent=1#contact">
 
           <div class="form-group">
-            <label for="name">Your Name</label>
+            <label for="name">Your Name <span class="req" aria-hidden="true">*</span></label>
             <input type="text" id="name" name="name" placeholder="Full name" required />
           </div>
           <div class="form-group">
-            <label for="email">Email Address</label>
+            <label for="email">Email Address <span class="req" aria-hidden="true">*</span></label>
             <input type="email" id="email" name="email" placeholder="your@email.com" required />
           </div>
           <div class="form-group">
-            <label for="visit-type">I'm planning to</label>
-            <select id="visit-type" name="visit-type">
+            <label for="phone">Phone Number (optional)</label>
+            <input type="tel" id="phone" name="phone" placeholder="7345550123" autocomplete="tel" inputmode="numeric" pattern="[0-9]{10}" title="Please enter a 10-digit phone number (numbers only)" oninput="let d = this.value.replace(/\D/g, ''); if (d.length === 11 &amp;&amp; d[0] === '1') d = d.slice(1); this.value = d.slice(0, 10)" />
+          </div>
+          <div class="form-group">
+            <label for="visit-type">I'm planning to <span class="req" aria-hidden="true">*</span></label>
+            <select id="visit-type" name="visit-type" required>
               <option value="">Select one...</option>
               <option>Visit this Sunday for the first time</option>
               <option>Ask a question about the church</option>

@@ -43,6 +43,7 @@
     .map-embed { border-radius: var(--radius-xl); overflow: hidden; height: 300px; box-shadow: var(--shadow-md); }
     .map-embed iframe { width: 100%; height: 100%; border: none; }
     @media(max-width:900px){ .contact-grid{grid-template-columns:1fr;gap:40px;} }
+      .form-group .req { color: var(--amber); font-weight: 700; }
   </style>
 </head>
 <body>
@@ -143,16 +144,20 @@
           <input type="hidden" name="redirect" value="https://hopechurch.info/contact.html?sent=1">
           
           <div class="form-group">
-            <label for="name">Your Name</label>
+            <label for="name">Your Name <span class="req" aria-hidden="true">*</span></label>
             <input type="text" id="name" name="name" placeholder="Full name" required />
           </div>
           <div class="form-group">
-            <label for="email">Email Address</label>
+            <label for="email">Email Address <span class="req" aria-hidden="true">*</span></label>
             <input type="email" id="email" name="email" placeholder="your@email.com" required />
           </div>
           <div class="form-group">
-            <label for="visit-type">I'm planning to</label>
-            <select id="visit-type" name="visit-type">
+            <label for="phone">Phone Number (optional)</label>
+            <input type="tel" id="phone" name="phone" placeholder="7345550123" autocomplete="tel" inputmode="numeric" pattern="[0-9]{10}" title="Please enter a 10-digit phone number (numbers only)" oninput="let d = this.value.replace(/\D/g, ''); if (d.length === 11 &amp;&amp; d[0] === '1') d = d.slice(1); this.value = d.slice(0, 10)" />
+          </div>
+          <div class="form-group">
+            <label for="visit-type">I'm planning to <span class="req" aria-hidden="true">*</span></label>
+            <select id="visit-type" name="visit-type" required>
               <option value="">Select one...</option>
               <option>Visit this Sunday for the first time</option>
               <option>Ask a question about the church</option>
