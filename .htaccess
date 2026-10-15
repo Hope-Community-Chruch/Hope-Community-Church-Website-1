@@ -1,0 +1,18 @@
+# IONOS (Apache) server settings. GitHub Pages ignores this file.
+
+# Old site (IONOS MyWebsite) addresses -> new pages, so Google results
+# and old bookmarks keep working after the switch. 301 = moved permanently.
+RedirectMatch 301 (?i)^/home/?$                          /
+RedirectMatch 301 (?i)^/en-gb/home/?$                    /
+RedirectMatch 301 (?i)^/history/?$                       /about.html
+RedirectMatch 301 (?i)^/hope-community-bible-college/?$  /college.html
+RedirectMatch 301 (?i)^/sunday-sermons2/?$               /sermons.html
+RedirectMatch 301 (?i)^/2023-fur-rendezvous/?$           /sermons.html
+RedirectMatch 301 (?i)^/bulletin-news2/?$                /bulletin.html
+RedirectMatch 301 (?i)^/empty-page/?$                    /pastor.html
+RedirectMatch 301 (?i)^/empty-page71c8ed13/?$            /kids.html
+RedirectMatch 301 (?i)^/hope-groups2/?$                  /groups.html
+RedirectMatch 301 (?i)^/contact-us2/?$                   /contact.html
+
+# Leftover sample store pages from the old site builder
+RedirectMatch 301 ^/[A-Za-z-]+-[pc][0-9]+/?$             /
