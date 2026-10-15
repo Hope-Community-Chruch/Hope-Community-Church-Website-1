@@ -353,9 +353,14 @@ p {
   right: -100%;
   width: min(320px, 90vw);
   height: 100vh;
+  /* Visible screen height on phones, so the last items (Give, Contact Us)
+     aren't hidden behind the browser's bottom toolbar */
+  height: 100dvh;
   background: var(--cream);
   z-index: 1100;
-  padding: 80px 32px 40px;
+  padding: 80px 32px calc(40px + env(safe-area-inset-bottom));
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   display: flex;
   flex-direction: column;
   gap: 4px;

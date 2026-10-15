@@ -144,39 +144,6 @@ document.addEventListener('DOMContentLoaded', () => {
     revealEls.forEach(el => revealObs.observe(el));
   }
 
-  /* ── Email signup form ── */
-  const signupForm = document.querySelector('#signup-form');
-  if (signupForm) {
-    signupForm.addEventListener('submit', e => {
-      e.preventDefault();
-      const btn = signupForm.querySelector('button[type="submit"]');
-      if (!signupForm.checkValidity()) {
-        signupForm.reportValidity();
-        return;
-      }
-      btn.textContent = 'Signing up...';
-      btn.disabled = true;
-
-      // Sends the sign-up to the church inbox via Web3Forms (same service as the contact form)
-      fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(Object.fromEntries(new FormData(signupForm)))
-      })
-        .then(res => {
-          if (!res.ok) throw new Error('Sign-up failed');
-          btn.textContent = '✓ Thank you for signing up!';
-          btn.style.background = '#4CAF50';
-          btn.style.color = '#fff';
-          signupForm.reset();
-        })
-        .catch(() => {
-          btn.textContent = 'Something went wrong. Try again?';
-          btn.disabled = false;
-        });
-    });
-  }
-
   /* ── Faith Accordion ── */
   document.querySelectorAll('.faith-trigger').forEach(trigger => {
     trigger.addEventListener('click', () => {
