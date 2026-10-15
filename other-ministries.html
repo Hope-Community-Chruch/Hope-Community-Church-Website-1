@@ -187,8 +187,8 @@
       position: absolute;
       inset: 0;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(2, 1fr);
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-rows: repeat(2, minmax(0, 1fr));
       gap: 6px;
       padding: 6px;
       opacity: 0.95;
@@ -197,6 +197,7 @@
     .hero-collage img {
       width: 100%;
       height: 100%;
+      min-height: 0;
       object-fit: cover;
       border-radius: 6px;
     }
@@ -217,8 +218,8 @@
     }
     @media (max-width: 600px) {
       .hero-collage {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(4, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: repeat(4, minmax(0, 1fr));
       }
     }
   </style>
@@ -283,14 +284,14 @@
   <!-- ── HERO ── -->
   <div class="page-hero">
     <div class="hero-collage">
-      <img loading="lazy" decoding="async" src="images/other-ministries/wmp/1.jpg" alt="Collage 1" />
-      <img loading="lazy" decoding="async" src="images/other-ministries/ferris/1.jpg" alt="Collage 2" />
-      <img loading="lazy" decoding="async" src="images/other-ministries/renew/1.jpeg" alt="Collage 3" />
-      <img loading="lazy" decoding="async" src="images/other-ministries/wmp/3.jpg" alt="Collage 4" />
-      <img loading="lazy" decoding="async" src="images/other-ministries/renew/3.jpeg" alt="Collage 5" />
-      <img loading="lazy" decoding="async" src="images/other-ministries/ferris/3.jpeg" alt="Collage 6" />
-      <img loading="lazy" decoding="async" src="images/other-ministries/wmp/2.jpg" alt="Collage 7" />
-      <img loading="lazy" decoding="async" src="images/other-ministries/ferris/2.jpg" alt="Collage 8" />
+      <img src="images/other-ministries/wmp/1.jpg" alt="Collage 1" />
+      <img src="images/other-ministries/ferris/1.jpg" alt="Collage 2" />
+      <img src="images/other-ministries/renew/1.jpeg" alt="Collage 3" />
+      <img src="images/other-ministries/wmp/3.jpg" alt="Collage 4" />
+      <img src="images/other-ministries/renew/3.jpeg" alt="Collage 5" />
+      <img src="images/other-ministries/ferris/3.jpeg" alt="Collage 6" />
+      <img src="images/other-ministries/wmp/2.jpg" alt="Collage 7" />
+      <img src="images/other-ministries/ferris/2.jpg" alt="Collage 8" />
     </div>
     <div class="hero-overlay"></div>
     <div class="page-hero-content">
