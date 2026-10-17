@@ -4,6 +4,11 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  /* ── Footer copyright year ── */
+  document.querySelectorAll('.js-year').forEach(el => {
+    el.textContent = new Date().getFullYear();
+  });
+
   /* ── Navbar scroll behaviour ── */
   const navbar = document.getElementById('navbar');
   if (navbar) {
