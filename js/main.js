@@ -4,6 +4,66 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  /* ── "Send Us a Message" form (homepage + Contact page) ── */
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    const btn = contactForm.querySelector('button[type="submit"]');
+    const defaultLabel = btn.textContent;
+
+    // Visible message under the button; role="status" so screen readers announce it too
+    const status = document.createElement('p');
+    status.className = 'form-status';
+    status.setAttribute('role', 'status');
+    status.setAttribute('aria-live', 'polite');
+    btn.after(status);
+
+    const showSent = () => {
+      btn.textContent = '✓ Message Sent';
+      btn.classList.add('is-sent');
+      btn.disabled = true;
+      status.classList.remove('is-error');
+      status.textContent = 'Thank you! Your message was sent. We’ll be in touch soon.';
+      // Let the visitor send another message after a moment
+      setTimeout(() => {
+        btn.textContent = defaultLabel;
+        btn.classList.remove('is-sent');
+        btn.disabled = false;
+      }, 6000);
+    };
+
+    const showError = () => {
+      btn.textContent = defaultLabel;
+      btn.disabled = false;
+      status.classList.add('is-error');
+      status.textContent = 'Sorry, your message didn’t send. Please try again, or call us at (734) 721-8190.';
+    };
+
+    // Arriving back from the no-JavaScript fallback redirect
+    if (new URLSearchParams(window.location.search).get('sent') === '1') showSent();
+
+    contactForm.addEventListener('submit', e => {
+      e.preventDefault();
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      status.textContent = '';
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(contactForm)))
+      })
+        .then(res => {
+          if (!res.ok) throw new Error('Send failed: ' + res.status);
+          contactForm.reset();
+          showSent();
+        })
+        .catch(err => {
+          console.error(err);
+          showError();
+        });
+    });
+  }
+
   /* ── Footer copyright year ── */
   document.querySelectorAll('.js-year').forEach(el => {
     el.textContent = new Date().getFullYear();

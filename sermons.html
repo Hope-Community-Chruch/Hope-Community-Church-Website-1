@@ -25,12 +25,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet" />
   
   <!-- Styles -->
-  <link rel="stylesheet" href="css/styles.css?v=1.3" />
+  <link rel="stylesheet" href="css/styles.css?v=1.4" />
   <link rel="stylesheet" href="css/animations.css" />
   
   <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   
   <!-- Config -->
   <script src="js/config.js"></script>
@@ -49,12 +47,28 @@
       font-family: var(--font-sans);
     }
     .filter-btn:hover, .filter-btn.active {
-      background: var(--amber); color: white; border-color: var(--amber);
+      background: var(--amber); color: var(--navy); border-color: var(--amber);
     }
     .yt-channel-btn { position: relative; margin-top: 28px; }
     .yt-channel-btn svg, .yt-more svg { flex-shrink: 0; }
     .yt-more { text-align: center; margin-top: 56px; }
     .yt-more p { color: var(--muted); margin-bottom: 18px; }
+    .sermons-fallback {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 48px 24px;
+      color: var(--muted);
+    }
+    .sermons-fallback .sf-title {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .sermons-fallback a {
+      color: var(--gold-text);
+      font-weight: 600;
+    }
     .sermons-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -209,86 +223,11 @@
       </div>
 
       <div class="sermons-grid">
-        <!-- Fallback Sermon 1 -->
-        <div class="sermon-card reveal" data-category="hope">
-          <div class="sermon-thumb-wrap">
-            <img loading="lazy" decoding="async" src="images/pastor_preaching.jpg" alt="Sermon" />
-            <div class="sermon-play-sm"><div class="play-sm"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
-            <span class="sermon-badge">Latest</span>
-          </div>
-          <div class="sc-body">
-            <div class="sc-series">Hope Series</div>
-            <div class="sc-title">Walking in the Light of His Promise</div>
-            <div class="sc-meta">
-              <span>📅 Apr 6, 2025</span>
-              <span>⏱ 42 min</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Fallback Sermon 2 -->
-        <div class="sermon-card reveal delay-1" data-category="faith">
-          <div class="sermon-thumb-wrap">
-            <img loading="lazy" decoding="async" src="images/community.jpg" alt="Sermon" />
-            <div class="sermon-play-sm"><div class="play-sm"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
-          </div>
-          <div class="sc-body">
-            <div class="sc-series">Faith Series</div>
-            <div class="sc-title">The Anchor That Holds</div>
-            <div class="sc-meta"><span>📅 Mar 30, 2025</span><span>⏱ 38 min</span></div>
-          </div>
-        </div>
-
-        <!-- Fallback Sermon 3 -->
-        <div class="sermon-card reveal delay-2" data-category="community">
-          <div class="sermon-thumb-wrap">
-            <img loading="lazy" decoding="async" src="images/hero_worship.jpg" alt="Sermon" />
-            <div class="sermon-play-sm"><div class="play-sm"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
-          </div>
-          <div class="sc-body">
-            <div class="sc-series">Community Series</div>
-            <div class="sc-title">Better Together: The Power of Community</div>
-            <div class="sc-meta"><span>📅 Mar 23, 2025</span><span>⏱ 45 min</span></div>
-          </div>
-        </div>
-
-        <!-- Fallback Sermon 4 -->
-        <div class="sermon-card reveal" data-category="bible">
-          <div class="sermon-thumb-wrap">
-            <img loading="lazy" decoding="async" src="images/community.jpg" alt="Sermon" />
-            <div class="sermon-play-sm"><div class="play-sm"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
-          </div>
-          <div class="sc-body">
-            <div class="sc-series">Bible Study</div>
-            <div class="sc-title">Psalms: Songs for Every Season</div>
-            <div class="sc-meta"><span>📅 Mar 16, 2025</span><span>⏱ 50 min</span></div>
-          </div>
-        </div>
-
-        <!-- Fallback Sermon 5 -->
-        <div class="sermon-card reveal delay-1" data-category="hope">
-          <div class="sermon-thumb-wrap">
-            <img loading="lazy" decoding="async" src="images/pastor_preaching.jpg" alt="Sermon" />
-            <div class="sermon-play-sm"><div class="play-sm"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
-          </div>
-          <div class="sc-body">
-            <div class="sc-series">Hope Series</div>
-            <div class="sc-title">When Hope Feels Distant</div>
-            <div class="sc-meta"><span>📅 Mar 9, 2025</span><span>⏱ 41 min</span></div>
-          </div>
-        </div>
-
-        <!-- Fallback Sermon 6 -->
-        <div class="sermon-card reveal delay-2" data-category="faith">
-          <div class="sermon-thumb-wrap">
-            <img loading="lazy" decoding="async" src="images/community.jpg" alt="Sermon" />
-            <div class="sermon-play-sm"><div class="play-sm"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
-          </div>
-          <div class="sc-body">
-            <div class="sc-series">Faith Series</div>
-            <div class="sc-title">What Really Matters</div>
-            <div class="sc-meta"><span>📅 Mar 2, 2025</span><span>⏱ 37 min</span></div>
-          </div>
+        <!-- Shown while YouTube loads; replaced by the real sermon cards -->
+        <div class="sermons-fallback" id="sermons-fallback">
+          <p class="sf-title" id="sermons-fallback-title">Loading the latest sermons…</p>
+          <p>You can also watch every Sunday message on our
+            <a href="https://www.youtube.com/channel/UChCVLkmfIEXWp7_OaBy1Lhg/videos" target="_blank" rel="noopener noreferrer">YouTube channel</a>.</p>
         </div>
       </div>
 
@@ -319,7 +258,7 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=1.3"></script>
+  <script src="js/main.js?v=1.4"></script>
   
   <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -336,9 +275,15 @@
       if (apiKey && playlistId) {
         fetchSermonsFromYouTube(apiKey, playlistId, 'main');
       } else {
-        console.log("YouTube API key/playlist not configured. Using local fallback cards.");
+        console.log("YouTube API key/playlist not configured.");
+        showSermonsUnavailable();
         initVideoModal();
         initFilterButtons();
+      }
+
+      function showSermonsUnavailable() {
+        const title = document.getElementById("sermons-fallback-title");
+        if (title) title.textContent = "We couldn’t load the latest sermons right now.";
       }
 
       async function fetchSermonsFromYouTube(key, playlist, type) {
@@ -375,6 +320,7 @@
         } catch (err) {
           console.error("YouTube Fetch failed:", err);
           if (type === 'main') {
+            showSermonsUnavailable();
             initVideoModal();
             initFilterButtons();
           }

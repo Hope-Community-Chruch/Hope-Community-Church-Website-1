@@ -10,12 +10,13 @@
   --warm-white: #FFF5EB;
   --amber: #F4A261;
   --gold: #E8890C;
+  --gold-text: #A85A0C; /* orange for text on light backgrounds (4.7:1+) */
   --gold-light: #FFBA47;
   --coral: #E07A5F;
   --navy: #1D3461;
   --navy-light: #264680;
   --sky: #3D7EA6;
-  --muted: #7B8FA6;
+  --muted: #5F7189;
   --text: #1D3461;
   --white: #FFFFFF;
 
@@ -226,7 +227,7 @@ p {
 
 #navbar.scrolled .nav-links a:hover {
   background: var(--warm-white);
-  color: var(--gold);
+  color: var(--gold-text);
 }
 
 /* Dropdown Navigation */
@@ -303,12 +304,12 @@ p {
 
 .dropdown-menu li a:hover {
   background: var(--warm-white) !important;
-  color: var(--gold) !important;
+  color: var(--gold-text) !important;
 }
 
 .nav-cta {
   background: var(--amber) !important;
-  color: var(--white) !important;
+  color: var(--navy) !important;
   padding: 10px 20px !important;
   border-radius: 100px !important;
   font-weight: 600 !important;
@@ -329,6 +330,10 @@ p {
   gap: 5px;
   cursor: pointer;
   padding: 8px;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
   background: none;
   border: none;
 }
@@ -384,7 +389,7 @@ p {
 }
 
 .mobile-menu a:hover {
-  color: var(--gold);
+  color: var(--gold-text);
   padding-left: 8px;
 }
 
@@ -413,6 +418,11 @@ p {
   cursor: pointer;
   color: var(--navy);
   line-height: 1;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ── SECTION UTILITIES ── */
@@ -440,7 +450,7 @@ p {
   font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-text);
   margin-bottom: 12px;
 }
 
@@ -479,7 +489,7 @@ p {
 
 .btn-primary {
   background: var(--amber);
-  color: var(--white);
+  color: var(--navy);
   box-shadow: var(--shadow-gold);
 }
 
@@ -509,7 +519,7 @@ p {
 
 .btn-outline:hover {
   border-color: var(--amber);
-  color: var(--gold);
+  color: var(--gold-text);
   transform: translateY(-2px);
 }
 
@@ -619,7 +629,7 @@ footer {
 }
 
 .footer-brand p {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.7);
   font-size: 14px;
   line-height: 1.7;
   margin-top: 12px;
@@ -632,7 +642,7 @@ footer {
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.62);
   margin-bottom: 20px;
 }
 
@@ -646,7 +656,7 @@ footer {
 .footer-col li,
 .footer-col li a {
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(255, 255, 255, 0.78);
   transition: color var(--transition);
 }
 
@@ -663,7 +673,7 @@ footer {
   max-width: 1200px;
   margin: 0 auto;
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.68);
 }
 
 .footer-contact-item {
@@ -671,7 +681,7 @@ footer {
   align-items: center;
   gap: 10px;
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.78);
   margin-bottom: 10px;
 }
 
@@ -746,6 +756,21 @@ footer {
     flex-direction: column;
     gap: 12px;
     text-align: center;
+  }
+
+  .footer-col ul {
+    gap: 0;
+  }
+
+  .footer-col li a,
+  a.footer-contact-item {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  .footer-contact-item {
+    margin-bottom: 0;
   }
 }
 
@@ -868,4 +893,38 @@ footer {
   font-weight: 500;
   display: block;
   margin-top: 12px;
+}
+
+/* ── KEYBOARD FOCUS ── */
+:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.faith-trigger:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: -3px;
+}
+
+/* ── FORM STATUS ── */
+.form-status:empty {
+  display: none;
+}
+
+.form-status {
+  margin-top: 14px;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--navy);
+}
+
+.form-status.is-error {
+  color: #B3261E;
+}
+
+.btn.is-sent {
+  background: #2E7D32;
+  color: var(--white);
 }

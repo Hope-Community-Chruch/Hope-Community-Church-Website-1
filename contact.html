@@ -20,7 +20,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=1.3" /><link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/styles.css?v=1.4" /><link rel="stylesheet" href="css/animations.css" />
   <style>
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; max-width: 1100px; margin: 0 auto; }
     .contact-form-wrap { background: var(--white); border-radius: var(--radius-xl); padding: 48px; box-shadow: var(--shadow-md); }
@@ -177,57 +177,6 @@
   </section>
 
   <footer><div class="footer-bottom" style="border-top:none;padding-top:0;"><span>© <span class="js-year">2026</span> Hope Community Church · <a href="index.html" style="color:var(--amber);">Back to Home</a></span><span>Ypsilanti, MI · (734) 721-8190</span></div></footer>
-  <script src="js/main.js?v=1.3"></script>
-  <script>
-    const form = document.getElementById('contact-form');
-    if (form) {
-      if (new URLSearchParams(window.location.search).get('sent') === '1') {
-        const btn = form.querySelector('button[type="submit"]');
-        if (btn) {
-          btn.textContent = '✓ Message Sent! We\'ll be in touch soon.';
-          btn.style.background = '#4CAF50';
-          btn.disabled = true;
-        }
-      }
-
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const btn = form.querySelector('button[type="submit"]');
-        const origText = btn.textContent;
-        btn.textContent = 'Sending...';
-        btn.disabled = true;
-
-        const formData = new FormData(form);
-        const object = Object.fromEntries(formData);
-        const json = JSON.stringify(object);
-
-        fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: json
-        })
-        .then(async (response) => {
-          let res = await response.json();
-          if (response.status === 200) {
-            btn.textContent = '✓ Message Sent! We\'ll be in touch soon.';
-            btn.style.background = '#4CAF50';
-            form.reset();
-          } else {
-            console.error(res);
-            btn.textContent = res.message || 'Error sending message. Try again?';
-            btn.disabled = false;
-          }
-        })
-        .catch(error => {
-          console.error(error);
-          btn.textContent = 'Network error. Try again?';
-          btn.disabled = false;
-        });
-      });
-    }
-  </script>
+  <script src="js/main.js?v=1.4"></script>
 </body>
 </html>
