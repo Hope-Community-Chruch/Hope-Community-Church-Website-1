@@ -16,3 +16,11 @@ RedirectMatch 301 (?i)^/contact-us2/?$                   /contact.html
 
 # Leftover sample store pages from the old site builder
 RedirectMatch 301 ^/[A-Za-z-]+-[pc][0-9]+/?$             /
+
+# One official, secure address: send any other address (e.g. hopechurch.info
+# without www) or any plain-http visit to https://www.hopechurch.info,
+# keeping the page path.
+RewriteEngine On
+RewriteCond %{HTTP_HOST} !^www\.hopechurch\.info$ [NC,OR]
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://www.hopechurch.info/$1 [R=301,L]
